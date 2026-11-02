@@ -139,14 +139,14 @@ Toàn bộ 27 chuyến xe được số hóa theo dõi tiến độ từ ngày *
 | :---: | :---: | :--- | :--- | :---: | :---: | :---: | :---: | :--- | :---: | :--- |
 | **Lô 1** | Xe 1.1 | Cầu trượt | 南京 - Nam Kinh | Sa Pa | 04/12 | 10/12 | 5.000.000 | CTX | - | Hạn chót ETA 15/12 để kịp lắp đặt |
 | | Xe 1.2 | Cầu trượt | 南京 - Nam Kinh | Sa Pa | 04/12 | 10/12 | 0 | CTX | - | Hạn chót ETA 15/12 |
-| | Xe 1.3 | Trò chơi hội chợ | 中山 - Trung Sơn | Sa Pa | 12/12 | 16/12 | 0 | CTX | - | Chạy đêm 23h - 06h |
-| | Xe 1.4 | Trò chơi hội chợ | 中山 - Trung Sơn | Sa Pa | 12/12 | 16/12 | 0 | CTX | - | Chạy đêm 23h - 06h |
-| | Xe 1.5 | Trò chơi hội chợ | 中山 - Trung Sơn | Sa Pa | 13/12 | 17/12 | 0 | CTX | - | Chạy đêm 23h - 06h |
-| | Xe 1.6 | Trò chơi hội chợ | 中山 - Trung Sơn | Sa Pa | 13/12 | 17/12 | 0 | CTX | - | Chạy đêm 23h - 06h |
-| | Xe 1.7 | Trò chơi hội chợ | 中山 - Trung Sơn | Sa Pa | 14/12 | 18/12 | 0 | CTX | - | Chạy đêm 23h - 06h |
-| | Xe 1.8 | Trò chơi hội chợ | 中山 - Trung Sơn | Sa Pa | 14/12 | 18/12 | 0 | CTX | - | Chạy đêm 23h - 06h |
-| | Xe 1.9 | Trò chơi hội chợ | 中山 - Trung Sơn | Sa Pa | 15/12 | 19/12 | 0 | CTX | - | Chạy đêm 23h - 06h |
-| | Xe 1.10| Trò chơi hội chợ | 中山 - Trung Sơn | Sa Pa | 15/12 | 19/12 | 0 | CTX | - | Chạy đêm 23h - 06h |
+| | Xe 1.3 | Trò chơi hội chợ | 中山 - Trung Sơn | Sa Pa | 12/12 | 16/12 | 0 | CTX | [Bản vẽ Xe 1](file:///c:/Users/Admin/Desktop/CTX/Ban-ve-xep-xe-PL21359260__xe1__tq_13m_rao.html) | Chạy đêm 23h - 06h |
+| | Xe 1.4 | Trò chơi hội chợ | 中山 - Trung Sơn | Sa Pa | 12/12 | 16/12 | 0 | CTX | [Bản vẽ Xe 2](file:///c:/Users/Admin/Desktop/CTX/Ban-ve-xep-xe-PL21359260__xe2__tq_13m_rao.html) | Chạy đêm 23h - 06h |
+| | Xe 1.5 | Trò chơi hội chợ | 中山 - Trung Sơn | Sa Pa | 13/12 | 17/12 | 0 | CTX | [Bản vẽ Xe 3](file:///c:/Users/Admin/Desktop/CTX/Ban-ve-xep-xe-PL21359260__xe3__tq_13m_rao.html) | Chạy đêm 23h - 06h |
+| | Xe 1.6 | Trò chơi hội chợ | 中山 - Trung Sơn | Sa Pa | 13/12 | 17/12 | 0 | CTX | [Bản vẽ Xe 4](file:///c:/Users/Admin/Desktop/CTX/Ban-ve-xep-xe-PL21359260__xe4__tq_13m_rao.html) | Chạy đêm 23h - 06h |
+| | Xe 1.7 | Trò chơi hội chợ | 中山 - Trung Sơn | Sa Pa | 14/12 | 18/12 | 0 | CTX | [Bản vẽ Xe 5](file:///c:/Users/Admin/Desktop/CTX/Ban-ve-xep-xe-PL21359260__xe5__tq_13m_rao.html) | Chạy đêm 23h - 06h |
+| | Xe 1.8 | Trò chơi hội chợ | 中山 - Trung Sơn | Sa Pa | 14/12 | 18/12 | 0 | CTX | [Bản vẽ Xe 6](file:///c:/Users/Admin/Desktop/CTX/Ban-ve-xep-xe-PL21359260__xe6__tq_13m_rao.html) | Chạy đêm 23h - 06h |
+| | Xe 1.9 | Trò chơi hội chợ | 中山 - Trung Sơn | Sa Pa | 15/12 | 19/12 | 0 | CTX | [Bản vẽ Xe 7](file:///c:/Users/Admin/Desktop/CTX/Ban-ve-xep-xe-PL21359260__xe7__tq_13m_rao.html) | Chạy đêm 23h - 06h |
+| | Xe 1.10| Trò chơi hội chợ | 中山 - Trung Sơn | Sa Pa | 15/12 | 19/12 | 0 | CTX | [Bản vẽ Xe 8](file:///c:/Users/Admin/Desktop/CTX/Ban-ve-xep-xe-PL21359260__xe8__tq_13m_rao.html) | Chạy đêm 23h - 06h |
 | **Lô 2** | Xe 2.1 | Máy chơi game trả thưởng | 中山 - Trung Sơn | Sa Pa | 06/12 | 11/12 | 5.000.000 | Indochina (Ủy thác CTX) | [Bản vẽ Xe 1](file:///c:/Users/Admin/Desktop/CTX/Ban-ve-xep-xe-PL73786303__xe1__tq_13m_rao.html) | Giấy phép trước 15/11 • Tăng bo 3 xe/ngày |
 | | Xe 2.2 | Máy chơi game trả thưởng | 中山 - Trung Sơn | Sa Pa | 06/12 | 11/12 | 0 | Indochina (Ủy thác CTX) | [Bản vẽ Xe 2](file:///c:/Users/Admin/Desktop/CTX/Ban-ve-xep-xe-PL73786303__xe2__tq_13m_rao.html) | Giấy phép trước 15/11 • Tăng bo 3 xe/ngày |
 | | Xe 2.3 | Máy chơi game trả thưởng | 中山 - Trung Sơn | Sa Pa | 06/12 | 11/12 | 0 | Indochina (Ủy thác CTX) | [Bản vẽ Xe 3](file:///c:/Users/Admin/Desktop/CTX/Ban-ve-xep-xe-PL73786303__xe3__tq_13m_rao.html) | Giấy phép trước 15/11 • Tăng bo 3 xe/ngày |
@@ -157,13 +157,13 @@ Toàn bộ 27 chuyến xe được số hóa theo dõi tiến độ từ ngày *
 | | Xe 2.8 | Máy chơi game trả thưởng | 番禺 - Panyu | Sa Pa | 06/12 | 13/12 | 4.000.000 | Indochina (Ủy thác CTX) | [Bản vẽ Xe 8](file:///c:/Users/Admin/Desktop/CTX/Ban-ve-xep-xe-PL73786303__xe8__tq_13m_rao.html) | Giấy phép trước 15/11 • Tăng bo 3 xe/ngày |
 | | Xe 2.9 | Máy chơi game trả thưởng | 番禺 - Panyu | Sa Pa | 06/12 | 14/12 | 6.000.000 | Indochina (Ủy thác CTX) | [Bản vẽ Xe 9](file:///c:/Users/Admin/Desktop/CTX/Ban-ve-xep-xe-PL73786303__xe9__tq_13m_rao.html) | Giấy phép trước 15/11 • Tăng bo 3 xe/ngày |
 | | Xe 2.10| Máy chơi game trả thưởng | 番禺 - Panyu | Sa Pa | 06/12 | 14/12 | 6.000.000 | Indochina (Ủy thác CTX) | [Bản vẽ Xe 10](file:///c:/Users/Admin/Desktop/CTX/Ban-ve-xep-xe-PL73786303__xe10__tq_13m_rao.html)| Giấy phép trước 15/11 • Tăng bo 3 xe/ngày |
-| **Lô 3** | Xe 3.1 | Thiết bị Decor cảnh quan | 中山 - Trung Sơn | Sa Pa | 16/12 | 20/12 | 0 | CTX | - | Cần trước để hoàn thiện hạ tầng |
-| | Xe 3.2 | Thiết bị Decor cảnh quan | 中山 - Trung Sơn | Sa Pa | 16/12 | 20/12 | 0 | CTX | - | Cần trước để hoàn thiện hạ tầng |
-| | Xe 3.3 | Thiết bị Decor cảnh quan | 中山 - Trung Sơn | Sa Pa | 17/12 | 21/12 | 0 | CTX | - | Chạy đêm 23h - 06h |
-| | Xe 3.4 | Thiết bị Decor cảnh quan | 中山 - Trung Sơn | Sa Pa | 17/12 | 21/12 | 0 | CTX | - | Chạy đêm 23h - 06h |
-| | Xe 3.5 | Thiết bị Decor cảnh quan | 中山 - Trung Sơn | Sa Pa | 18/12 | 22/12 | 0 | CTX | - | Chạy đêm 23h - 06h |
-| | Xe 3.6 | Thiết bị Decor cảnh quan | 中山 - Trung Sơn | Sa Pa | 18/12 | 22/12 | 0 | CTX | - | Chạy đêm 23h - 06h |
-| | Xe 3.7 | Thiết bị Decor cảnh quan | 中山 - Trung Sơn | Sa Pa | 19/12 | 23/12 | 0 | CTX | - | Chuyến cuối hoàn tất bàn giao dự án |
+| **Lô 3** | Xe 3.1 | Thiết bị Decor cảnh quan | 中山 - Trung Sơn | Sa Pa | 16/12 | 20/12 | 0 | CTX | [Bản vẽ Xe 1](file:///c:/Users/Admin/Desktop/CTX/Ban-ve-xep-xe-PL22269720__xe1__tq_13m_rao.html) | Cần trước để hoàn thiện hạ tầng |
+| | Xe 3.2 | Thiết bị Decor cảnh quan | 中山 - Trung Sơn | Sa Pa | 16/12 | 20/12 | 0 | CTX | [Bản vẽ Xe 2](file:///c:/Users/Admin/Desktop/CTX/Ban-ve-xep-xe-PL22269720__xe2__tq_13m_rao.html) | Cần trước để hoàn thiện hạ tầng |
+| | Xe 3.3 | Thiết bị Decor cảnh quan | 中山 - Trung Sơn | Sa Pa | 17/12 | 21/12 | 0 | CTX | [Bản vẽ Xe 3](file:///c:/Users/Admin/Desktop/CTX/Ban-ve-xep-xe-PL22269720__xe3__tq_13m_rao.html) | Chạy đêm 23h - 06h |
+| | Xe 3.4 | Thiết bị Decor cảnh quan | 中山 - Trung Sơn | Sa Pa | 17/12 | 21/12 | 0 | CTX | [Bản vẽ Xe 4](file:///c:/Users/Admin/Desktop/CTX/Ban-ve-xep-xe-PL22269720__xe4__tq_13m_rao.html) | Chạy đêm 23h - 06h |
+| | Xe 3.5 | Thiết bị Decor cảnh quan | 中山 - Trung Sơn | Sa Pa | 18/12 | 22/12 | 0 | CTX | [Bản vẽ Xe 5](file:///c:/Users/Admin/Desktop/CTX/Ban-ve-xep-xe-PL22269720__xe5__tq_13m_rao.html) | Chạy đêm 23h - 06h |
+| | Xe 3.6 | Thiết bị Decor cảnh quan | 中山 - Trung Sơn | Sa Pa | 18/12 | 22/12 | 0 | CTX | [Bản vẽ Xe 6](file:///c:/Users/Admin/Desktop/CTX/Ban-ve-xep-xe-PL22269720__xe6__tq_13m_rao.html) | Chạy đêm 23h - 06h |
+| | Xe 3.7 | Thiết bị Decor cảnh quan | 中山 - Trung Sơn | Sa Pa | 19/12 | 23/12 | 0 | CTX | - | Xe dự phòng |
 | **TỔNG**| **27 Xe**| | | | | | **38.000.000 VNĐ**| | | |
 
 ---
