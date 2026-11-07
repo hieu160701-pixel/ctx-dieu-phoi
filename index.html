@@ -595,6 +595,44 @@
       white-space: nowrap;
     }
 
+    .yellow-date-cell {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      background: #FEF08A;
+      border: 2px solid #EAB308;
+      border-radius: 6px;
+      padding: 2px 6px;
+      box-shadow: 0 1px 3px rgba(234, 179, 8, 0.25);
+      transition: all 0.15s ease;
+    }
+    .yellow-date-cell:hover, .yellow-date-cell:focus-within {
+      background: #FDE047;
+      border-color: #CA8A04;
+      box-shadow: 0 0 0 3px rgba(234, 179, 8, 0.25);
+    }
+    .yellow-date-input {
+      background: transparent;
+      border: none;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.76rem;
+      font-weight: 800;
+      color: #854D0E;
+      outline: none;
+      cursor: pointer;
+      width: 112px;
+    }
+    .yellow-cell-tag {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.62rem;
+      font-weight: 800;
+      background: #CA8A04;
+      color: #FFFFFF;
+      padding: 1px 4px;
+      border-radius: 3px;
+      letter-spacing: 0.02em;
+    }
+
     .date-highlight {
       font-family: 'JetBrains Mono', monospace;
       font-size: 0.75rem;
@@ -659,7 +697,7 @@
 
     .gantt-bar-item {
       display: grid;
-      grid-template-columns: 180px 1fr 140px;
+      grid-template-columns: 260px 1fr 140px;
       align-items: center;
       gap: 14px;
       font-size: 0.8rem;
@@ -1058,7 +1096,7 @@
     </div>
   </header>
 
-  <!-- 4-Tab Main Navigation Bar -->
+  <!-- 3-Tab Main Navigation Bar -->
   <nav class="tab-nav-bar">
     <div class="tab-nav-container">
       <div class="main-tabs-list">
@@ -1070,17 +1108,11 @@
           <span class="tab-idx">2</span>
           <span>Dashboard trạng thái xe</span>
         </button>
-        <button class="main-tab-item" data-tab="tab3" onclick="switchMainTab('tab3', this)">
-          <span class="tab-idx">3</span>
-          <span>Phương Án Giao Hàng & Chủ Thầu</span>
-        </button>
         <button class="main-tab-item" data-tab="tab4" onclick="switchMainTab('tab4', this)">
-          <span class="tab-idx">4</span>
+          <span class="tab-idx">3</span>
           <span>Thực Tế Khảo Sát Hiện Trường</span>
         </button>
       </div>
-
-
     </div>
   </nav>
 
@@ -1092,199 +1124,242 @@
          ======================================================== -->
     <div class="tab-pane active" id="tab1">
       
-      <!-- 4 Core Metric KPI Cards -->
+      <!-- 1. Các chỉ số tổng của dự án -->
       <div class="kpi-grid-4">
         <div class="kpi-card kpi-orange">
           <div class="kpi-top">
-            <span class="kpi-label">Tổng Chi Phí Ước Tính</span>
+            <span class="kpi-label">Tổng Chi Phí Dự Án</span>
             <div class="kpi-icon">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
             </div>
           </div>
-          <div class="kpi-val">2.874.640.000 <span style="font-size:0.9rem; font-weight:700;">VNĐ</span></div>
+          <div class="kpi-val">3.172.640.000 <span style="font-size:0.9rem; font-weight:700;">VNĐ</span></div>
           <div class="kpi-sub">
-            <span style="color:var(--emerald-600); font-weight:700;">✓ Trọn gói</span> theo Báo giá ngày 19/09/2026
-          </div>
-        </div>
-
-        <div class="kpi-card kpi-blue">
-          <div class="kpi-top">
-            <span class="kpi-label">Tổng Khối Lượng Hàng</span>
-            <div class="kpi-icon">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>
-            </div>
-          </div>
-          <div class="kpi-val">1.637 <span style="font-size:0.9rem; font-weight:700;">M³</span></div>
-          <div class="kpi-sub">
-            Tương đương <strong>25 Cont 40HC</strong> (quy đổi 26 xe rào)
+            <span style="color:var(--emerald-600); font-weight:700;">✓ Chi phí tổng trọn gói</span> • Không phát sinh thêm
           </div>
         </div>
 
         <div class="kpi-card kpi-amber">
           <div class="kpi-top">
-            <span class="kpi-label">Tổng Số Kiện Dự Kiến</span>
+            <span class="kpi-label">Tổng Số Kiện Hàng</span>
             <div class="kpi-icon">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path></svg>
             </div>
           </div>
           <div class="kpi-val">950 <span style="font-size:0.9rem; font-weight:700;">Kiện</span></div>
           <div class="kpi-sub">
-            Toàn bộ 3 lô hàng dự án CTX
+            Tổng khối lượng dự kiến: <strong>2.000 M³</strong> (27 xe 13m7)
           </div>
         </div>
 
         <div class="kpi-card kpi-emerald">
           <div class="kpi-top">
-            <span class="kpi-label">Tổng Số Chuyến Xe</span>
+            <span class="kpi-label">Tổng Thời Gian Vận Hành Dự Kiến (Tất Cả Các Xe)</span>
             <div class="kpi-icon">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="3" width="15" height="13"></rect><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon><circle cx="5.5" cy="18.5" r="2.5"></circle><circle cx="18.5" cy="18.5" r="2.5"></circle></svg>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
             </div>
           </div>
-          <div class="kpi-val">26 <span style="font-size:0.9rem; font-weight:700;">Chuyến</span></div>
+          <div class="kpi-val">~ 20 <span style="font-size:0.9rem; font-weight:700;">Ngày</span> <span style="font-size:0.8rem; font-weight:600; color:var(--slate-500);">(7–9 ngày/xe)</span></div>
           <div class="kpi-sub">
-            Lô 1 (10 xe) • Lô 2 (10 xe) • Lô 3 (6 xe)
+            Toàn chiến dịch tất cả các xe • <strong>12–15 ngày/xe</strong> nếu kiểm hóa
           </div>
         </div>
       </div>
 
-      <!-- Section: Bảng Báo Giá Chi Tiết -->
+      <!-- 2. Thông tin dự án và các phương án vận hành -->
+      <div class="section-card">
+        <div class="section-header">
+          <div class="section-title">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--primary-orange)" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>
+            THÔNG TIN DỰ ÁN VÀ CÁC PHƯƠNG ÁN VẬN HÀNH
+          </div>
+          <span class="section-badge">THÔNG TIN ĐƠN HÀNG & PHƯƠNG ÁN TRIỂN KHAI</span>
+        </div>
+        <div class="section-body">
+          <div class="table-container">
+            <table class="data-table">
+              <tbody>
+                <tr>
+                  <td style="width: 300px; font-weight: 700; color: var(--slate-900); background: var(--slate-50);">Thông tin đơn hàng</td>
+                  <td>Trò chơi hội chợ, Máy chơi game trả thưởng và Bảng led tín hiệu</td>
+                </tr>
+                <tr>
+                  <td style="font-weight: 700; color: var(--slate-900); background: var(--slate-50);">Tuyến vận chuyển</td>
+                  <td>Pick up tại NCC- trả hàng tại chân dự án Bản Mòng</td>
+                </tr>
+                <tr>
+                  <td style="font-weight: 700; color: var(--slate-900); background: var(--slate-50);">Line vận chuyển</td>
+                  <td><span class="car-code">Đường bộ</span></td>
+                </tr>
+                <tr>
+                  <td style="font-weight: 700; color: var(--slate-900); background: var(--slate-50);">Tổng khối lượng hàng dự kiến</td>
+                  <td><strong style="color: var(--primary-orange); font-family: 'JetBrains Mono', monospace; font-size: 0.9rem;">2000 M3</strong></td>
+                </tr>
+                <tr>
+                  <td style="font-weight: 700; color: var(--slate-900); background: var(--slate-50);">Phương án vận chuyển</td>
+                  <td>
+                    <div style="margin-bottom: 4px;">• <strong>Đầu Trung Quốc:</strong> Xe 13m5 lấy hàng từ NCC chạy thẳng sang cửa khẩu Kim Thành</div>
+                    <div>• <strong>Đầu Việt Nam:</strong> 1 xe 13m5 chia thành 3-4 xe 8 tấn chạy từ Kim Thành lên đến chân dự án Bản Mòng</div>
+                  </td>
+                </tr>
+                <tr>
+                  <td style="font-weight: 700; color: var(--slate-900); background: var(--slate-50);">Phương án thông quan</td>
+                  <td>Thông quan qua cửa khẩu Kim Thành, xin giấy phép nhập khẩu và làm thẩm định nội dung tại sở văn hóa Lào Cai</td>
+                </tr>
+                <tr>
+                  <td style="font-weight: 700; color: var(--slate-900); background: var(--slate-50);">Thời gian vận chuyển toàn chặng dự kiến/ xe</td>
+                  <td>
+                    <div style="margin-bottom: 4px;">• <strong>7-9 ngày</strong> trong điều kiện không kiểm hóa</div>
+                    <div>• <strong>12-15 ngày</strong> nếu kiểm hóa xuất khẩu/ nhập khẩu</div>
+                  </td>
+                </tr>
+                <tr>
+                  <td style="font-weight: 700; color: var(--slate-900); background: var(--slate-50);">Thời gian xin giấy phép nhập khẩu</td>
+                  <td><strong>10-15 ngày làm việc</strong> kể từ ngày nộp đơn</td>
+                </tr>
+                <tr>
+                  <td style="font-weight: 700; color: var(--slate-900); background: var(--slate-50);">Thời gian thẩm định nội dung</td>
+                  <td><strong>30 ngày làm việc</strong> kể từ ngày hàng về</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- 3. Báo giá chi tiết -->
       <div class="section-card">
         <div class="section-header">
           <div class="section-title">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--primary-orange)" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
-            BẢNG BÁO GIÁ DỊCH VỤ VẬN CHUYỂN LOGISTICS ĐƯỜNG BỘ
+            BÁO GIÁ CHI TIẾT
           </div>
-          <span class="section-badge">BÁO GIÁ NGÀY 19/09/2026 • ĐƠN VỊ: VNĐ</span>
+          <span class="section-badge">CHI PHÍ TỔNG TRỌN GÓI • ĐƠN VỊ: VNĐ</span>
         </div>
         <div class="section-body">
-          <div class="table-container" style="margin-bottom: 18px;">
+          <div class="table-container">
             <table class="data-table">
               <thead>
                 <tr>
                   <th style="width: 50px; text-align: center;">STT</th>
-                  <th>Hạng Mục Chi Phí Dịch Vụ</th>
-                  <th style="text-align: center;">Số Lượng</th>
-                  <th style="text-align: right;">Đơn Giá (VNĐ)</th>
-                  <th style="text-align: right;">Thành Tiền (VNĐ)</th>
-                  <th>Ghi Chú Phạm Vi Thực Hiện</th>
+                  <th>Hạng Mục Chi Phí</th>
+                  <th style="text-align: center;">Số lượng xe 13m7</th>
+                  <th style="text-align: center;">Đơn vị</th>
+                  <th style="text-align: right;">Đơn giá bán</th>
+                  <th style="text-align: right;">Thành tiền bán</th>
+                  <th>Ghi chú</th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
                   <td style="text-align: center;">1</td>
-                  <td><strong>Cước vận chuyển Shanghai – Lào Cai</strong></td>
-                  <td style="text-align: center;"><span class="car-code">02 Xe</span></td>
-                  <td style="text-align: right;" class="price-tag">92.120.000</td>
-                  <td style="text-align: right;" class="price-tag">184.240.000</td>
-                  <td>Xe tải rào 13m7/15m5 vận chuyển đến cửa khẩu Kim Thành</td>
+                  <td><strong>Cước vận chuyển Nam Kinh- Bản Mòng</strong></td>
+                  <td style="text-align: center;"><span class="car-code">2</span></td>
+                  <td style="text-align: center;">Xe 13m7</td>
+                  <td style="text-align: right;" class="price-tag">102.120.000</td>
+                  <td style="text-align: right;" class="price-tag">204.240.000</td>
+                  <td></td>
                 </tr>
                 <tr>
                   <td style="text-align: center;">2</td>
-                  <td><strong>Cước vận chuyển Quảng Đông – Lào Cai</strong></td>
-                  <td style="text-align: center;"><span class="car-code">25 Xe</span></td>
-                  <td style="text-align: right;" class="price-tag">64.842.000</td>
-                  <td style="text-align: right;" class="price-tag">1.621.050.000</td>
-                  <td>Pick-up hàng tại xưởng Trung Sơn & Panyu đến cửa khẩu</td>
+                  <td><strong>Cước vận chuyển Trung Sơn- Bản Mòng</strong></td>
+                  <td style="text-align: center;"><span class="car-code">25</span></td>
+                  <td style="text-align: center;">Xe 13m7</td>
+                  <td style="text-align: right;" class="price-tag">74.842.000</td>
+                  <td style="text-align: right;" class="price-tag">1.871.050.000</td>
+                  <td></td>
                 </tr>
                 <tr>
                   <td style="text-align: center;">3</td>
-                  <td><strong>Cước vận chuyển tăng bo Lào Cai – Bản Mòng (Sa Pa)</strong></td>
-                  <td style="text-align: center;"><span class="car-code">27 Xe</span></td>
-                  <td style="text-align: right;" class="price-tag">10.000.000</td>
-                  <td style="text-align: right;" class="price-tag">270.000.000</td>
-                  <td>Chặng vượt đèo QL4D lên bãi BQP Sa Pa và tăng bo vào bản</td>
+                  <td><strong>Chi phí khai báo + hiện trường + sang tải Trung quốc và Việt Nam</strong></td>
+                  <td style="text-align: center;"><span class="car-code">27</span></td>
+                  <td style="text-align: center;">Xe 13m7</td>
+                  <td style="text-align: right;" class="price-tag">24.050.000</td>
+                  <td style="text-align: right;" class="price-tag">649.350.000</td>
+                  <td></td>
                 </tr>
                 <tr>
                   <td style="text-align: center;">4</td>
-                  <td><strong>Chi phí khai báo hải quan 2 đầu (TQ & VN)</strong></td>
-                  <td style="text-align: center;"><span class="car-code">27 Xe</span></td>
-                  <td style="text-align: right;" class="price-tag">24.050.000</td>
-                  <td style="text-align: right;" class="price-tag">649.350.000</td>
-                  <td>Lập tờ khai xuất khẩu TQ và tờ khai nhập khẩu Kim Thành</td>
+                  <td>Dự trù chi phí kiểm hóa đầu nhập</td>
+                  <td style="text-align: center;"><span class="car-code">20</span></td>
+                  <td style="text-align: center;">Xe 13m7</td>
+                  <td style="text-align: right;" class="price-tag">5.000.000</td>
+                  <td style="text-align: right;" class="price-tag">100.000.000</td>
+                  <td>Kiểm hóa đầu nhập ít nhất 12 xe</td>
                 </tr>
                 <tr>
                   <td style="text-align: center;">5</td>
-                  <td><strong>Chi phí xin giấy phép NK & Thẩm định văn hóa</strong></td>
-                  <td style="text-align: center;"><span class="car-code">01 Gói</span></td>
+                  <td>Dự trù chi phí kiểm hóa đầu xuất</td>
+                  <td style="text-align: center;"><span class="car-code">5</span></td>
+                  <td style="text-align: center;">Xe 13m7</td>
+                  <td style="text-align: right;" class="price-tag">18.000.000</td>
+                  <td style="text-align: right;" class="price-tag">90.000.000</td>
+                  <td>Tỷ lệ kiểm đầu xuất là 20%</td>
+                </tr>
+                <tr>
+                  <td style="text-align: center;">6</td>
+                  <td>Dự trù lưu ca xe</td>
+                  <td style="text-align: center;"><span class="car-code">54</span></td>
+                  <td style="text-align: center;">Ca</td>
+                  <td style="text-align: right;" class="price-tag">2.000.000</td>
+                  <td style="text-align: right;" class="price-tag">108.000.000</td>
+                  <td>Giả định tắc biên mất 27 ca và kiểm hóa mất 27 ca</td>
+                </tr>
+                <tr>
+                  <td style="text-align: center;">7</td>
+                  <td>Chi phí xin giấy phép nhập khẩu và thẩm định nội dung</td>
+                  <td style="text-align: center;"><span class="car-code">1</span></td>
+                  <td style="text-align: center;">Gói</td>
                   <td style="text-align: right;" class="price-tag">150.000.000</td>
                   <td style="text-align: right;" class="price-tag">150.000.000</td>
-                  <td>Trọn gói thủ tục cấp phép & thẩm định Sở Văn hóa Lào Cai</td>
+                  <td></td>
                 </tr>
                 <tr style="background: var(--primary-orange-light);">
-                  <td colspan="4" style="text-align: right; font-weight: 800; color: var(--primary-orange); font-size: 0.95rem;">
-                    TỔNG CHI PHÍ ƯỚC TÍNH (CHƯA VAT):
+                  <td colspan="5" style="text-align: right; font-weight: 800; color: var(--primary-orange); font-size: 0.95rem;">
+                    Tổng chi phí
                   </td>
                   <td style="text-align: right; font-weight: 800; color: var(--primary-orange); font-size: 1.05rem;" class="price-tag">
-                    2.874.640.000 VNĐ
+                    3.172.640.000
                   </td>
                   <td></td>
                 </tr>
               </tbody>
             </table>
           </div>
-
-          <!-- Chi Phí Phát Sinh Tại Bãi & Cửa Khẩu -->
-          <div class="grid-2">
-            <div class="detail-box">
-              <div class="detail-box-title" style="color:var(--slate-800);">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
-                Chi Phí Phát Sinh Cửa Khẩu (Nếu Có)
-              </div>
-              <ul class="detail-list">
-                <li><strong>Kiểm hóa Kim Thành (Lào Cai):</strong> `5.000.000 VNĐ / xe` (chỉ áp dụng khi tờ khai bị phân luồng đỏ thực tế).</li>
-                <li><strong>Kiểm hóa Hà Khẩu (Trung Quốc):</strong> `4.500 Tệ / xe` (~ 16.200.000 VNĐ).</li>
-                <li><strong>Lưu ca xe đầu Trung Quốc:</strong> `500 Tệ / xe / ngày` (áp dụng từ ngày thứ 3 nếu chậm trễ thủ tục).</li>
-                <li><strong>Quỹ dự toán lưu ca / kiểm hóa kế hoạch mới:</strong> **`24.000.000 VNĐ`** (tiết kiệm 14 triệu so với kế hoạch cũ 38 triệu).</li>
-              </ul>
-            </div>
-
-            <div class="detail-box">
-              <div class="detail-box-title" style="color:var(--primary-orange);">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="3" y1="9" x2="21" y2="9"></line><line x1="9" y1="21" x2="9" y2="9"></line></svg>
-                Thêm Chi Phí Phát Sinh Ở Bãi Nếu Hạ Cho Cẩu (Bãi BQP Sa Pa)
-              </div>
-              <ul class="detail-list">
-                <li><strong>Hạ hàng lưu đệm tại Sa Pa:</strong> Trường hợp xe 15.5m cần giải phóng vỏ ngay trong ngày để quay đầu về nước, hàng sẽ được cẩu hạ tạm xuống sân bãi đệm Nhà khách Bộ Quốc Phòng Sa Pa.</li>
-                <li><strong>Mức phí bãi trung gian:</strong> Khoảng `1.000.000 – 1.500.000 VNĐ / lô xe` (theo biểu phí của BQL Nhà khách BQP Sa Pa).</li>
-                <li><strong>Thuê cẩu tự hành tại Sa Pa:</strong> Thuê 01 xe cẩu sang tải trực tiếp từ bãi đệm lên các xe 10T để tăng bo đêm vào bản.</li>
-              </ul>
-            </div>
-          </div>
         </div>
       </div>
 
-      <!-- Section: Thủ Tục XNK & Insight Khảo Sát -->
-      <div class="grid-2">
-        <div class="section-card">
-          <div class="section-header">
-            <div class="section-title">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--primary-orange)" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg>
-              Thủ Tục Hải Quan & Sở Văn Hóa
-            </div>
+      <!-- 4. Lưu ý -->
+      <div class="section-card">
+        <div class="section-header">
+          <div class="section-title">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--amber-600)" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
+            LƯU Ý
           </div>
-          <div class="section-body">
-            <ul class="detail-list">
-              <li><strong>Pháp nhân nhập khẩu:</strong> <strong>Công ty Indochina</strong> nhận ủy thác của <strong>CTX</strong> đứng tên trên tờ khai nhập khẩu; dòng tiền thanh toán quốc tế chuyển từ <strong>CTX sang UNIS (Trung Quốc)</strong>.</li>
-              <li><strong>Cấp phép chuyên ngành Sở Văn hóa (Lô 2):</strong> Xin giấy phép nhập khẩu máy game trả thưởng trước ngày <strong>15/11/2026</strong> (thời gian xử lý 10-15 ngày làm việc).</li>
-              <li><strong>Thẩm định 30 ngày tại công trình:</strong> Hàng đưa về Bản Mòng lắp đặt model mẫu để đoàn thẩm định thực tế. Cam kết tuyệt đối không có đường lưỡi bò, không đổi tiền mặt, niêm yết bảng trả thưởng.</li>
-            </ul>
-          </div>
+          <span class="section-badge" style="background:var(--amber-50); color:var(--amber-600); border:1px solid var(--amber-border);">ĐIỀU KHOẢN CHI PHÍ TRỌN GÓI</span>
         </div>
+        <div class="section-body">
+          <ul class="detail-list" style="font-size: 0.875rem; gap: 10px;">
+            <li><strong>1.</strong> Đây là chi phí tổng, không phát sinh thêm, kể cả các phát sinh như: Phát sinh thêm số lượng xe, phát sinh lưu ca xe do kiểm hóa, do tắc biên</li>
+            <li><strong>2.</strong> Chỉ chưa bao gồm phí lưu ca trong trường hợp Kỳ Tốc đã báo trước CTX lịch nhận hàng trước 24h kể từ ngày ETD của cont đó và đã được xác nhận nhưng CTX phát sinh không nhận được hàng theo lịch đó</li>
+          </ul>
+        </div>
+      </div>
 
-        <div class="section-card">
-          <div class="section-header">
-            <div class="section-title">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--emerald-600)" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
-              Insight Tuyến Đường & Khung Giờ Cấm
-            </div>
+      <!-- 5. Yêu cầu chủ đầu tư phối hợp -->
+      <div class="section-card">
+        <div class="section-header">
+          <div class="section-title">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--emerald-600)" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+            YÊU CẦU CHỦ ĐẦU TƯ PHỐI HỢP
           </div>
-          <div class="section-body">
-            <ul class="detail-list">
-              <li><strong>Biển cấm 042 Thạch Sơn:</strong> Cấm xe tải >10T và xe khách >29 chỗ vào Sa Pa và dốc bản ➔ Xe 15.5m bắt buộc sang tải xe 10T.</li>
-              <li><strong>Khung giờ cấm đường:</strong> Cấm xe tải ban ngày 06:00 - 23:00 và cấm cuối tuần. <strong>Khung giờ giao hàng duy nhất:</strong> Ban đêm từ **23:00 đến 06:00** (Thứ 2 đến Thứ 5/đêm Thứ 6).</li>
-              <li><strong style="color:var(--primary-orange);">Insight đặc biệt:</strong> <strong>Shipment 3 (Decor) cần nhận trước</strong> để kịp tiến độ hoàn thiện hạ tầng, cảnh quan trước khi đưa máy game vào lắp đặt.</li>
-            </ul>
-          </div>
+          <span class="section-badge" style="background:var(--emerald-50); color:var(--emerald-600); border:1px solid var(--emerald-border);">PHỐI HỢP TRIỂN KHAI</span>
+        </div>
+        <div class="section-body">
+          <ul class="detail-list" style="font-size: 0.875rem; gap: 10px;">
+            <li><strong>1.</strong> Chốt gói dịch vụ để đảm bảo nộp giấy phép xin nhập khẩu cho lô hàng máy chơi game trả thưởng trước ngày 15/11</li>
+            <li><strong>2.</strong> Đảm bảo cẩu tự hành 15 tấn và công nhân để nhận hàng tại điểm dự án Bản Mòng</li>
+          </ul>
         </div>
       </div>
 
@@ -1299,53 +1374,114 @@
       <!-- Gantt Timeline Card -->
       <div class="gantt-chart-card">
         <div class="gantt-header-row">
-          <span>TIẾN ĐỘ THỰC HIỆN DỰ ÁN 26 CHUYẾN XE</span>
-          <span>Timeline: 30/11/2026 ➔ 18/12/2026</span>
+          <span>TIẾN ĐỘ VẬN CHUYỂN & LẮP ĐẶT DỰ ÁN 26 CHUYẾN XE</span>
+          <span id="gantt-overall-range">Vận chuyển: 26/11/2026 ➔ 23/12/2026 • Hoàn thành lắp đặt: 28/01/2027</span>
         </div>
 
         <div class="gantt-track-row">
-          <!-- Track Lô 3 (Decor - Đi sớm nhất) -->
+          <!-- Track Lô 3: Đèn Decor -->
           <div class="gantt-bar-item">
             <div>
-              <span class="badge-shipment badge-s3">Lô 3: Decor</span> (6 xe)
+              <span class="badge-shipment badge-s3">Lô 3: Đèn Decor</span> (6 xe)
             </div>
             <div class="gantt-bar-track">
-              <div class="gantt-bar-fill fill-s3" style="left: 15%; width: 32%;">
-                Trung Sơn ➔ Sapa (ETD 03/12 - ETA Sapa 08-09/12) • 6 Bản Vẽ
+              <div class="gantt-bar-fill fill-s3" id="gantt-bar-s3" style="left: 8%; width: 32%;">
+                ETD 29/11 - 30/11 ➔ ETA Sapa 04/12 - 05/12 • Lắp đặt: 09/12 - 13/01
               </div>
             </div>
-            <div style="font-family:'JetBrains Mono', monospace; font-size:0.75rem; text-align:right;">
-              ETA: 08/12 - 09/12
+            <div id="gantt-eta-s3" style="font-family:'JetBrains Mono', monospace; font-size:0.75rem; text-align:right;">
+              ETA Sapa: 04/12 - 05/12
             </div>
           </div>
 
-          <!-- Track Lô 1 (Cầu trượt & Hội chợ) -->
+          <!-- Track Lô 1: Slide và Ride -->
           <div class="gantt-bar-item">
             <div>
-              <span class="badge-shipment badge-s1">Lô 1: Cầu trượt & HC</span> (10 xe)
+              <span class="badge-shipment badge-s1">Lô 1: Slide và Ride</span> (10 xe)
             </div>
             <div class="gantt-bar-track">
-              <div class="gantt-bar-fill fill-s1" style="left: 0%; width: 63%;">
-                Nam Kinh & Trung Sơn ➔ Sapa (ETD 30/11 - ETA Sapa 07-12/12) • 8 Bản Vẽ
+              <div class="gantt-bar-fill fill-s1" id="gantt-bar-s1" style="left: 0%; width: 48%;">
+                ETD 26/11 - 03/12 ➔ ETA Sapa 03/12 - 08/12 • Lắp đặt: 09/12 - 13/01
               </div>
             </div>
-            <div style="font-family:'JetBrains Mono', monospace; font-size:0.75rem; text-align:right;">
-              ETA: 07/12 - 12/12
+            <div id="gantt-eta-s1" style="font-family:'JetBrains Mono', monospace; font-size:0.75rem; text-align:right;">
+              ETA Sapa: 03/12 - 08/12
             </div>
           </div>
 
-          <!-- Track Lô 2 (Máy Game Trả Thưởng) -->
+          <!-- Track Lô 2: Arcade Game và Gooest -->
           <div class="gantt-bar-item">
             <div>
-              <span class="badge-shipment badge-s2">Lô 2: Máy Game</span> (10 xe)
+              <span class="badge-shipment badge-s2">Lô 2: Arcade Game và Gooest</span> (10 xe)
             </div>
             <div class="gantt-bar-track">
-              <div class="gantt-bar-fill fill-s2" style="left: 42%; width: 55%;">
-                Trung Sơn & Panyu ➔ Sapa (ETD 08/12 - ETA Sapa 15-18/12) • 10 Bản Vẽ
+              <div class="gantt-bar-fill fill-s2" id="gantt-bar-s2" style="left: 52%; width: 48%;">
+                ETD 14/12 - 16/12 ➔ ETA Sapa 20/12 - 23/12 • Lắp đặt: 24/12 - 28/01
               </div>
             </div>
-            <div style="font-family:'JetBrains Mono', monospace; font-size:0.75rem; text-align:right;">
-              ETA: 15/12 - 18/12
+            <div id="gantt-eta-s2" style="font-family:'JetBrains Mono', monospace; font-size:0.75rem; text-align:right;">
+              ETA Sapa: 20/12 - 23/12
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Phần Logic Điều Phối (Trước bảng điều phối chi tiết) -->
+      <div class="section-card">
+        <div class="section-header">
+          <div class="section-title">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--blue-600)" stroke-width="2"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>
+            LOGIC ĐIỀU PHỐI TIẾN ĐỘ VẬN TẢI & LẮP ĐẶT
+          </div>
+          <span class="section-badge" style="background:var(--blue-50); color:var(--blue-600); border:1px solid var(--blue-border);">CĂN CỨ XÂY DỰNG LỊCH TRÌNH</span>
+        </div>
+        <div class="section-body">
+          <div class="grid-3">
+            <!-- 1. Các thông tin tiến độ dự án -->
+            <div class="detail-box">
+              <div class="detail-box-title" style="color:var(--primary-orange);">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                1. Các thông tin tiến độ dự án
+              </div>
+              <ul class="detail-list">
+                <li>Ngày <strong id="logic-epoxy-date">03/12/2026</strong> sơn sàn Epoxy ở tầng 3 khô ➔ <strong>Thời điểm bắt đầu nhận được hàng</strong> tại công trình.</li>
+              </ul>
+            </div>
+
+            <!-- 2. Các thông tin tiến độ lắp đặt -->
+            <div class="detail-box">
+              <div class="detail-box-title" style="color:var(--blue-600);">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path></svg>
+                2. Các thông tin tiến độ lắp đặt (UNIS)
+              </div>
+              <ul class="detail-list">
+                <li><strong>Đèn Decor</strong> cần lắp đặt trước tiên.</li>
+                <li>Không thể lắp đặt song song <strong>Đèn Decor</strong> với <strong>Arcade Game và Gooest</strong> ngay từ đầu.</li>
+                <li>Theo thời gian lắp đặt dự kiến của <strong>UNIS</strong>: Sau khi lắp đặt <strong>Đèn Decor 15 ngày</strong> thì có thể lắp đặt song song <strong>Đèn Decor</strong> với <strong>Arcade Game và Gooest</strong>.</li>
+                <li>Thời gian lắp đặt dự kiến lô <strong>Arcade Game và Gooest</strong> là <strong>35 ngày</strong>.</li>
+              </ul>
+            </div>
+
+            <!-- 3. Các thông tin tiến độ làm việc của cơ quan nhà nước -->
+            <div class="detail-box">
+              <div class="detail-box-title" style="color:var(--emerald-600);">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg>
+                3. Tiến độ làm việc của Cơ quan Nhà nước
+              </div>
+              <ul class="detail-list">
+                <li>Cơ quan nhà nước chỉ làm việc đến hết ngày <strong>29/01/2027</strong>.</li>
+                <li>Cơ quan nhà nước làm việc trở lại sau Tết vào ngày <strong>15/02/2027</strong>.</li>
+                <li>Thời gian xin giấy phép nhập khẩu: <strong>10 ngày làm việc</strong>.</li>
+                <li>Từ bước thẩm định đến ra kết quả là: <strong>15 ngày làm việc</strong>.</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Kết luận cuối cho phần Logic -->
+          <div style="margin-top: 16px; padding: 14px 18px; background: var(--red-50); border: 1px solid var(--red-border); border-left: 4px solid var(--red-600); border-radius: var(--radius-md); display: flex; align-items: center; gap: 12px;">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--red-600)" stroke-width="2" style="flex-shrink: 0;"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path><line x1="12" y1="9" x2="12" y2="13"></line><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
+            <div style="font-size: 0.9rem; color: var(--red-600); font-weight: 700;">
+              KẾT LUẬN: Không thể set up kịp mở cửa đón khách trước Tết Nguyên Đán.
             </div>
           </div>
         </div>
@@ -1358,8 +1494,16 @@
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--primary-orange)" stroke-width="2"><line x1="8" y1="6" x2="21" y2="6"></line><line x1="8" y1="12" x2="21" y2="12"></line><line x1="8" y1="18" x2="21" y2="18"></line><line x1="3" y1="6" x2="3.01" y2="6"></line><line x1="3" y1="12" x2="3.01" y2="12"></line><line x1="3" y1="18" x2="3.01" y2="18"></line></svg>
             BẢNG ĐIỀU PHỐI TRẠNG THÁI 26 CHUYẾN XE
           </div>
-          <div style="font-size:0.8rem; color:var(--slate-500);">
-            Hiển thị: <strong id="filter-count" style="color:var(--slate-900);">26</strong> / 26 xe
+          <div style="display:flex; align-items:center; gap:12px; flex-wrap:wrap;">
+            <span style="font-size:0.75rem; background:#FEF08A; color:#854D0E; border:1px solid #EAB308; padding:3px 10px; border-radius:9999px; font-weight:700;">
+              💡 Chỉnh sửa trực tiếp ngày tại ô bôi vàng (H14 & H15 - ETA Bản Mòng Xe 1.1 & 1.2) để tự động tính lại toàn bảng
+            </span>
+            <button class="btn btn-outline" onclick="resetFormulaDates()" style="padding:4px 10px; font-size:0.72rem;" title="Đặt lại ngày gốc 03/12/2026">
+              ↺ Đặt lại mặc định (03/12)
+            </button>
+            <div style="font-size:0.8rem; color:var(--slate-500);">
+              Hiển thị: <strong id="filter-count" style="color:var(--slate-900);">26</strong> / 26 xe
+            </div>
           </div>
         </div>
         <div class="section-body">
@@ -1371,18 +1515,18 @@
                 Tất cả (26 xe)
               </button>
               <button class="btn btn-outline" id="btn-tab-s1" onclick="filterByShipment('1', this)" style="padding:5px 12px; font-size:0.75rem;">
-                Lô 1: Cầu trượt & HC (10 xe)
+                Lô 1: Slide và Ride (10 xe)
               </button>
               <button class="btn btn-outline" id="btn-tab-s2" onclick="filterByShipment('2', this)" style="padding:5px 12px; font-size:0.75rem;">
-                Lô 2: Máy game (10 xe)
+                Lô 2: Arcade Game và Gooest (10 xe)
               </button>
               <button class="btn btn-outline" id="btn-tab-s3" onclick="filterByShipment('3', this)" style="padding:5px 12px; font-size:0.75rem;">
-                Lô 3: Decor (6 xe - Đi sớm)
+                Lô 3: Đèn Decor (6 xe)
               </button>
             </div>
 
             <div style="position:relative;">
-              <input type="text" id="searchInput" placeholder="Tìm mã xe, hàng, cảng..." oninput="renderDispatchTable()" style="padding:6px 12px 6px 30px; border-radius:var(--radius-md); border:1px solid var(--slate-300); font-size:0.775rem; width:220px; outline:none;">
+              <input type="text" id="searchInput" placeholder="Tìm mã xe, lô hàng, POL..." oninput="renderDispatchTable()" style="padding:6px 12px 6px 30px; border-radius:var(--radius-md); border:1px solid var(--slate-300); font-size:0.775rem; width:220px; outline:none;">
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="position:absolute; left:10px; top:50%; transform:translateY(-50%); color:var(--slate-400);"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
             </div>
           </div>
@@ -1393,18 +1537,16 @@
               <thead>
                 <tr>
                   <th style="width: 45px; text-align: center;">STT</th>
-                  <th>Lô</th>
+                  <th>Lô Hàng</th>
                   <th>Mã Xe</th>
-                  <th>Mặt Hàng Chi Tiết</th>
-                  <th>Cảng Xuất (POL)</th>
-                  <th>Điểm Đến</th>
-                  <th>ETD (Ngày Đi)</th>
+                  <th>POL</th>
+                  <th>POD</th>
+                  <th>ETD</th>
                   <th>ETA Kim Thành</th>
-                  <th>ETA Sapa</th>
-                  <th style="text-align: right;">Dự Toán Lưu Ca</th>
-                  <th>Pháp Nhân Nhập Khẩu</th>
+                  <th>ETA Bản Mòng (Chân tòa CL3)</th>
+                  <th>Thời Gian Bắt Đầu Lắp Đặt</th>
+                  <th>Thời Gian Dự Kiến Hoàn Thành Lắp Đặt</th>
                   <th style="text-align: center;">Bản Vẽ Xếp Xe</th>
-                  <th>Ghi Chú Tiến Độ Mới</th>
                 </tr>
               </thead>
               <tbody id="tableBody">
@@ -1415,171 +1557,8 @@
 
           <!-- Table Summary Footer -->
           <div style="display:flex; justify-content:space-between; align-items:center; margin-top:14px; font-size:0.8rem; color:var(--slate-600); flex-wrap:wrap; gap:10px;">
-            <div>
-              * Kế hoạch xếp xe cập nhật: Lô Decor ưu tiên đi sớm (08-09/12), Lô Cầu trượt & HC (07-12/12), Lô Máy Game hoàn thành trước 18/12/2026.
-            </div>
-            <div style="font-family:'JetBrains Mono', monospace; font-weight:700;">
-              Tổng chi phí lưu ca / kiểm hóa dự kiến: <span class="price-highlight">24.000.000 VNĐ</span>
-            </div>
-          </div>
-        </div>
-      </div>
-
-    </div>
-
-
-    <!-- ========================================================
-         TAB 3: PHƯƠNG ÁN GIAO HÀNG & CHỦ THẦU
-         ======================================================== -->
-    <div class="tab-pane" id="tab3">
-
-      <!-- Section: Phương Án 2 Độc Quyền -->
-      <div class="section-card">
-        <div class="section-header">
-          <div class="section-title">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--emerald-600)" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
-            PHƯƠNG ÁN 2: KÉO XE 15.5M LÊN BÃI SA PA & TĂNG BO 5KM VÀO BẢN
-          </div>
-          <span class="section-badge" style="background:var(--emerald-50); color:var(--emerald-600); border:1px solid var(--emerald-border);">PHƯƠNG ÁN TỐI ƯU DUY NHẤT</span>
-        </div>
-        <div class="section-body">
-          <div class="alert-banner alert-emerald" style="margin-bottom: 20px;">
-            <div class="alert-content">
-              <h4>LỢI THẾ CHIẾN LƯỢC: TRIỆT TIÊU 100% RỦI RO TẮC ĐÈO QL4D & BÀI TOÁN GIỜ CẤM</h4>
-              <p>
-                Bãi đất phía sau Nhà khách Bộ Quốc Phòng Sa Pa cách công trình Bản Mòng đúng <strong>5 km</strong>. Xe 15.5m kéo hàng lên bãi Sa Pa an toàn vào <strong>ban ngày</strong>. Đúng 23:00 đêm khi mở đường nội thị, xe 10T xuất phát từ bãi BQP chỉ mất <strong>15 phút</strong> là vào đến chân công trình Bản Mòng, quay vòng liên tục 3-4 chuyến/đêm mà không lo ngại sương mù hay sự cố trên đèo QL4D.
-              </p>
-            </div>
-          </div>
-
-          <!-- 4 Steps of Night Operation with Field Survey Photos (Ảnh 5) -->
-          <div class="workflow-stepper">
-            <!-- Step 1 -->
-            <div class="step-card">
-              <div class="step-header-row">
-                <div class="step-number" style="background:var(--blue-600);">1</div>
-                <span class="step-time-badge" style="background:var(--blue-50); color:var(--blue-600); border:1px solid var(--blue-border);">08:00 – 17:00</span>
-              </div>
-              <div class="step-thumb-preview" onclick="openMediaModal('image', 'hinh-anh/Bãi Kim Thành/1793414658559_5150800829646320375_g3794004449775197483_9e12aadf2fea6e8cd81074e5a6fc561b.jpg', 'Điểm 1: Tuyến Chính QL4D Kim Thành Lên Sa Pa')">
-                <img data-src="hinh-anh/Bãi Kim Thành/1793414658559_5150800829646320375_g3794004449775197483_9e12aadf2fea6e8cd81074e5a6fc561b.jpg" alt="Xe rào 15.5m lên Sa Pa">
-                <div class="zoom-hint">🔍 Phóng to</div>
-              </div>
-              <div class="step-title">Xe 15.5m Vượt Đèo QL4D Lên Sa Pa</div>
-              <p class="step-desc">Xe tải rào 15.5m chở hàng chạy 40.6km đèo QL4D ban ngày lên tập kết an toàn tại bãi sau Nhà khách BQP Sa Pa.</p>
-              <div class="step-meta">
-                <span>🚛 Xe rào 15.5m • Đèo QL4D 40.6km</span>
-              </div>
-            </div>
-
-            <!-- Step 2 -->
-            <div class="step-card">
-              <div class="step-header-row">
-                <div class="step-number" style="background:var(--amber-600);">2</div>
-                <span class="step-time-badge" style="background:var(--amber-50); color:var(--amber-600); border:1px solid var(--amber-border);">21:30 – 22:45</span>
-              </div>
-              <div class="step-thumb-preview" onclick="openMediaModal('image', 'hinh-anh/Bãi Nhà khách bộ Quốc Phòng/1793336349871_8280567781290022502_g3794004449775197483_242c3b871fb3782d685326c84ddd5e42.jpg', 'Điểm 2: Bãi Đệm Nhà Khách BQP Sa Pa & Cẩu Sang Tải')">
-                <img data-src="hinh-anh/Bãi Nhà khách bộ Quốc Phòng/1793336349871_8280567781290022502_g3794004449775197483_242c3b871fb3782d685326c84ddd5e42.jpg" alt="Bãi BQP Sa Pa">
-                <div class="zoom-hint">🔍 Phóng to</div>
-              </div>
-              <div class="step-title">Bãi Đệm BQP & Cẩu Sang Tải</div>
-              <p class="step-desc">Bãi BQP làm kho đệm (cách bản 5km). Cẩu tự hành Sa Pa sang tải trước lên 03 xe 10T, chèn lót bạt dù chống mưa ẩm.</p>
-              <div class="step-meta">
-                <span>🏗️ Cẩu Sa Pa sang tải • Bãi đệm 5km</span>
-              </div>
-            </div>
-
-            <!-- Step 3 -->
-            <div class="step-card">
-              <div class="step-header-row">
-                <div class="step-number" style="background:var(--primary-orange);">3</div>
-                <span class="step-time-badge" style="background:var(--primary-orange-light); color:var(--primary-orange); border:1px solid var(--primary-orange-border);">23:00 – 04:30</span>
-              </div>
-              <div class="step-thumb-preview" onclick="openMediaModal('image', 'hinh-anh/Ảnh cấm đường/1793411900628_5150800829646320375_g3794004449775197483_479863bde70bbc361f4aa830079a309e.jpg', 'Điểm 3: Tăng Bo Ban Đêm & Biển Cấm 10T Thạch Sơn')">
-                <img data-src="hinh-anh/Ảnh cấm đường/1793411900628_5150800829646320375_g3794004449775197483_479863bde70bbc361f4aa830079a309e.jpg" alt="Biển cấm tải 10T Thạch Sơn">
-                <div class="zoom-hint">🔍 Phóng to</div>
-              </div>
-              <div class="step-title">Xe 10T Tăng Bo Ca Đêm (5km)</div>
-              <p class="step-desc">Đúng 23:00 mở đường, 03 xe 10T chạy cự ly 5km đường vắng vào dốc Bản Mòng (15-20p/chuyến), quay vòng 3-4 chuyến/đêm (T2-T5).</p>
-              <div class="step-meta">
-                <span>⏱️ 15-20 phút/chuyến • 3-4 vòng/đêm</span>
-              </div>
-            </div>
-
-            <!-- Step 4 -->
-            <div class="step-card">
-              <div class="step-header-row">
-                <div class="step-number" style="background:var(--emerald-600);">4</div>
-                <span class="step-time-badge" style="background:var(--emerald-50); color:var(--emerald-600); border:1px solid var(--emerald-border);">Trước 05:45 Sáng</span>
-              </div>
-              <div class="step-thumb-preview" onclick="openMediaModal('image', 'hinh-anh/Công trình Bảng Mòng/1793340722309_5150800829646320375_g3794004449775197483_900ce8ac17503a0cee75aa1da3499eb2.jpg', 'Điểm 4: Đường Dốc Tiếp Cận & Hạ Hàng Tòa CT3 Bản Mòng')">
-                <img data-src="hinh-anh/Công trình Bảng Mòng/1793340722309_5150800829646320375_g3794004449775197483_900ce8ac17503a0cee75aa1da3499eb2.jpg" alt="Đường vào Bản Mòng Tòa CT3">
-                <div class="zoom-hint">🔍 Phóng to</div>
-              </div>
-              <div class="step-title">Hạ Hàng Bản Mòng & Rút Quân</div>
-              <p class="step-desc">Cẩu 15T của khách và cẩu tháp đón hạ hàng tại chân Tòa CT3, ký POD. Toàn bộ xe 10T rút khỏi thị xã trước 05:45 sáng.</p>
-              <div class="step-meta">
-                <span>🏗️ Cẩu 15T khách đón hạ • Rút trước 05:45</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Section: Yêu Cầu Chủ Thầu Chuẩn Bị -->
-      <div class="section-card">
-        <div class="section-header">
-          <div class="section-title">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--primary-orange)" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="8.5" cy="7" r="4"></circle><line x1="20" y1="8" x2="20" y2="14"></line><line x1="23" y1="11" x2="17" y2="11"></line></svg>
-            THÔNG TIN CHỦ THẦU / KHÁCH HÀNG (CTX) CẦN CHUẨN BỊ THÊM ĐỂ NHẬN HÀNG
-          </div>
-          <span class="section-badge">QUY CHUẨN PHỐI HỢP HIỆN TRƯỜNG</span>
-        </div>
-        <div class="section-body">
-          <div class="grid-3" style="margin-bottom: 20px;">
-            <div class="detail-box">
-              <div class="detail-box-title" style="color:var(--primary-orange);">
-                Quy Cách Xe & Năng Suất
-              </div>
-              <ul class="detail-list">
-                <li><strong>Xe chặng chính:</strong> Xe <strong>13m7 đầu TQ</strong> và Xe <strong>15m5 đầu VN</strong>.</li>
-                <li><strong>Năng suất tiếp nhận:</strong> <strong>2 – 3 xe / ngày</strong> (tương đương 6 – 9 chuyến xe 10T tăng bo trong ca đêm).</li>
-              </ul>
-            </div>
-
-            <div class="detail-box">
-              <div class="detail-box-title" style="color:var(--blue-600);">
-                Yêu Cầu Thiết Bị Khách Chuẩn Bị
-              </div>
-              <ul class="detail-list">
-                <li><strong>01 xe cẩu</strong> tại bãi nhận hàng (Bãi sau Nhà khách BQP Sa Pa).</li>
-                <li><strong>01 xe cẩu</strong> tại bãi hạ hàng (Chân công trình Bản Mòng: Cẩu 15T khách + Cẩu tháp CTX).</li>
-                <li><strong>03 xe tải tăng bo</strong> (loại tải trọng tối đa dưới 10 Tấn).</li>
-              </ul>
-            </div>
-
-            <div class="detail-box">
-              <div class="detail-box-title" style="color:var(--emerald-600);">
-                Khung Giờ Bắt Buộc Nhận Hàng
-              </div>
-              <ul class="detail-list">
-                <li>Bố trí nhân sự, tổ cẩu và thủ kho trực nhận hàng ban đêm:
-                  <div style="margin-top:4px; font-weight:800; color:var(--emerald-600); background:var(--emerald-50); padding:4px 8px; border-radius:var(--radius-sm); border:1px solid var(--emerald-border);">
-                    Từ 11h đêm Thứ 2 đến hết 12h đêm Thứ 5
-                  </div>
-                </li>
-                <li>Không giao hàng ban ngày và các ngày cuối tuần do lệnh cấm đường của thị xã Sa Pa.</li>
-              </ul>
-            </div>
-          </div>
-
-          <!-- Chốt Đầu Mối & Tòa CT3 -->
-          <div class="alert-banner alert-blue">
-            <div class="alert-content">
-              <h4>CHỐT ĐẦU MỐI LÀM VIỆC DỰ ÁN & TIẾN ĐỘ THI CÔNG HẠ HÀNG TÒA CT3</h4>
-              <p>
-                - <strong>Đầu mối điều phối:</strong> Chủ thầu chốt danh tính Chỉ huy trưởng công trường, Kỹ sư phụ trách và Thủ kho trực đêm có thẩm quyền ký xác nhận biên bản giao nhận hàng (POD).<br/>
-                - <strong>Mặt bằng Tòa CT3:</strong> Chốt tiến độ thi công và vị trí đỗ hạ hàng chân Tòa CT3, đảm bảo tầm vươn của cần cẩu tháp, bãi đỗ của xe cẩu 15T và đường nội bộ được lu lèn chống sụt lún trong mùa mưa mù Sa Pa.
-              </p>
+            <div id="table-summary-note">
+              * Kế hoạch điều phối cập nhật: <strong>Lô 1: Slide và Ride</strong> & <strong>Lô 3: Đèn Decor</strong> lắp đặt từ <strong>09/12/2026 – 13/01/2027</strong> • <strong>Lô 2: Arcade Game và Gooest</strong> lắp đặt từ <strong>24/12/2026 – 28/01/2027</strong>.
             </div>
           </div>
         </div>
@@ -1861,42 +1840,277 @@
       });
     }
 
-    // 26 Cars Master Dataset according to the NEW Schedule (final.csv)
-    const newScheduleData = [
-      // Shipment 1: Cầu trượt & Trò chơi hội chợ (10 xe)
-      { stt: 1, shipment: 1, code: "1.1", item: "SOFTPLAY GROUND EQUIPMENT (Cầu trượt)", pol: "南京 - Nam Kinh", pod: "Sapa, Lào Cai", etd: "30/11/2026", etaKt: "06/12/2026", etaSp: "07/12/2026", cost: 5000000, importer: "CTX", note: "ETA chỉ định hạn cuối là 15/12", diagram: "" },
-      { stt: 2, shipment: 1, code: "1.2", item: "SOFTPLAY GROUND EQUIPMENT (Cầu trượt)", pol: "南京 - Nam Kinh", pod: "Sapa, Lào Cai", etd: "30/11/2026", etaKt: "06/12/2026", etaSp: "07/12/2026", cost: 0, importer: "CTX", note: "ETA chỉ định hạn cuối là 15/12", diagram: "" },
-      { stt: 3, shipment: 1, code: "1.3", item: "24座转马 装箱单 (Đu quay 24 chỗ)", pol: "中山 - Trung sơn", pod: "Sapa, Lào Cai", etd: "05/12/2026", etaKt: "09/12/2026", etaSp: "10/12/2026", cost: 0, importer: "CTX", note: "", diagram: "Ban-ve-xep-xe-PL21359260__xe1__tq_13m_rao.html" },
-      { stt: 4, shipment: 1, code: "1.4", item: "王牌空战 装箱单 (Game Ace Combat)", pol: "中山 - Trung sơn", pod: "Sapa, Lào Cai", etd: "05/12/2026", etaKt: "09/12/2026", etaSp: "10/12/2026", cost: 0, importer: "CTX", note: "", diagram: "Ban-ve-xep-xe-PL21359260__xe2__tq_13m_rao.html" },
-      { stt: 5, shipment: 1, code: "1.5", item: "土豪鸭 装箱单 (Game Rich Duck)", pol: "中山 - Trung sơn", pod: "Sapa, Lào Cai", etd: "06/12/2026", etaKt: "10/12/2026", etaSp: "11/12/2026", cost: 0, importer: "CTX", note: "", diagram: "Ban-ve-xep-xe-PL21359260__xe3__tq_13m_rao.html" },
-      { stt: 6, shipment: 1, code: "1.6", item: "奇思喵想 装箱单 (Gắp thú Mèo)", pol: "中山 - Trung sơn", pod: "Sapa, Lào Cai", etd: "06/12/2026", etaKt: "10/12/2026", etaSp: "11/12/2026", cost: 0, importer: "CTX", note: "", diagram: "Ban-ve-xep-xe-PL21359260__xe4__tq_13m_rao.html" },
-      { stt: 7, shipment: 1, code: "1.7", item: "牛仔很忙 装箱单 (Game Cao Bồi)", pol: "中山 - Trung sơn", pod: "Sapa, Lào Cai", etd: "06/12/2026", etaKt: "10/12/2026", etaSp: "11/12/2026", cost: 0, importer: "CTX", note: "", diagram: "Ban-ve-xep-xe-PL21359260__xe5__tq_13m_rao.html" },
-      { stt: 8, shipment: 1, code: "1.8", item: "牛鼻哄哄 (Bò Tót) • 王牌空战 (Ace Combat)", pol: "中山 - Trung sơn", pod: "Sapa, Lào Cai", etd: "07/12/2026", etaKt: "11/12/2026", etaSp: "12/12/2026", cost: 0, importer: "CTX", note: "", diagram: "Ban-ve-xep-xe-PL21359260__xe6__tq_13m_rao.html" },
-      { stt: 9, shipment: 1, code: "1.9", item: "Trò chơi hội chợ", pol: "中山 - Trung sơn", pod: "Sapa, Lào Cai", etd: "07/12/2026", etaKt: "11/12/2026", etaSp: "12/12/2026", cost: 0, importer: "CTX", note: "", diagram: "Ban-ve-xep-xe-PL21359260__xe7__tq_13m_rao.html" },
-      { stt: 10, shipment: 1, code: "1.10", item: "Trò chơi hội chợ", pol: "中山 - Trung sơn", pod: "Sapa, Lào Cai", etd: "07/12/2026", etaKt: "11/12/2026", etaSp: "12/12/2026", cost: 0, importer: "CTX", note: "", diagram: "Ban-ve-xep-xe-PL21359260__xe8__tq_13m_rao.html" },
+    // 26 Cars Master Dataset according to the NEW Schedule (final.csv) with Live Excel Formulas from H14 & H15
+    const shipmentNames = {
+      1: "Lô 1: Slide và Ride",
+      2: "Lô 2: Arcade Game và Gooest",
+      3: "Lô 3: Đèn Decor"
+    };
 
-      // Shipment 2: Máy chơi game trả thưởng (10 xe)
-      { stt: 11, shipment: 2, code: "2.1", item: "Máy chơi game trả thưởng", pol: "中山 - Trung Sơn", pod: "Sapa, Lào Cai", etd: "08/12/2026", etaKt: "12/12/2026", etaSp: "15/12/2026", cost: 5000000, importer: "Indochina nhận ủy thác của CTX", note: "Xe xếp nguyên hàng không thủ tục: Photobooth, phụ kiện photobooth vào 1 xe", diagram: "Ban-ve-xep-xe-PL73786303__xe1__tq_13m_rao.html" },
-      { stt: 12, shipment: 2, code: "2.2", item: "Máy chơi game trả thưởng", pol: "中山 - Trung Sơn", pod: "Sapa, Lào Cai", etd: "08/12/2026", etaKt: "12/12/2026", etaSp: "15/12/2026", cost: 0, importer: "Indochina nhận ủy thác của CTX", note: "Xin giấy phép trước 15.11 • Khai thác tăng bo 3 xe/ngày", diagram: "Ban-ve-xep-xe-PL73786303__xe2__tq_13m_rao.html" },
-      { stt: 13, shipment: 2, code: "2.3", item: "Máy chơi game trả thưởng", pol: "中山 - Trung Sơn", pod: "Sapa, Lào Cai", etd: "09/12/2026", etaKt: "13/12/2026", etaSp: "15/12/2026", cost: 0, importer: "Indochina nhận ủy thác của CTX", note: "Xin giấy phép trước 15.11 • Khai thác tăng bo 3 xe/ngày", diagram: "Ban-ve-xep-xe-PL73786303__xe3__tq_13m_rao.html" },
-      { stt: 14, shipment: 2, code: "2.4", item: "Máy chơi game trả thưởng", pol: "中山 - Trung Sơn", pod: "Sapa, Lào Cai", etd: "09/12/2026", etaKt: "13/12/2026", etaSp: "16/12/2026", cost: 2000000, importer: "Indochina nhận ủy thác của CTX", note: "Xin giấy phép trước 15.11 • Khai thác tăng bo 3 xe/ngày", diagram: "Ban-ve-xep-xe-PL73786303__xe4__tq_13m_rao.html" },
-      { stt: 15, shipment: 2, code: "2.5", item: "Máy chơi game trả thưởng", pol: "中山 - Trung Sơn", pod: "Sapa, Lào Cai", etd: "10/12/2026", etaKt: "14/12/2026", etaSp: "16/12/2026", cost: 4000000, importer: "Indochina nhận ủy thác của CTX", note: "Xin giấy phép trước 15.11 • Khai thác tăng bo 3 xe/ngày", diagram: "Ban-ve-xep-xe-PL73786303__xe5__tq_13m_rao.html" },
-      { stt: 16, shipment: 2, code: "2.6", item: "Máy chơi game trả thưởng", pol: "中山 - Trung Sơn", pod: "Sapa, Lào Cai", etd: "10/12/2026", etaKt: "14/12/2026", etaSp: "16/12/2026", cost: 4000000, importer: "Indochina nhận ủy thác của CTX", note: "Xin giấy phép trước 15.11 • Khai thác tăng bo 3 xe/ngày", diagram: "Ban-ve-xep-xe-PL73786303__xe6__tq_13m_rao.html" },
-      { stt: 17, shipment: 2, code: "2.7", item: "Máy chơi game trả thưởng", pol: "番禺 - Panyu", pod: "Sapa, Lào Cai", etd: "08/12/2026", etaKt: "12/12/2026", etaSp: "17/12/2026", cost: 0, importer: "Indochina nhận ủy thác của CTX", note: "Xin giấy phép trước 15.11 • Khai thác tăng bo 3 xe/ngày", diagram: "Ban-ve-xep-xe-PL73786303__xe7__tq_13m_rao.html" },
-      { stt: 18, shipment: 2, code: "2.8", item: "Máy chơi game trả thưởng", pol: "番禺 - Panyu", pod: "Sapa, Lào Cai", etd: "08/12/2026", etaKt: "12/12/2026", etaSp: "17/12/2026", cost: 0, importer: "Indochina nhận ủy thác của CTX", note: "Xin giấy phép trước 15.11 • Khai thác tăng bo 3 xe/ngày", diagram: "Ban-ve-xep-xe-PL73786303__xe8__tq_13m_rao.html" },
-      { stt: 19, shipment: 2, code: "2.9", item: "Máy chơi game trả thưởng", pol: "番禺 - Panyu", pod: "Sapa, Lào Cai", etd: "09/12/2026", etaKt: "13/12/2026", etaSp: "18/12/2026", cost: 2000000, importer: "Indochina nhận ủy thác của CTX", note: "Xin giấy phép trước 15.11 • Khai thác tăng bo 3 xe/ngày", diagram: "Ban-ve-xep-xe-PL73786303__xe9__tq_13m_rao.html" },
-      { stt: 20, shipment: 2, code: "2.10", item: "Máy chơi game trả thưởng", pol: "番禺 - Panyu", pod: "Sapa, Lào Cai", etd: "09/12/2026", etaKt: "13/12/2026", etaSp: "18/12/2026", cost: 2000000, importer: "Indochina nhận ủy thác của CTX", note: "Xin giấy phép trước 15.11 • Khai thác tăng bo 3 xe/ngày", diagram: "Ban-ve-xep-xe-PL73786303__xe10__tq_13m_rao.html" },
+    // Hai ô bôi vàng gốc trong Excel: H14 (ETA Sapa Xe 1.1) và H15 (ETA Sapa Xe 1.2)
+    let dateH14 = "2026-12-03";
+    let dateH15 = "2026-12-03";
 
-      // Shipment 3: Decor (6 xe - Đi sớm nhất)
-      { stt: 21, shipment: 3, code: "3.1", item: "Decor", pol: "中山 - Trung sơn", pod: "Sapa, Lào Cai", etd: "03/12/2026", etaKt: "07/12/2026", etaSp: "08/12/2026", cost: 0, importer: "CTX", note: "Đi sớm nhất để kịp hoàn thiện hạ tầng", diagram: "Ban-ve-xep-xe-PL22269720__xe1__tq_13m_rao.html" },
-      { stt: 22, shipment: 3, code: "3.2", item: "Decor", pol: "中山 - Trung sơn", pod: "Sapa, Lào Cai", etd: "03/12/2026", etaKt: "07/12/2026", etaSp: "08/12/2026", cost: 0, importer: "CTX", note: "Đi sớm nhất để kịp hoàn thiện hạ tầng", diagram: "Ban-ve-xep-xe-PL22269720__xe2__tq_13m_rao.html" },
-      { stt: 23, shipment: 3, code: "3.3", item: "Decor", pol: "中山 - Trung sơn", pod: "Sapa, Lào Cai", etd: "03/12/2026", etaKt: "07/12/2026", etaSp: "08/12/2026", cost: 0, importer: "CTX", note: "Đi sớm nhất để kịp hoàn thiện hạ tầng", diagram: "Ban-ve-xep-xe-PL22269720__xe3__tq_13m_rao.html" },
-      { stt: 24, shipment: 3, code: "3.4", item: "Decor", pol: "中山 - Trung sơn", pod: "Sapa, Lào Cai", etd: "04/12/2026", etaKt: "08/12/2026", etaSp: "09/12/2026", cost: 0, importer: "CTX", note: "Tăng bo đêm 23h - 06h", diagram: "Ban-ve-xep-xe-PL22269720__xe4__tq_13m_rao.html" },
-      { stt: 25, shipment: 3, code: "3.5", item: "Decor", pol: "中山 - Trung sơn", pod: "Sapa, Lào Cai", etd: "04/12/2026", etaKt: "08/12/2026", etaSp: "09/12/2026", cost: 0, importer: "CTX", note: "Tăng bo đêm 23h - 06h", diagram: "Ban-ve-xep-xe-PL22269720__xe5__tq_13m_rao.html" },
-      { stt: 26, shipment: 3, code: "3.6", item: "Decor", pol: "中山 - Trung sơn", pod: "Sapa, Lào Cai", etd: "04/12/2026", etaKt: "08/12/2026", etaSp: "09/12/2026", cost: 0, importer: "CTX", note: "Tăng bo đêm 23h - 06h", diagram: "Ban-ve-xep-xe-PL22269720__xe6__tq_13m_rao.html" }
+    // Cộng/trừ số ngày từ chuỗi YYYY-MM-DD
+    function addDaysISO(isoDateStr, days) {
+      const parts = isoDateStr.split('-').map(Number);
+      const dt = new Date(Date.UTC(parts[0], parts[1] - 1, parts[2]));
+      dt.setUTCDate(dt.getUTCDate() + days);
+      const y = dt.getUTCFullYear();
+      const m = String(dt.getUTCMonth() + 1).padStart(2, '0');
+      const d = String(dt.getUTCDate()).padStart(2, '0');
+      return `${y}-${m}-${d}`;
+    }
+
+    // Định dạng YYYY-MM-DD -> DD/MM/YYYY
+    function formatVNDate(isoDateStr) {
+      if (!isoDateStr) return "";
+      const [y, m, d] = isoDateStr.split('-');
+      return `${d}/${m}/${y}`;
+    }
+
+    // Định dạng ngắn DD/MM
+    function formatShortDate(isoDateStr) {
+      if (!isoDateStr) return "";
+      const [y, m, d] = isoDateStr.split('-');
+      return `${d}/${m}`;
+    }
+
+    const baseCarsMeta = [
+      // Lô 1: Slide và Ride (10 xe)
+      { stt: 1, shipment: 1, code: "1.1", excelCell: "H14", item: "SOFTPLAY GROUND EQUIPMENT (Cầu trượt Slide)", pol: "南京 - Nam Kinh", pod: "Sapa, Lào Cai", diagram: "" },
+      { stt: 2, shipment: 1, code: "1.2", excelCell: "H15", item: "SOFTPLAY GROUND EQUIPMENT (Cầu trượt Slide)", pol: "南京 - Nam Kinh", pod: "Sapa, Lào Cai", diagram: "" },
+      { stt: 3, shipment: 1, code: "1.3", item: "24座转马 装箱单 (Trò chơi đu quay 24 chỗ)", pol: "中山 - Trung sơn", pod: "Sapa, Lào Cai", diagram: "Ban-ve-xep-xe-PL21359260__xe1__tq_13m_rao.html" },
+      { stt: 4, shipment: 1, code: "1.4", item: "王牌空战 装箱单 (máy game Ace Combat)", pol: "中山 - Trung sơn", pod: "Sapa, Lào Cai", diagram: "Ban-ve-xep-xe-PL21359260__xe2__tq_13m_rao.html" },
+      { stt: 5, shipment: 1, code: "1.5", item: "土豪鸭 装箱单 (may game Rich Duck)", pol: "中山 - Trung sơn", pod: "Sapa, Lào Cai", diagram: "Ban-ve-xep-xe-PL21359260__xe3__tq_13m_rao.html" },
+      { stt: 6, shipment: 1, code: "1.6", item: "奇思喵想 装箱单 (máy gắp thú (Mèo))", pol: "中山 - Trung sơn", pod: "Sapa, Lào Cai", diagram: "Ban-ve-xep-xe-PL21359260__xe4__tq_13m_rao.html" },
+      { stt: 7, shipment: 1, code: "1.7", item: "牛仔很忙 装箱单 (máy game Cao Bồi)", pol: "中山 - Trung sơn", pod: "Sapa, Lào Cai", diagram: "Ban-ve-xep-xe-PL21359260__xe5__tq_13m_rao.html" },
+      { stt: 8, shipment: 1, code: "1.8", item: "牛鼻哄哄 装箱单 (máy game Bò Tót) • 王牌空战 装箱单 (máy game Ace Combat)", pol: "中山 - Trung sơn", pod: "Sapa, Lào Cai", diagram: "Ban-ve-xep-xe-PL21359260__xe6__tq_13m_rao.html" },
+      { stt: 9, shipment: 1, code: "1.9", item: "Slide và Ride", pol: "中山 - Trung sơn", pod: "Sapa, Lào Cai", diagram: "Ban-ve-xep-xe-PL21359260__xe7__tq_13m_rao.html" },
+      { stt: 10, shipment: 1, code: "1.10", item: "Slide và Ride", pol: "中山 - Trung sơn", pod: "Sapa, Lào Cai", diagram: "Ban-ve-xep-xe-PL21359260__xe8__tq_13m_rao.html" },
+
+      // Lô 2: Arcade Game và Gooest (10 xe)
+      { stt: 11, shipment: 2, code: "2.1", item: "Arcade Game và Gooest", pol: "中山 - Trung Sơn", pod: "Sapa, Lào Cai", diagram: "Ban-ve-xep-xe-PL73786303__xe1__tq_13m_rao.html" },
+      { stt: 12, shipment: 2, code: "2.2", item: "Arcade Game và Gooest", pol: "中山 - Trung Sơn", pod: "Sapa, Lào Cai", diagram: "Ban-ve-xep-xe-PL73786303__xe2__tq_13m_rao.html" },
+      { stt: 13, shipment: 2, code: "2.3", item: "Arcade Game và Gooest", pol: "中山 - Trung Sơn", pod: "Sapa, Lào Cai", diagram: "Ban-ve-xep-xe-PL73786303__xe3__tq_13m_rao.html" },
+      { stt: 14, shipment: 2, code: "2.4", item: "Arcade Game và Gooest", pol: "中山 - Trung Sơn", pod: "Sapa, Lào Cai", diagram: "Ban-ve-xep-xe-PL73786303__xe4__tq_13m_rao.html" },
+      { stt: 15, shipment: 2, code: "2.5", item: "Arcade Game và Gooest", pol: "中山 - Trung Sơn", pod: "Sapa, Lào Cai", diagram: "Ban-ve-xep-xe-PL73786303__xe5__tq_13m_rao.html" },
+      { stt: 16, shipment: 2, code: "2.6", item: "Arcade Game và Gooest", pol: "中山 - Trung Sơn", pod: "Sapa, Lào Cai", diagram: "Ban-ve-xep-xe-PL73786303__xe6__tq_13m_rao.html" },
+      { stt: 17, shipment: 2, code: "2.7", item: "Arcade Game và Gooest", pol: "番禺 - Panyu", pod: "Sapa, Lào Cai", diagram: "Ban-ve-xep-xe-PL73786303__xe7__tq_13m_rao.html" },
+      { stt: 18, shipment: 2, code: "2.8", item: "Arcade Game và Gooest", pol: "番禺 - Panyu", pod: "Sapa, Lào Cai", diagram: "Ban-ve-xep-xe-PL73786303__xe8__tq_13m_rao.html" },
+      { stt: 19, shipment: 2, code: "2.9", item: "Arcade Game và Gooest", pol: "番禺 - Panyu", pod: "Sapa, Lào Cai", diagram: "Ban-ve-xep-xe-PL73786303__xe9__tq_13m_rao.html" },
+      { stt: 20, shipment: 2, code: "2.10", item: "Arcade Game và Gooest", pol: "番禺 - Panyu", pod: "Sapa, Lào Cai", diagram: "Ban-ve-xep-xe-PL73786303__xe10__tq_13m_rao.html" },
+
+      // Lô 3: Đèn Decor (6 xe)
+      { stt: 21, shipment: 3, code: "3.1", item: "Đèn Decor", pol: "中山 - Trung sơn", pod: "Sapa, Lào Cai", diagram: "Ban-ve-xep-xe-PL22269720__xe1__tq_13m_rao.html" },
+      { stt: 22, shipment: 3, code: "3.2", item: "Đèn Decor", pol: "中山 - Trung sơn", pod: "Sapa, Lào Cai", diagram: "Ban-ve-xep-xe-PL22269720__xe2__tq_13m_rao.html" },
+      { stt: 23, shipment: 3, code: "3.3", item: "Đèn Decor", pol: "中山 - Trung sơn", pod: "Sapa, Lào Cai", diagram: "Ban-ve-xep-xe-PL22269720__xe3__tq_13m_rao.html" },
+      { stt: 24, shipment: 3, code: "3.4", item: "Đèn Decor", pol: "中山 - Trung sơn", pod: "Sapa, Lào Cai", diagram: "Ban-ve-xep-xe-PL22269720__xe4__tq_13m_rao.html" },
+      { stt: 25, shipment: 3, code: "3.5", item: "Đèn Decor", pol: "中山 - Trung sơn", pod: "Sapa, Lào Cai", diagram: "Ban-ve-xep-xe-PL22269720__xe5__tq_13m_rao.html" },
+      { stt: 26, shipment: 3, code: "3.6", item: "Đèn Decor", pol: "中山 - Trung sơn", pod: "Sapa, Lào Cai", diagram: "Ban-ve-xep-xe-PL22269720__xe6__tq_13m_rao.html" }
     ];
 
+    let newScheduleData = [];
     let currentShipment = "ALL";
+
+    // Tính toán lại toàn bộ các cột ngày theo đúng công thức Excel từ H14 và H15
+    function recalculateScheduleDates() {
+      // Mốc chuẩn cho chuỗi xe tiếp theo dựa trên H15 (ETA Sapa xe 1.2)
+      const h14 = dateH14;
+      const h15 = dateH15;
+
+      // Lô 3: Đèn Decor
+      // 3.1 - 3.3: ETA Sapa = H15 + 1 ngày
+      const etaSp_3_1to3 = addDaysISO(h15, 1);
+      // 3.4 - 3.6: ETA Sapa = ETA Sapa(3.3) + 1 ngày = H15 + 2 ngày
+      const etaSp_3_4to6 = addDaysISO(h15, 2);
+
+      // Lô 1: Ride (1.3 - 1.10) nối tiếp sau Đèn Decor (3.6)
+      // 1.3 - 1.4: ETA Sapa = ETA Sapa(3.6) + 1 ngày = H15 + 3 ngày
+      const etaSp_1_3to4 = addDaysISO(h15, 3);
+      // 1.5 - 1.7: ETA Sapa = ETA Sapa(1.4) + 1 ngày = H15 + 4 ngày
+      const etaSp_1_5to7 = addDaysISO(h15, 4);
+      // 1.8 - 1.10: ETA Sapa = ETA Sapa(1.7) + 1 ngày = H15 + 5 ngày
+      const etaSp_1_8to10 = addDaysISO(h15, 5);
+
+      // Thời gian bắt đầu lắp đặt Lô 1 & Lô 3 = ETA Sapa(1.10) + 1 ngày = H15 + 6 ngày
+      const installStart_1_3 = addDaysISO(etaSp_1_8to10, 1);
+      // Thời gian hoàn thành lắp đặt Lô 1 & Lô 3 = Bắt đầu lắp đặt + 35 ngày
+      const installEnd_1_3 = addDaysISO(installStart_1_3, 35);
+
+      // Thời gian bắt đầu lắp đặt Lô 2 (Arcade Game & Gooest) = Bắt đầu lắp đặt Đèn Decor + 15 ngày
+      const installStart_2 = addDaysISO(installStart_1_3, 15);
+      // Thời gian hoàn thành lắp đặt Lô 2 = Bắt đầu lắp đặt Lô 2 + 35 ngày
+      const installEnd_2 = addDaysISO(installStart_2, 35);
+
+      // ETA Sapa Lô 2 tính lùi từ ngày bắt đầu lắp đặt Lô 2 (installStart_2)
+      const etaSp_2_9to10 = addDaysISO(installStart_2, -1); // 23/12
+      const etaSp_2_7to8  = addDaysISO(etaSp_2_9to10, -1);  // 22/12
+      const etaSp_2_4to6  = addDaysISO(etaSp_2_7to8, -1);   // 21/12
+      const etaSp_2_1to3  = addDaysISO(etaSp_2_4to6, -1);   // 20/12
+
+      newScheduleData = baseCarsMeta.map(meta => {
+        let etdISO, etaKtISO, etaSpISO, instStartISO, instEndISO;
+
+        if (meta.code === "1.1") {
+          etaSpISO = h14;
+          etaKtISO = addDaysISO(etaSpISO, -1);
+          etdISO   = addDaysISO(etaKtISO, -6); // Nam Kinh -> Kim Thành: 6 ngày
+          instStartISO = installStart_1_3;
+          instEndISO   = installEnd_1_3;
+        } else if (meta.code === "1.2") {
+          etaSpISO = h15;
+          etaKtISO = addDaysISO(etaSpISO, -1);
+          etdISO   = addDaysISO(etaKtISO, -6); // Nam Kinh -> Kim Thành: 6 ngày
+          instStartISO = installStart_1_3;
+          instEndISO   = installEnd_1_3;
+        } else if (meta.code === "1.3" || meta.code === "1.4") {
+          etaSpISO = etaSp_1_3to4;
+          etaKtISO = addDaysISO(etaSpISO, -1);
+          etdISO   = addDaysISO(etaKtISO, -4); // Trung Sơn -> Kim Thành: 4 ngày
+          instStartISO = installStart_1_3;
+          instEndISO   = installEnd_1_3;
+        } else if (meta.code === "1.5" || meta.code === "1.6" || meta.code === "1.7") {
+          etaSpISO = etaSp_1_5to7;
+          etaKtISO = addDaysISO(etaSpISO, -1);
+          etdISO   = addDaysISO(etaKtISO, -4);
+          instStartISO = installStart_1_3;
+          instEndISO   = installEnd_1_3;
+        } else if (meta.code === "1.8" || meta.code === "1.9" || meta.code === "1.10") {
+          etaSpISO = etaSp_1_8to10;
+          etaKtISO = addDaysISO(etaSpISO, -1);
+          etdISO   = addDaysISO(etaKtISO, -4);
+          instStartISO = installStart_1_3;
+          instEndISO   = installEnd_1_3;
+        } else if (meta.code === "3.1" || meta.code === "3.2" || meta.code === "3.3") {
+          etaSpISO = etaSp_3_1to3;
+          etaKtISO = addDaysISO(etaSpISO, -1);
+          etdISO   = addDaysISO(etaKtISO, -4);
+          instStartISO = installStart_1_3;
+          instEndISO   = installEnd_1_3;
+        } else if (meta.code === "3.4" || meta.code === "3.5" || meta.code === "3.6") {
+          etaSpISO = etaSp_3_4to6;
+          etaKtISO = addDaysISO(etaSpISO, -1);
+          etdISO   = addDaysISO(etaKtISO, -4);
+          instStartISO = installStart_1_3;
+          instEndISO   = installEnd_1_3;
+        } else if (meta.code === "2.1" || meta.code === "2.2") {
+          etaSpISO = etaSp_2_1to3;
+          etaKtISO = addDaysISO(etaSpISO, -2); // lưu/tăng bo 2 ngày
+          etdISO   = addDaysISO(etaKtISO, -4);
+          instStartISO = installStart_2;
+          instEndISO   = installEnd_2;
+        } else if (meta.code === "2.3") {
+          etaSpISO = etaSp_2_1to3;
+          etaKtISO = addDaysISO(etaSpISO, -1); // lưu/tăng bo 1 ngày
+          etdISO   = addDaysISO(etaKtISO, -4);
+          instStartISO = installStart_2;
+          instEndISO   = installEnd_2;
+        } else if (meta.code === "2.4") {
+          etaSpISO = etaSp_2_4to6;
+          etaKtISO = addDaysISO(etaSpISO, -2); // lưu/tăng bo 2 ngày
+          etdISO   = addDaysISO(etaKtISO, -4);
+          instStartISO = installStart_2;
+          instEndISO   = installEnd_2;
+        } else if (meta.code === "2.5" || meta.code === "2.6") {
+          etaSpISO = etaSp_2_4to6;
+          etaKtISO = addDaysISO(etaSpISO, -1); // lưu/tăng bo 1 ngày
+          etdISO   = addDaysISO(etaKtISO, -4);
+          instStartISO = installStart_2;
+          instEndISO   = installEnd_2;
+        } else if (meta.code === "2.7" || meta.code === "2.8") {
+          etaSpISO = etaSp_2_7to8;
+          etaKtISO = addDaysISO(etaSpISO, -4); // lưu/tăng bo 4 ngày
+          etdISO   = addDaysISO(etaKtISO, -4);
+          instStartISO = installStart_2;
+          instEndISO   = installEnd_2;
+        } else if (meta.code === "2.9" || meta.code === "2.10") {
+          etaSpISO = etaSp_2_9to10;
+          etaKtISO = addDaysISO(etaSpISO, -4); // lưu/tăng bo 4 ngày
+          etdISO   = addDaysISO(etaKtISO, -4);
+          instStartISO = installStart_2;
+          instEndISO   = installEnd_2;
+        }
+
+        return {
+          ...meta,
+          etdISO,
+          etaKtISO,
+          etaSpISO,
+          instStartISO,
+          instEndISO,
+          etd: formatVNDate(etdISO),
+          etaKt: formatVNDate(etaKtISO),
+          etaSp: formatVNDate(etaSpISO),
+          installStart: formatVNDate(instStartISO),
+          installEnd: formatVNDate(instEndISO)
+        };
+      });
+
+      // Cập nhật nhãn trên Gantt Chart và Footer theo công thức mới
+      const etd1_1 = formatVNDate(addDaysISO(h14, -7));
+      const etd3_1 = formatShortDate(addDaysISO(etaSp_3_1to3, -5));
+      const etd3_6 = formatShortDate(addDaysISO(etaSp_3_4to6, -5));
+      const etd1_10 = formatShortDate(addDaysISO(etaSp_1_8to10, -5));
+      const etd2_1 = formatShortDate(addDaysISO(etaSp_2_1to3, -6));
+      const etd2_6 = formatShortDate(addDaysISO(etaSp_2_4to6, -5));
+
+      const ganttRangeEl = document.getElementById('gantt-overall-range');
+      if (ganttRangeEl) {
+        ganttRangeEl.innerText = `Vận chuyển: ${etd1_1} ➔ ${formatVNDate(etaSp_2_9to10)} • Hoàn thành lắp đặt: ${formatVNDate(installEnd_2)}`;
+      }
+      const ganttBarS3 = document.getElementById('gantt-bar-s3');
+      if (ganttBarS3) {
+        ganttBarS3.innerText = `ETD ${etd3_1} - ${etd3_6} ➔ ETA Sapa ${formatShortDate(etaSp_3_1to3)} - ${formatShortDate(etaSp_3_4to6)} • Lắp đặt: ${formatShortDate(installStart_1_3)} - ${formatShortDate(installEnd_1_3)}`;
+      }
+      const ganttEtaS3 = document.getElementById('gantt-eta-s3');
+      if (ganttEtaS3) {
+        ganttEtaS3.innerText = `ETA Sapa: ${formatShortDate(etaSp_3_1to3)} - ${formatShortDate(etaSp_3_4to6)}`;
+      }
+      const ganttBarS1 = document.getElementById('gantt-bar-s1');
+      if (ganttBarS1) {
+        ganttBarS1.innerText = `ETD ${formatShortDate(addDaysISO(h14, -7))} - ${etd1_10} ➔ ETA Sapa ${formatShortDate(h14)} - ${formatShortDate(etaSp_1_8to10)} • Lắp đặt: ${formatShortDate(installStart_1_3)} - ${formatShortDate(installEnd_1_3)}`;
+      }
+      const ganttEtaS1 = document.getElementById('gantt-eta-s1');
+      if (ganttEtaS1) {
+        ganttEtaS1.innerText = `ETA Sapa: ${formatShortDate(h14)} - ${formatShortDate(etaSp_1_8to10)}`;
+      }
+      const ganttBarS2 = document.getElementById('gantt-bar-s2');
+      if (ganttBarS2) {
+        ganttBarS2.innerText = `ETD ${etd2_1} - ${etd2_6} ➔ ETA Sapa ${formatShortDate(etaSp_2_1to3)} - ${formatShortDate(etaSp_2_9to10)} • Lắp đặt: ${formatShortDate(installStart_2)} - ${formatShortDate(installEnd_2)}`;
+      }
+      const ganttEtaS2 = document.getElementById('gantt-eta-s2');
+      if (ganttEtaS2) {
+        ganttEtaS2.innerText = `ETA Sapa: ${formatShortDate(etaSp_2_1to3)} - ${formatShortDate(etaSp_2_9to10)}`;
+      }
+      const summaryNoteEl = document.getElementById('table-summary-note');
+      if (summaryNoteEl) {
+        summaryNoteEl.innerHTML = `* Kế hoạch điều phối tự động theo công thức: <strong>Lô 1: Slide và Ride</strong> & <strong>Lô 3: Đèn Decor</strong> lắp đặt từ <strong>${formatVNDate(installStart_1_3)} – ${formatVNDate(installEnd_1_3)}</strong> • <strong>Lô 2: Arcade Game và Gooest</strong> lắp đặt từ <strong>${formatVNDate(installStart_2)} – ${formatVNDate(installEnd_2)}</strong>.`;
+      }
+    }
+
+    // Xử lý khi người dùng chỉnh sửa ngày ở ô bôi vàng H14 hoặc H15
+    function handleYellowDateChange(cellId, newIsoVal) {
+      if (!newIsoVal) return;
+      if (cellId === 'H14') {
+        // Nếu H15 đang cùng giá trị với H14 trước khi sửa, đồng bộ H15 theo H14 để toàn bảng tự nhảy ngay
+        if (dateH15 === dateH14) {
+          dateH15 = newIsoVal;
+        }
+        dateH14 = newIsoVal;
+      } else if (cellId === 'H15') {
+        dateH15 = newIsoVal;
+      }
+      recalculateScheduleDates();
+      renderDispatchTable();
+    }
+
+    function resetFormulaDates() {
+      dateH14 = "2026-12-03";
+      dateH15 = "2026-12-03";
+      recalculateScheduleDates();
+      renderDispatchTable();
+    }
 
     // Switch Main Tabs
     function switchMainTab(tabId, btnElement) {
@@ -1922,17 +2136,13 @@
       btnElement.classList.add('btn-primary');
       renderDispatchTable();
       hydrateEmbeddedMedia();
-    hydrateEmbeddedMedia();
-    }
-
-    // Format Currency
-    function formatVND(amount) {
-      if (!amount || amount === 0) return "-";
-      return amount.toLocaleString('vi-VN') + " đ";
     }
 
     // Render Master Dispatch Table
     function renderDispatchTable() {
+      if (newScheduleData.length === 0) {
+        recalculateScheduleDates();
+      }
       const tbody = document.getElementById('tableBody');
       const searchVal = (document.getElementById('searchInput').value || '').trim().toLowerCase();
 
@@ -1942,18 +2152,15 @@
           car.code.toLowerCase().includes(searchVal) ||
           car.item.toLowerCase().includes(searchVal) ||
           car.pol.toLowerCase().includes(searchVal) ||
-          car.note.toLowerCase().includes(searchVal);
+          shipmentNames[car.shipment].toLowerCase().includes(searchVal);
         return matchShipment && matchSearch;
       });
 
       document.getElementById('filter-count').innerText = filtered.length;
 
       let html = '';
-      filtered.forEach((car, idx) => {
+      filtered.forEach((car) => {
         const badgeClass = car.shipment === 1 ? 'badge-s1' : (car.shipment === 2 ? 'badge-s2' : 'badge-s3');
-        const costHtml = car.cost > 0 
-          ? `<span class="price-highlight">${formatVND(car.cost)}</span>` 
-          : `<span style="color:var(--slate-400);">-</span>`;
 
         const diagramBtn = car.diagram 
           ? `<button class="btn-diagram" onclick="openMediaModal('iframe', '${car.diagram}', '${car.code} - ${car.item} (13m rào)')">
@@ -1962,21 +2169,30 @@
              </button>`
           : `<span style="font-size:0.7rem; color:var(--slate-400); font-style:italic;">-</span>`;
 
+        // Nếu là ô H14 (Xe 1.1) hoặc H15 (Xe 1.2) thì hiển thị ô bôi vàng cho phép chọn/sửa ngày trực tiếp
+        let etaSapaCellHtml = `<span class="date-highlight">${car.etaSp}</span>`;
+        if (car.excelCell === "H14" || car.excelCell === "H15") {
+          etaSapaCellHtml = `
+            <label class="yellow-date-cell" title="Ô ${car.excelCell} (Bôi vàng): Nhấn để chỉnh sửa ngày ETA Bản Mòng (Chân tòa CL3), toàn bộ bảng sẽ tự tính lại theo công thức">
+              <span class="yellow-cell-tag">${car.excelCell}</span>
+              <input type="date" class="yellow-date-input" value="${car.etaSpISO}" onchange="handleYellowDateChange('${car.excelCell}', this.value)" />
+            </label>
+          `;
+        }
+
         html += `
           <tr>
             <td style="text-align:center; color:var(--slate-400); font-family:'JetBrains Mono', monospace;">${car.stt}</td>
-            <td><span class="badge-shipment ${badgeClass}">Lô ${car.shipment}</span></td>
+            <td><span class="badge-shipment ${badgeClass}" style="white-space:nowrap;">${shipmentNames[car.shipment]}</span></td>
             <td><span class="car-code">${car.code}</span></td>
-            <td><strong>${car.item}</strong></td>
             <td>${car.pol}</td>
             <td>${car.pod}</td>
             <td><span class="date-badge">${car.etd}</span></td>
             <td><span class="date-badge">${car.etaKt}</span></td>
-            <td><span class="date-highlight">${car.etaSp}</span></td>
-            <td style="text-align:right;">${costHtml}</td>
-            <td style="font-size:0.75rem; color:var(--slate-600);">${car.importer}</td>
+            <td>${etaSapaCellHtml}</td>
+            <td><span class="date-badge">${car.installStart}</span></td>
+            <td><span class="date-highlight">${car.installEnd}</span></td>
             <td style="text-align:center;">${diagramBtn}</td>
-            <td style="font-size:0.75rem; color:var(--slate-600); max-width:230px;">${car.note}</td>
           </tr>
         `;
       });
@@ -2037,9 +2253,9 @@
 
     // Export to CSV Function
     function exportDispatchCSV() {
-      let csvContent = "\uFEFFShipment,Mã xe,Mặt hàng,POL,POD,ETD,ETA Kim Thành,ETA Sapa,Chi phí lưu ca dự kiến,Pháp nhân Nhập khẩu,Ghi chú\n";
+      let csvContent = "\uFEFFLô Hàng,Mã Xe,POL,POD,ETD,ETA Kim Thành,ETA Bản Mòng (Chân tòa CL3),Thời Gian Bắt Đầu Lắp Đặt,Thời Gian Dự Kiến Hoàn Thành Lắp Đặt,Bản Vẽ Xếp Xe\n";
       newScheduleData.forEach(car => {
-        csvContent += `Lô ${car.shipment},"${car.code}","${car.item}","${car.pol}","${car.pod}",${car.etd},${car.etaKt},${car.etaSp},${car.cost},"${car.importer}","${car.note}"\n`;
+        csvContent += `"${shipmentNames[car.shipment]}","${car.code}","${car.pol}","${car.pod}",${car.etd},${car.etaKt},${car.etaSp},${car.installStart},${car.installEnd},"${car.diagram}"\n`;
       });
 
       const blob = new Blob([csvContent], { type: "text/csv;charset=utf-8;" });
