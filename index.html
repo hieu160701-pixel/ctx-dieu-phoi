@@ -1462,7 +1462,7 @@
       <div class="gantt-chart-card">
         <div class="gantt-header-row">
           <span>TIẾN ĐỘ VẬN CHUYỂN & LẮP ĐẶT DỰ ÁN 26 CHUYẾN XE</span>
-          <span id="gantt-overall-range">Vận chuyển: 26/11/2026 ➔ 23/12/2026 • Hoàn thành lắp đặt: 28/01/2027</span>
+          <span id="gantt-overall-range">Vận chuyển: 26/11/2026 ➔ 21/12/2026 • Hoàn thành lắp đặt: 20/01/2027</span>
         </div>
 
         <div class="gantt-track-row">
@@ -1473,7 +1473,7 @@
             </div>
             <div class="gantt-bar-track">
               <div class="gantt-bar-fill fill-s3" id="gantt-bar-s3" style="left: 8%; width: 32%;">
-                ETD 29/11 - 30/11 ➔ ETA Sapa 04/12 - 05/12 • Lắp đặt: 09/12 - 13/01
+                ETD 29/11 - 30/11 ➔ ETA Sapa 04/12 - 05/12 • Lắp đặt: 10/12 - 07/01
               </div>
             </div>
             <div id="gantt-eta-s3" style="font-family:'JetBrains Mono', monospace; font-size:0.75rem; text-align:right;">
@@ -1488,7 +1488,7 @@
             </div>
             <div class="gantt-bar-track">
               <div class="gantt-bar-fill fill-s1" id="gantt-bar-s1" style="left: 0%; width: 48%;">
-                ETD 26/11 - 03/12 ➔ ETA Sapa 03/12 - 08/12 • Lắp đặt: 09/12 - 13/01
+                ETD 26/11 - 03/12 ➔ ETA Sapa 03/12 - 08/12 • Lắp đặt: 10/12 - 04/01
               </div>
             </div>
             <div id="gantt-eta-s1" style="font-family:'JetBrains Mono', monospace; font-size:0.75rem; text-align:right;">
@@ -1503,11 +1503,11 @@
             </div>
             <div class="gantt-bar-track">
               <div class="gantt-bar-fill fill-s2" id="gantt-bar-s2" style="left: 52%; width: 48%;">
-                ETD 14/12 - 16/12 ➔ ETA Sapa 20/12 - 23/12 • Lắp đặt: 24/12 - 28/01
+                ETD 10/12 - 11/12 ➔ ETA Sapa 18/12 - 21/12 • Lắp đặt: 21/12 - 20/01
               </div>
             </div>
             <div id="gantt-eta-s2" style="font-family:'JetBrains Mono', monospace; font-size:0.75rem; text-align:right;">
-              ETA Sapa: 20/12 - 23/12
+              ETA Sapa: 18/12 - 21/12
             </div>
           </div>
         </div>
@@ -2000,41 +2000,47 @@
     let newScheduleData = [];
     let currentShipment = "ALL";
 
-    // Tính toán lại toàn bộ các cột ngày theo đúng công thức Excel từ H14 và H15
+    // Tính toán lại toàn bộ các cột ngày theo đúng công thức Excel mới từ H14 và H15
     function recalculateScheduleDates() {
-      // Mốc chuẩn cho chuỗi xe tiếp theo dựa trên H15 (ETA Sapa xe 1.2)
       const h14 = dateH14;
       const h15 = dateH15;
 
       // Lô 3: Đèn Decor
-      // 3.1 - 3.3: ETA Sapa = H15 + 1 ngày
+      // 3.1 - 3.3: ETA Sapa = H15 + 1 ngày (04/12/2026)
       const etaSp_3_1to3 = addDaysISO(h15, 1);
-      // 3.4 - 3.6: ETA Sapa = ETA Sapa(3.3) + 1 ngày = H15 + 2 ngày
+      // 3.4 - 3.6: ETA Sapa = H15 + 2 ngày (05/12/2026)
       const etaSp_3_4to6 = addDaysISO(h15, 2);
 
       // Lô 1: Ride (1.3 - 1.10) nối tiếp sau Đèn Decor (3.6)
-      // 1.3 - 1.4: ETA Sapa = ETA Sapa(3.6) + 1 ngày = H15 + 3 ngày
+      // 1.3 - 1.4: ETA Sapa = H15 + 3 ngày (06/12/2026)
       const etaSp_1_3to4 = addDaysISO(h15, 3);
-      // 1.5 - 1.7: ETA Sapa = ETA Sapa(1.4) + 1 ngày = H15 + 4 ngày
+      // 1.5 - 1.7: ETA Sapa = H15 + 4 ngày (07/12/2026)
       const etaSp_1_5to7 = addDaysISO(h15, 4);
-      // 1.8 - 1.10: ETA Sapa = ETA Sapa(1.7) + 1 ngày = H15 + 5 ngày
+      // 1.8 - 1.10: ETA Sapa = H15 + 5 ngày (08/12/2026)
       const etaSp_1_8to10 = addDaysISO(h15, 5);
 
-      // Thời gian bắt đầu lắp đặt Lô 1 & Lô 3 = ETA Sapa(1.10) + 1 ngày = H15 + 6 ngày
-      const installStart_1_3 = addDaysISO(etaSp_1_8to10, 1);
-      // Thời gian hoàn thành lắp đặt Lô 1 & Lô 3 = Bắt đầu lắp đặt + 35 ngày
-      const installEnd_1_3 = addDaysISO(installStart_1_3, 35);
+      // Thời gian bắt đầu lắp đặt Lô 1 & Lô 3 = ETA Sapa(1.10) + 2 ngày = H15 + 7 ngày (10/12/2026)
+      const installStart_1_3 = addDaysISO(etaSp_1_8to10, 2);
+      // Hoàn thành lắp đặt:
+      // - Xe 1.1 & 1.2 (Slide): +20 ngày (30/12/2026)
+      const installEnd_1_1to2 = addDaysISO(installStart_1_3, 20);
+      // - Xe 1.3 - 1.10 (Ride): +25 ngày (04/01/2027)
+      const installEnd_1_3to10 = addDaysISO(installStart_1_3, 25);
+      // - Xe 3.1 - 3.6 (Đèn Decor): +28 ngày (07/01/2027)
+      const installEnd_3 = addDaysISO(installStart_1_3, 28);
 
-      // Thời gian bắt đầu lắp đặt Lô 2 (Arcade Game & Gooest) = Bắt đầu lắp đặt Đèn Decor + 15 ngày
-      const installStart_2 = addDaysISO(installStart_1_3, 15);
-      // Thời gian hoàn thành lắp đặt Lô 2 = Bắt đầu lắp đặt Lô 2 + 35 ngày
-      const installEnd_2 = addDaysISO(installStart_2, 35);
+      // Lô 2: Arcade Game và Gooest
+      // Bắt đầu lắp đặt Lô 2: 21/12/2026 (= installStart_1_3 + 11 ngày)
+      const installStart_2 = addDaysISO(installStart_1_3, 11);
+      // Hoàn thành lắp đặt Lô 2: 20/01/2027 (= installStart_2 + 30 ngày)
+      const installEnd_2 = addDaysISO(installStart_2, 30);
 
-      // ETA Sapa Lô 2 tính lùi từ ngày bắt đầu lắp đặt Lô 2 (installStart_2)
-      const etaSp_2_9to10 = addDaysISO(installStart_2, -1); // 23/12
-      const etaSp_2_7to8  = addDaysISO(etaSp_2_9to10, -1);  // 22/12
-      const etaSp_2_4to6  = addDaysISO(etaSp_2_7to8, -1);   // 21/12
-      const etaSp_2_1to3  = addDaysISO(etaSp_2_4to6, -1);   // 20/12
+      // Lịch vận chuyển Lô 2 tính theo installStart_2 (21/12/2026)
+      const etaKt_2_all   = addDaysISO(installStart_2, -4); // 17/12/2026
+      const etaSp_2_1to3  = addDaysISO(installStart_2, -3); // 18/12/2026
+      const etaSp_2_4to6  = addDaysISO(installStart_2, -2); // 19/12/2026
+      const etaSp_2_7to9  = addDaysISO(installStart_2, -1); // 20/12/2026
+      const etaSp_2_10    = installStart_2;                 // 21/12/2026
 
       newScheduleData = baseCarsMeta.map(meta => {
         let etdISO, etaKtISO, etaSpISO, instStartISO, instEndISO;
@@ -2042,79 +2048,67 @@
         if (meta.code === "1.1") {
           etaSpISO = h14;
           etaKtISO = addDaysISO(etaSpISO, -1);
-          etdISO   = addDaysISO(etaKtISO, -6); // Nam Kinh -> Kim Thành: 6 ngày
+          etdISO   = addDaysISO(etaKtISO, -6);
           instStartISO = installStart_1_3;
-          instEndISO   = installEnd_1_3;
+          instEndISO   = installEnd_1_1to2;
         } else if (meta.code === "1.2") {
           etaSpISO = h15;
           etaKtISO = addDaysISO(etaSpISO, -1);
-          etdISO   = addDaysISO(etaKtISO, -6); // Nam Kinh -> Kim Thành: 6 ngày
+          etdISO   = addDaysISO(etaKtISO, -6);
           instStartISO = installStart_1_3;
-          instEndISO   = installEnd_1_3;
+          instEndISO   = installEnd_1_1to2;
         } else if (meta.code === "1.3" || meta.code === "1.4") {
           etaSpISO = etaSp_1_3to4;
           etaKtISO = addDaysISO(etaSpISO, -1);
-          etdISO   = addDaysISO(etaKtISO, -4); // Trung Sơn -> Kim Thành: 4 ngày
+          etdISO   = addDaysISO(etaKtISO, -4);
           instStartISO = installStart_1_3;
-          instEndISO   = installEnd_1_3;
+          instEndISO   = installEnd_1_3to10;
         } else if (meta.code === "1.5" || meta.code === "1.6" || meta.code === "1.7") {
           etaSpISO = etaSp_1_5to7;
           etaKtISO = addDaysISO(etaSpISO, -1);
           etdISO   = addDaysISO(etaKtISO, -4);
           instStartISO = installStart_1_3;
-          instEndISO   = installEnd_1_3;
+          instEndISO   = installEnd_1_3to10;
         } else if (meta.code === "1.8" || meta.code === "1.9" || meta.code === "1.10") {
           etaSpISO = etaSp_1_8to10;
           etaKtISO = addDaysISO(etaSpISO, -1);
           etdISO   = addDaysISO(etaKtISO, -4);
           instStartISO = installStart_1_3;
-          instEndISO   = installEnd_1_3;
+          instEndISO   = installEnd_1_3to10;
         } else if (meta.code === "3.1" || meta.code === "3.2" || meta.code === "3.3") {
           etaSpISO = etaSp_3_1to3;
           etaKtISO = addDaysISO(etaSpISO, -1);
           etdISO   = addDaysISO(etaKtISO, -4);
           instStartISO = installStart_1_3;
-          instEndISO   = installEnd_1_3;
+          instEndISO   = installEnd_3;
         } else if (meta.code === "3.4" || meta.code === "3.5" || meta.code === "3.6") {
           etaSpISO = etaSp_3_4to6;
           etaKtISO = addDaysISO(etaSpISO, -1);
           etdISO   = addDaysISO(etaKtISO, -4);
           instStartISO = installStart_1_3;
-          instEndISO   = installEnd_1_3;
-        } else if (meta.code === "2.1" || meta.code === "2.2") {
+          instEndISO   = installEnd_3;
+        } else if (meta.code === "2.1" || meta.code === "2.2" || meta.code === "2.3") {
           etaSpISO = etaSp_2_1to3;
-          etaKtISO = addDaysISO(etaSpISO, -2); // lưu/tăng bo 2 ngày
-          etdISO   = addDaysISO(etaKtISO, -4);
+          etaKtISO = etaKt_2_all;
+          etdISO   = addDaysISO(etaKtISO, -7); // 10/12/2026
           instStartISO = installStart_2;
           instEndISO   = installEnd_2;
-        } else if (meta.code === "2.3") {
-          etaSpISO = etaSp_2_1to3;
-          etaKtISO = addDaysISO(etaSpISO, -1); // lưu/tăng bo 1 ngày
-          etdISO   = addDaysISO(etaKtISO, -4);
-          instStartISO = installStart_2;
-          instEndISO   = installEnd_2;
-        } else if (meta.code === "2.4") {
+        } else if (meta.code === "2.4" || meta.code === "2.5" || meta.code === "2.6") {
           etaSpISO = etaSp_2_4to6;
-          etaKtISO = addDaysISO(etaSpISO, -2); // lưu/tăng bo 2 ngày
-          etdISO   = addDaysISO(etaKtISO, -4);
+          etaKtISO = etaKt_2_all;
+          etdISO   = addDaysISO(etaKtISO, -6); // 11/12/2026
           instStartISO = installStart_2;
           instEndISO   = installEnd_2;
-        } else if (meta.code === "2.5" || meta.code === "2.6") {
-          etaSpISO = etaSp_2_4to6;
-          etaKtISO = addDaysISO(etaSpISO, -1); // lưu/tăng bo 1 ngày
-          etdISO   = addDaysISO(etaKtISO, -4);
+        } else if (meta.code === "2.7" || meta.code === "2.8" || meta.code === "2.9") {
+          etaSpISO = etaSp_2_7to9;
+          etaKtISO = etaKt_2_all;
+          etdISO   = addDaysISO(etaKtISO, -7); // 10/12/2026
           instStartISO = installStart_2;
           instEndISO   = installEnd_2;
-        } else if (meta.code === "2.7" || meta.code === "2.8") {
-          etaSpISO = etaSp_2_7to8;
-          etaKtISO = addDaysISO(etaSpISO, -4); // lưu/tăng bo 4 ngày
-          etdISO   = addDaysISO(etaKtISO, -4);
-          instStartISO = installStart_2;
-          instEndISO   = installEnd_2;
-        } else if (meta.code === "2.9" || meta.code === "2.10") {
-          etaSpISO = etaSp_2_9to10;
-          etaKtISO = addDaysISO(etaSpISO, -4); // lưu/tăng bo 4 ngày
-          etdISO   = addDaysISO(etaKtISO, -4);
+        } else if (meta.code === "2.10") {
+          etaSpISO = etaSp_2_10;
+          etaKtISO = etaKt_2_all;
+          etdISO   = addDaysISO(etaKtISO, -6); // 11/12/2026
           instStartISO = installStart_2;
           instEndISO   = installEnd_2;
         }
@@ -2139,16 +2133,16 @@
       const etd3_1 = formatShortDate(addDaysISO(etaSp_3_1to3, -5));
       const etd3_6 = formatShortDate(addDaysISO(etaSp_3_4to6, -5));
       const etd1_10 = formatShortDate(addDaysISO(etaSp_1_8to10, -5));
-      const etd2_1 = formatShortDate(addDaysISO(etaSp_2_1to3, -6));
-      const etd2_6 = formatShortDate(addDaysISO(etaSp_2_4to6, -5));
+      const etd2_1 = formatShortDate(addDaysISO(etaKt_2_all, -7));
+      const etd2_6 = formatShortDate(addDaysISO(etaKt_2_all, -6));
 
       const ganttRangeEl = document.getElementById('gantt-overall-range');
       if (ganttRangeEl) {
-        ganttRangeEl.innerText = `Vận chuyển: ${etd1_1} ➔ ${formatVNDate(etaSp_2_9to10)} • Hoàn thành lắp đặt: ${formatVNDate(installEnd_2)}`;
+        ganttRangeEl.innerText = `Vận chuyển: ${etd1_1} ➔ ${formatVNDate(etaSp_2_10)} • Hoàn thành lắp đặt: ${formatVNDate(installEnd_2)}`;
       }
       const ganttBarS3 = document.getElementById('gantt-bar-s3');
       if (ganttBarS3) {
-        ganttBarS3.innerText = `ETD ${etd3_1} - ${etd3_6} ➔ ETA Sapa ${formatShortDate(etaSp_3_1to3)} - ${formatShortDate(etaSp_3_4to6)} • Lắp đặt: ${formatShortDate(installStart_1_3)} - ${formatShortDate(installEnd_1_3)}`;
+        ganttBarS3.innerText = `ETD ${etd3_1} - ${etd3_6} ➔ ETA Sapa ${formatShortDate(etaSp_3_1to3)} - ${formatShortDate(etaSp_3_4to6)} • Lắp đặt: ${formatShortDate(installStart_1_3)} - ${formatShortDate(installEnd_3)}`;
       }
       const ganttEtaS3 = document.getElementById('gantt-eta-s3');
       if (ganttEtaS3) {
@@ -2156,7 +2150,7 @@
       }
       const ganttBarS1 = document.getElementById('gantt-bar-s1');
       if (ganttBarS1) {
-        ganttBarS1.innerText = `ETD ${formatShortDate(addDaysISO(h14, -7))} - ${etd1_10} ➔ ETA Sapa ${formatShortDate(h14)} - ${formatShortDate(etaSp_1_8to10)} • Lắp đặt: ${formatShortDate(installStart_1_3)} - ${formatShortDate(installEnd_1_3)}`;
+        ganttBarS1.innerText = `ETD ${formatShortDate(addDaysISO(h14, -7))} - ${etd1_10} ➔ ETA Sapa ${formatShortDate(h14)} - ${formatShortDate(etaSp_1_8to10)} • Lắp đặt: ${formatShortDate(installStart_1_3)} - ${formatShortDate(installEnd_1_3to10)}`;
       }
       const ganttEtaS1 = document.getElementById('gantt-eta-s1');
       if (ganttEtaS1) {
@@ -2164,15 +2158,15 @@
       }
       const ganttBarS2 = document.getElementById('gantt-bar-s2');
       if (ganttBarS2) {
-        ganttBarS2.innerText = `ETD ${etd2_1} - ${etd2_6} ➔ ETA Sapa ${formatShortDate(etaSp_2_1to3)} - ${formatShortDate(etaSp_2_9to10)} • Lắp đặt: ${formatShortDate(installStart_2)} - ${formatShortDate(installEnd_2)}`;
+        ganttBarS2.innerText = `ETD ${etd2_1} - ${etd2_6} ➔ ETA Sapa ${formatShortDate(etaSp_2_1to3)} - ${formatShortDate(etaSp_2_10)} • Lắp đặt: ${formatShortDate(installStart_2)} - ${formatShortDate(installEnd_2)}`;
       }
       const ganttEtaS2 = document.getElementById('gantt-eta-s2');
       if (ganttEtaS2) {
-        ganttEtaS2.innerText = `ETA Sapa: ${formatShortDate(etaSp_2_1to3)} - ${formatShortDate(etaSp_2_9to10)}`;
+        ganttEtaS2.innerText = `ETA Sapa: ${formatShortDate(etaSp_2_1to3)} - ${formatShortDate(etaSp_2_10)}`;
       }
       const summaryNoteEl = document.getElementById('table-summary-note');
       if (summaryNoteEl) {
-        summaryNoteEl.innerHTML = `* Kế hoạch điều phối tự động theo công thức: <strong>Lô 1: Slide và Ride</strong> & <strong>Lô 3: Đèn Decor</strong> lắp đặt từ <strong>${formatVNDate(installStart_1_3)} – ${formatVNDate(installEnd_1_3)}</strong> • <strong>Lô 2: Arcade Game và Gooest</strong> lắp đặt từ <strong>${formatVNDate(installStart_2)} – ${formatVNDate(installEnd_2)}</strong>.`;
+        summaryNoteEl.innerHTML = `* Kế hoạch điều phối tự động theo công thức: <strong>Lô 1: Slide và Ride</strong> lắp đặt <strong>${formatVNDate(installStart_1_3)} – ${formatVNDate(installEnd_1_3to10)}</strong> • <strong>Lô 3: Đèn Decor</strong> lắp đặt <strong>${formatVNDate(installStart_1_3)} – ${formatVNDate(installEnd_3)}</strong> • <strong>Lô 2: Arcade Game và Gooest</strong> lắp đặt <strong>${formatVNDate(installStart_2)} – ${formatVNDate(installEnd_2)}</strong>.`;
       }
     }
 
