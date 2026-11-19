@@ -1120,7 +1120,7 @@
   <!-- 3-Tab Main Navigation Bar -->
   <nav class="tab-nav-bar">
     <div class="tab-nav-container">
-      <div class="main-tabs-list">
+            <div class="main-tabs-list">
         <button class="main-tab-item active" data-tab="tab1" onclick="switchMainTab('tab1', this)">
           <span class="tab-idx">1</span>
           <span>Tổng Quan & Báo Giá</span>
@@ -1129,8 +1129,12 @@
           <span class="tab-idx">2</span>
           <span>Dashboard trạng thái xe</span>
         </button>
-        <button class="main-tab-item" data-tab="tab4" onclick="switchMainTab('tab4', this)">
+        <button class="main-tab-item" data-tab="tab3" onclick="switchMainTab('tab3', this)">
           <span class="tab-idx">3</span>
+          <span>Phân Công Công Việc (CTX - Kỳ Tốc)</span>
+        </button>
+        <button class="main-tab-item" data-tab="tab4" onclick="switchMainTab('tab4', this)">
+          <span class="tab-idx">4</span>
           <span>Thực Tế Khảo Sát Hiện Trường</span>
         </button>
       </div>
@@ -1748,6 +1752,377 @@
             <div id="table-summary-note">
               * Kế hoạch điều phối cập nhật: <strong>Lô 1: Slide và Ride</strong> & <strong>Lô 3: Đèn Decor</strong> lắp đặt từ <strong>09/12/2026 – 13/01/2027</strong> • <strong>Lô 2: Arcade Game và Gooest</strong> lắp đặt từ <strong>24/12/2026 – 28/01/2027</strong>.
             </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+
+
+    <!-- ========================================================
+         TAB 3: BẢNG PHÂN CHIA PHẠM VI CÔNG VIỆC & CHUẨN BỊ VẬT TƯ (CTX - KỲ TỐC)
+         ======================================================== -->
+    <div class="tab-pane" id="tab3">
+
+      <!-- KPI / Tóm tắt nhanh Phạm vi Phối hợp -->
+      <div class="kpi-grid-4">
+        <div class="kpi-card kpi-orange">
+          <div class="kpi-top">
+            <span class="kpi-label">Quy Trình Phối Hợp Trọn Gói</span>
+            <div class="kpi-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 11 12 14 22 4"></polyline><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path></svg>
+            </div>
+          </div>
+          <div class="kpi-val">5 Bước <span style="font-size:0.9rem; font-weight:700;">Chính</span></div>
+          <div class="kpi-sub">
+            Từ chuẩn bị Hồ sơ XNK &amp; Bảo hiểm ➔ Nhận hàng tại TQ ➔ Thông quan ➔ Giao hàng CL3 ➔ Quyết toán
+          </div>
+        </div>
+
+        <div class="kpi-card kpi-blue">
+          <div class="kpi-top">
+            <span class="kpi-label">Công Cụ Khai Báo &amp; Pháp Lý (CĐT)</span>
+            <div class="kpi-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+            </div>
+          </div>
+          <div class="kpi-val">ECUS5 &amp; Token <span style="font-size:0.85rem; font-weight:700;">Chữ Ký Số</span></div>
+          <div class="kpi-sub">
+            Tài khoản <strong>VNACCS/VCIS</strong>, <strong>Một cửa Quốc gia</strong>, Thuế điện tử 24/7 &amp; Pháp nhân 3 bên (Indochina - CTX - UNIS)
+          </div>
+        </div>
+
+        <div class="kpi-card kpi-emerald">
+          <div class="kpi-top">
+            <span class="kpi-label">Trang Bị &amp; Vật Tư Hạ Hàng Tại CL3</span>
+            <div class="kpi-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path></svg>
+            </div>
+          </div>
+          <div class="kpi-val">Cẩu 15T <span style="font-size:0.85rem; font-weight:700;">+ Xe Nâng &amp; Cáp Vải</span></div>
+          <div class="kpi-sub">
+            Bố trí mặt bằng, nhân công, tấm lót sàn Epoxy &amp; cẩu hạ trong vòng <strong>12 giờ</strong> kể từ khi xe tới công trình
+          </div>
+        </div>
+      </div>
+
+      <!-- PHẦN 1: CHECKLIST CHI TIẾT VẬT TƯ, TRANG BỊ, CÔNG CỤ PHÁP LÝ CHỦ ĐẦU TƯ CẦN CHUẨN BỊ -->
+      <div class="section-card">
+        <div class="section-header">
+          <div class="section-title">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--primary-orange)" stroke-width="2"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg>
+            DANH MỤC VẬT TƯ, TRANG BỊ, CÔNG CỤ KHAI BÁO &amp; HẠ TẦNG CHỦ ĐẦU TƯ (CTX) CẦN CHUẨN BỊ CHI TIẾT
+          </div>
+          <span class="section-badge" style="background:var(--primary-orange-light); color:var(--primary-orange); border:1px solid var(--primary-orange-border);">CHECKLIST CHUẨN BỊ TRƯỚC &amp; TRONG KHI VẬN HÀNH</span>
+        </div>
+        <div class="section-body">
+          <div class="grid-3">
+
+            <!-- Nhóm 1: Công cụ khai báo Hải quan & Pháp lý -->
+            <div class="detail-box" style="border-top: 4px solid var(--blue-600);">
+              <div class="detail-box-title" style="color:var(--blue-600);">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
+                1. Công Cụ Khai Báo Hải Quan Điện Tử &amp; Hồ Sơ Pháp Lý
+              </div>
+              <ul class="detail-list">
+                <li>
+                  <strong>Chữ ký số (USB Token) còn hiệu lực:</strong> Của pháp nhân đứng tên nhập khẩu (<strong>CTX</strong> cho Lô 1 &amp; Lô 3; <strong>Indochina</strong> cho Lô 2 - Máy game trả thưởng theo HĐ ủy thác). Cần cài đặt sẵn phần mềm quản lý Token và bố trí nhân sự trực máy tính (hỗ trợ ký qua <strong>UltraViewer / TeamViewer</strong>) khi truyền tờ khai và nộp hồ sơ chuyên ngành.
+                </li>
+                <li>
+                  <strong>Phần mềm khai báo Hải quan ECUS5-VNACCS &amp; Tài khoản VNACCS/VCIS:</strong> Đảm bảo pháp nhân nhập khẩu đã đăng ký tài khoản sử dụng Hệ thống thông quan tự động VNACCS/VCIS trên Tổng cục Hải quan; cấu hình hoặc phân quyền để Kỳ Tốc đổ dữ liệu tờ khai (trên 20 mã hàng/xe, tổng 917 kiện) chính xác.
+                </li>
+                <li>
+                  <strong>Tài khoản Cổng thông tin Một cửa Quốc gia (vnsw.gov.vn) &amp; Dịch vụ công Lào Cai:</strong> Để ký số và nộp hồ sơ trực tuyến xin Giấy phép nhập khẩu &amp; Thẩm định nội dung văn hóa tại Sở VH-TT-DL tỉnh Lào Cai.
+                </li>
+                <li>
+                  <strong>Tài khoản Ngân hàng nộp thuế điện tử 24/7:</strong> Đã liên kết cổng thanh toán điện tử với Tổng cục Hải quan, đảm bảo sẵn số dư/hạn mức để trích nộp thuế NK &amp; thuế GTGT ngay khi truyền tờ khai tại Cửa khẩu Kim Thành, tránh chờ đợi làm phát sinh lưu ca xe.
+                </li>
+                <li>
+                  <strong>Hồ sơ pháp lý &amp; tài liệu kỹ thuật gốc đóng dấu:</strong> Giấy ĐKKD, Hợp đồng ủy thác 3 bên (Indochina – CTX – UNIS), HĐ ngoại thương, Invoice, Packing List chi tiết, Catalogue hình ảnh &amp; Bản thuyết minh cách chơi/nội dung từng máy game (tiếng Việt) để nộp Sở VH-TT-DL.
+                </li>
+              </ul>
+            </div>
+
+            <!-- Nhóm 2: Vật tư & Trang bị tại Xưởng NCC Trung Quốc -->
+            <div class="detail-box" style="border-top: 4px solid var(--amber-600);">
+              <div class="detail-box-title" style="color:var(--amber-600);">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg>
+                2. Vật Tư Đóng Gói, Tem Nhãn &amp; Trang Bị Tại Xưởng NCC (TQ)
+              </div>
+              <ul class="detail-list">
+                <li>
+                  <strong>File thiết kế Tem nhãn gốc &amp; Tem nhãn phụ tiếng Việt chuẩn:</strong> Đã duyệt theo tư vấn của Kỳ Tốc (đúng Nghị định 43/2017/NĐ-CP &amp; 111/2021/NĐ-CP: ghi rõ tên thiết bị, model, năm sản xuất, xuất xứ, tên &amp; địa chỉ đơn vị nhập khẩu/ủy thác, thông số kỹ thuật, cảnh báo).
+                </li>
+                <li>
+                  <strong>Vật tư đóng gói &amp; gia cố chuyên dụng (yêu cầu NCC chuẩn bị):</strong>
+                  <div style="margin-top:4px; padding-left:8px; color:var(--slate-600);">
+                    - <strong>Pallet gỗ / Thùng gỗ thưa đạt chuẩn hun trùng ISPM 15</strong>, chịu tải cao.<br/>
+                    - <strong>Vật tư chống sốc &amp; chống ẩm:</strong> Xốp định hình EPE, màng xốp hơi (Bubble wrap), màng co PE quấn kín, túi hút ẩm (Silica gel) bên trong tủ điện/máy game &amp; bảng LED.<br/>
+                    - <strong>Đai nẹp kiện hàng:</strong> Dây đai nhựa PP/PET hoặc đai thép, nẹp góc carton bảo vệ cạnh thùng khi cẩu và sang tải.
+                  </div>
+                </li>
+                <li>
+                  <strong>Trang bị &amp; nhân lực tại xưởng NCC (Nam Kinh &amp; Trung Sơn):</strong> Chỉ đạo NCC bố trí mặt bằng tập kết có mái che, <strong>xe nâng máy tại xưởng (Forklift 3–5 tấn)</strong>, xe nâng tay, cầu dẫn lên xe 13m7 và đội công nhân xưởng phối hợp mở kiện hỗ trợ Kỳ Tốc dán tem phụ lên từng máy game Lô 2 trước khi đóng kiện &amp; kẹp chì Chặng 1.
+                </li>
+              </ul>
+            </div>
+
+            <!-- Nhóm 3: Cơ giới, Vật tư & Hạ tầng tại Chân công trình Bản Mòng (Tòa CL3) -->
+            <div class="detail-box" style="border-top: 4px solid var(--emerald-600);">
+              <div class="detail-box-title" style="color:var(--emerald-600);">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="3" width="15" height="13"></rect><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon><circle cx="5.5" cy="18.5" r="2.5"></circle><circle cx="18.5" cy="18.5" r="2.5"></circle></svg>
+                3. Cơ Giới, Vật Tư Cẩu Hạ &amp; Mặt Bằng Tại Chân Tòa CL3 (Bản Mòng)
+              </div>
+              <ul class="detail-list">
+                <li>
+                  <strong>Phương tiện cơ giới hạ hàng (trực chiến giải phóng xe trong 12h):</strong>
+                  <div style="margin-top:4px; padding-left:8px; color:var(--slate-600);">
+                    - <strong>01–02 Xe cẩu tự hành 15 tấn</strong> (cần vươn 12–15m, có giấy kiểm định an toàn &amp; lái cẩu có chứng chỉ).<br/>
+                    - <strong>01 Xe nâng máy (Forklift 3.5–5 tấn)</strong> hỗ trợ tại bãi hạ hàng chân tòa CL3.<br/>
+                    - <strong>04–06 Xe nâng tay (Pallet Jack 2.5–3 tấn)</strong>, con lăn đẩy máy (Roller Skates), xà beng bẩy kiện để đưa hàng vào bên trong sàn tầng 3.
+                  </div>
+                </li>
+                <li>
+                  <strong>Vật tư cẩu hạ &amp; Bảo vệ sàn sơn Epoxy tầng 3:</strong>
+                  <div style="margin-top:4px; padding-left:8px; color:var(--slate-600);">
+                    - <strong>Bộ dây cáp vải bản rộng (Webbing Slings 3T–5T, dài 4m–6m)</strong>, mãnh khuyên (Shackles), thanh ngáng chống bóp thùng máy, dây thừng dẫn hướng.<br/>
+                    - <strong>Tấm gỗ ván ép dày 15–18mm hoặc tấm cao su lót sàn</strong> trải dọc lối di chuyển để bảo vệ tuyệt đối bề mặt <strong>sàn sơn Epoxy tầng 3</strong> (khô từ 03/12/2026).<br/>
+                    - <strong>Bạt che mưa khổ lớn, đèn pha chiếu sáng ban đêm (500W–1000W)</strong> &amp; nguồn điện tại bãi hạ hàng (phục vụ dỡ hàng ca tối/đêm do xe chạy tránh giờ cấm Sa Pa).
+                  </div>
+                </li>
+                <li>
+                  <strong>Nhân lực &amp; Mặt bằng giao nhận:</strong> Đội công nhân bốc xếp (<strong>8–12 người/ca</strong>), mặt bằng đường dốc bê tông thông thoáng cho 3–4 xe tải 8 tấn đỗ quay đầu, và <strong>Chỉ huy hiện trường CTX</strong> có thẩm quyền kiểm đếm, ký Biên bản bàn giao ngay tại điểm dỡ hàng.
+                </li>
+              </ul>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <!-- PHẦN 2: BẢNG PHÂN CHIA PHẠM VI CÔNG VIỆC CHI TIẾT (5 BƯỚC) -->
+      <div class="section-card">
+        <div class="section-header">
+          <div class="section-title">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--primary-orange)" stroke-width="2"><line x1="8" y1="6" x2="21" y2="6"></line><line x1="8" y1="12" x2="21" y2="12"></line><line x1="8" y1="18" x2="21" y2="18"></line><line x1="3" y1="6" x2="3.01" y2="6"></line><line x1="3" y1="12" x2="3.01" y2="12"></line><line x1="3" y1="18" x2="3.01" y2="18"></line></svg>
+            BẢNG PHÂN CHIA PHẠM VI CÔNG VIỆC CHI TIẾT (BÊN A: CTX HOLDINGS – BÊN B: KỲ TỐC LOGISTICS)
+          </div>
+          <span class="section-badge">MA TRẬN TRÁCH NHIỆM, ĐẦU VÀO, ĐẦU RA &amp; ĐIỀU KHOẢN RÀNG BUỘC</span>
+        </div>
+        <div class="section-body">
+          <div class="table-container">
+            <table class="data-table" style="min-width: 1280px;">
+              <thead>
+                <tr>
+                  <th style="width: 75px; text-align: center;">BƯỚC</th>
+                  <th style="width: 165px;">NỘI DUNG</th>
+                  <th style="width: 185px;">ĐẦU VÀO (INPUT)</th>
+                  <th style="width: 280px; background: #EFF6FF; color: #1E40AF;">BÊN A - CTX (CHỦ ĐẦU TƯ)</th>
+                  <th style="width: 280px; background: #FFF5EE; color: #9A3412;">BÊN B - KỲ TỐC LOGISTICS</th>
+                  <th style="width: 175px; background: #ECFDF5; color: #065F46;">KẾT QUẢ (OUTPUT)</th>
+                  <th style="width: 190px; background: #FFFBEB; color: #92400E;">NOTE / RÀNG BUỘC</th>
+                </tr>
+              </thead>
+              <tbody>
+                <!-- BƯỚC 1 -->
+                <tr>
+                  <td style="text-align: center; vertical-align: top;">
+                    <span class="car-code" style="background:var(--primary-orange); color:#FFF;">Bước 1</span>
+                  </td>
+                  <td style="vertical-align: top; font-weight: 800; color: var(--slate-900);">
+                    Chuẩn bị hồ sơ XNK, Ủy thác nhập khẩu, Công cụ khai báo &amp; Bảo hiểm hàng hóa
+                  </td>
+                  <td style="vertical-align: top;">
+                    <div style="margin-bottom:6px;">• Danh mục đơn hàng (Packing List chi tiết 917 kiện), thông tin hàng hóa (chủng loại, model, xuất xứ, chất liệu, điện áp, tiêu chuẩn kỹ thuật, bao bì, nhãn mác).</div>
+                    <div style="margin-bottom:6px;">• Thông tin Nhà bảo hiểm do Bên A chỉ định.</div>
+                    <div>• Pháp nhân 3 bên (<strong>Indochina – CTX – UNIS</strong>) cho Lô hàng 2 (Máy chơi game trả thưởng).</div>
+                  </td>
+                  <td style="vertical-align: top; background: rgba(239, 246, 255, 0.35);">
+                    <div style="margin-bottom:6px;">• Cung cấp đầy đủ, chính xác Packing List, khối lượng, quy cách đóng gói, địa chỉ giao/nhận và thông tin khai báo hải quan.</div>
+                    <div style="margin-bottom:6px; padding:6px 8px; background:#EFF6FF; border-left:3px solid var(--blue-600); border-radius:4px;">
+                      <strong>🔧 Công cụ &amp; Trang bị khai báo cần chuẩn bị:</strong><br/>
+                      - <strong>Chữ ký số (USB Token)</strong> còn hiệu lực của pháp nhân nhập khẩu (CTX / Indochina) &amp; máy tính cài sẵn UltraViewer/TeamViewer để ký số.<br/>
+                      - <strong>Tài khoản VNACCS/VCIS &amp; phần mềm ECUS5-VNACCS</strong> đã đăng ký với Tổng cục Hải quan.<br/>
+                      - <strong>Tài khoản Một cửa Quốc gia (vnsw.gov.vn)</strong> &amp; Cổng Dịch vụ công Lào Cai.<br/>
+                      - <strong>Tài khoản nộp thuế điện tử 24/7</strong> đảm bảo số dư nộp thuế thông quan.
+                    </div>
+                    <div style="margin-bottom:6px;">• Thông báo yêu cầu vận chuyển đặc biệt (hàng dễ vỡ, hóa chất, cồng kềnh, nặng, giá trị cao...) và phối hợp NCC gia cố hàng (pallet hun trùng ISPM 15, xốp chống sốc, màng PE chống ẩm).</div>
+                    <div style="margin-bottom:6px;">• Phối hợp Chủ đầu tư (Indochina) ký hồ sơ ủy thác nhập khẩu (Lô hàng 2) theo hướng dẫn của Bên B.</div>
+                    <div>• Chỉ định Nhà bảo hiểm và thanh toán 100% chi phí bảo hiểm cho Bên B sau khi ký HĐ.</div>
+                  </td>
+                  <td style="vertical-align: top; background: rgba(255, 245, 238, 0.35);">
+                    <div style="margin-bottom:6px;">• Tư vấn, rà soát và áp mã HS (HS Code), số liệu hải quan chính xác và lên tờ khai nháp trên hệ thống <strong>ECUS5-VNACCS</strong>.</div>
+                    <div style="margin-bottom:6px;">• Tư vấn quy trình ủy thác nhập khẩu (Lô hàng 2); trực tiếp soạn thảo HĐ ủy thác 3 bên (<strong>Indochina – CTX – UNIS</strong>), HĐ mua bán quốc tế đứng tên Indochina.</div>
+                    <div style="margin-bottom:6px;">• Trực tiếp ký HĐ bảo hiểm mọi rủi ro (110% giá trị hàng, Bên A thụ hưởng), đàm phán điều khoản và thanh toán phí cho Nhà bảo hiểm.</div>
+                    <div>• Tư vấn mẫu tem gốc và/hoặc tem phụ tiếng Việt đúng quy định pháp luật (NĐ 43/2017 &amp; NĐ 111/2021).</div>
+                  </td>
+                  <td style="vertical-align: top;">
+                    <div style="margin-bottom:6px;">• Bộ chứng từ XNK chuẩn (HĐMB, Invoice, Packing List, mã HS chuẩn) sẵn sàng truyền trên <strong>ECUS5</strong>.</div>
+                    <div style="margin-bottom:6px;">• Bộ hồ sơ Ủy thác nhập khẩu 3 bên hoàn chỉnh (Lô hàng 2).</div>
+                    <div style="margin-bottom:6px;">• Hợp đồng / Chứng nhận bảo hiểm mọi rủi ro (110% giá trị hàng).</div>
+                    <div>• Mẫu tem nhãn chuẩn pháp luật.</div>
+                  </td>
+                  <td style="vertical-align: top;">
+                    <div style="margin-bottom:6px;">• Bên B chịu toàn bộ tiền phạt và chi phí khắc phục nếu khai sai mã HS / số liệu không do lỗi chứng từ từ Bên A.</div>
+                    <div>• Bên A chịu trách nhiệm nếu thông tin khai báo ban đầu không chính xác dẫn đến phát sinh thuế, phí hải quan.</div>
+                  </td>
+                </tr>
+
+                <!-- BƯỚC 2 -->
+                <tr>
+                  <td style="text-align: center; vertical-align: top;">
+                    <span class="car-code" style="background:var(--primary-orange); color:#FFF;">Bước 2</span>
+                  </td>
+                  <td style="vertical-align: top; font-weight: 800; color: var(--slate-900);">
+                    Tiếp nhận, kiểm tra, dán tem &amp; kẹp chì tại xưởng Trung Quốc (Chặng 1)
+                  </td>
+                  <td style="vertical-align: top;">
+                    <div style="margin-bottom:6px;">• Lịch lấy hàng đã chốt.</div>
+                    <div style="margin-bottom:6px;">• Hàng hóa tập kết tại xưởng NCC Trung Quốc (Nam Kinh &amp; Trung Sơn).</div>
+                    <div>• Mẫu tem nhãn gốc/phụ đã duyệt và in ấn đầy đủ.</div>
+                  </td>
+                  <td style="vertical-align: top; background: rgba(239, 246, 255, 0.35);">
+                    <div style="margin-bottom:6px;">• Thu xếp với NCC hỗ trợ, tạo điều kiện cho Bên B kiểm hàng và dán tem phụ trên từng sản phẩm Lô hàng 2.</div>
+                    <div style="margin-bottom:6px; padding:6px 8px; background:#EFF6FF; border-left:3px solid var(--blue-600); border-radius:4px;">
+                      <strong>🏗️ Vật tư &amp; Trang bị đầu xưởng cần phối hợp NCC:</strong><br/>
+                      - Yêu cầu NCC bố trí <strong>xe nâng máy (Forklift 3–5T)</strong>, xe nâng tay, cầu dẫn đóng hàng và đội nhân công xưởng.<br/>
+                      - Đảm bảo vật tư đóng kiện: <strong>Pallet gỗ/khung gỗ chắc chắn, màng PE chống nước, xốp chèn chống va đập, túi hút ẩm</strong> cho thiết bị điện tử &amp; đai nẹp kiện an toàn trước khi lên xe 13m7.
+                    </div>
+                    <div style="margin-bottom:6px;">• Thông báo mọi thay đổi về quy cách, số lượng, thông tin hàng hóa (và chịu chi phí phát sinh nếu có).</div>
+                    <div style="margin-bottom:6px;">• Xác nhận thay đổi lịch trình thực tế (nếu có) bằng văn bản/email/nhóm làm việc trước tối thiểu 03 ngày làm việc.</div>
+                    <div>• Phối hợp xử lý với NCC nếu Bên B báo hàng hư hỏng ngoại quan tại xưởng.</div>
+                  </td>
+                  <td style="vertical-align: top; background: rgba(255, 245, 238, 0.35);">
+                    <div style="margin-bottom:6px;">• Tiếp quản hàng tại xưởng NCC; nếu phát hiện rách, móp méo, ướt hoặc hư hỏng ngoại quan phải chụp ảnh/quay video, lập biên bản với NCC và báo ngay cho Bên A trước khi bốc xếp.</div>
+                    <div style="margin-bottom:6px;">• Tổ chức dán tem gốc/tem phụ, đối chiếu và kiểm tra 100% hàng hóa trước khi vận chuyển.</div>
+                    <div style="margin-bottom:6px;">• Trực tiếp giám sát xếp xe theo sơ đồ 26 xe, kiểm tra chằng buộc và <strong>niêm phong kẹp chì (Seal)</strong> đúng quy chuẩn bảo hiểm cho Chặng 1 (NCC ➔ Cửa khẩu Kim Thành).</div>
+                    <div>• Vận chuyển hàng nguyên đai nguyên kiện về cửa khẩu Kim Thành bằng đội xe 13m7.</div>
+                  </td>
+                  <td style="vertical-align: top;">
+                    <div style="margin-bottom:6px;">• 100% hàng hóa được dán tem nhãn đúng quy định.</div>
+                    <div style="margin-bottom:6px;">• Biên bản kiểm tra ngoại quan tại xưởng (nếu phát hiện hư hỏng).</div>
+                    <div>• Hàng hóa được kẹp chì đầy đủ Chặng 1 và vận chuyển an toàn đến cửa khẩu Kim Thành.</div>
+                  </td>
+                  <td style="vertical-align: top;">
+                    <div>• Mọi thất thoát, hư hỏng do sai quy cách kẹp chì hoặc xếp dỡ Chặng 1 do Bên B chịu trách nhiệm bồi thường.</div>
+                  </td>
+                </tr>
+
+                <!-- BƯỚC 3 -->
+                <tr>
+                  <td style="text-align: center; vertical-align: top;">
+                    <span class="car-code" style="background:var(--primary-orange); color:#FFF;">Bước 3</span>
+                  </td>
+                  <td style="vertical-align: top; font-weight: 800; color: var(--slate-900);">
+                    Thủ tục chuyên ngành (Sở VH-TT-DL Lào Cai) &amp; Thông quan Cửa khẩu Kim Thành
+                  </td>
+                  <td style="vertical-align: top;">
+                    <div style="margin-bottom:6px;">• Bộ chứng từ XNK &amp; hồ sơ ủy thác từ Bước 1.</div>
+                    <div style="margin-bottom:6px;">• Hàng hóa đến bãi cửa khẩu Kim Thành, Lào Cai.</div>
+                    <div>• Phiên kết nối Chữ ký số &amp; ECUS5 sẵn sàng.</div>
+                  </td>
+                  <td style="vertical-align: top; background: rgba(239, 246, 255, 0.35);">
+                    <div style="margin-bottom:6px;">• Phối hợp ký đóng dấu hồ sơ bản cứng &amp; <strong>ký số điện tử bằng USB Token trên ECUS5 / Cổng dịch vụ công</strong> (cùng Chủ đầu tư Indochina đối với Lô hàng 2) ngay khi Bên B truyền tờ khai và nộp hồ sơ thẩm định.</div>
+                    <div style="margin-bottom:6px; padding:6px 8px; background:#EFF6FF; border-left:3px solid var(--blue-600); border-radius:4px;">
+                      <strong>💳 Trang bị &amp; Tài chính thông quan:</strong><br/>
+                      - Trực ký số Token kịp thời để truyền tờ khai chính thức, đăng ký kiểm hóa và nộp thuế NK/GTGT điện tử 24/7.<br/>
+                      - Cung cấp bản thuyết minh nội dung trò chơi, tài liệu kỹ thuật/video demo máy game nếu Hội đồng thẩm định Sở VH-TT-DL yêu cầu giải trình bổ sung.
+                    </div>
+                    <div style="margin-bottom:6px;">• Khắc phục kịp thời nếu Bên B tư vấn thiết bị có lỗi thiết kế/nội dung từ NCC không đạt tiêu chuẩn thẩm định văn hóa.</div>
+                    <div>• Thực hiện nghĩa vụ thanh toán đúng hạn các đợt đã đến hạn theo hợp đồng.</div>
+                  </td>
+                  <td style="vertical-align: top; background: rgba(255, 245, 238, 0.35);">
+                    <div style="margin-bottom:6px;">• Trực tiếp lập hồ sơ, nộp và xin <strong>Giấy phép nhập khẩu</strong>; thực hiện <strong>thẩm định nội dung lô hàng với Sở VH-TT-DL tỉnh Lào Cai</strong> (đảm bảo đứng tên hợp pháp của Indochina cho Lô hàng 2) và mời Hội đồng thẩm định thực tế tại điểm tập kết.</div>
+                    <div style="margin-bottom:6px;">• Trực tiếp truyền tờ khai trên <strong>ECUS5-VNACCS</strong> và thực hiện thủ tục thông quan xuất/nhập khẩu qua cửa khẩu Kim Thành, Lào Cai (bố trí nhân sự hiện trường và phương tiện nâng hạ phục vụ kiểm hóa).</div>
+                    <div style="margin-bottom:6px;">• Báo ngay cho Bên A nếu Hải quan Trung Quốc và/hoặc Việt Nam có quyết định kiểm hóa.</div>
+                    <div>• Giám sát sang tải từ xe 13m7 sang đội xe tải 8 tấn tại bãi Kim Thành (có mái che/cầu nâng) và <strong>niêm phong kẹp chì đầy đủ Chặng 2</strong> (Cửa khẩu Kim Thành ➔ Bản Mòng).</div>
+                  </td>
+                  <td style="vertical-align: top;">
+                    <div style="margin-bottom:6px;">• Giấy phép nhập khẩu &amp; Kết quả thẩm định nội dung của Sở VH-TT-DL tỉnh Lào Cai.</div>
+                    <div style="margin-bottom:6px;">• Tờ khai hải quan thông quan qua cửa khẩu Kim Thành.</div>
+                    <div>• Lô hàng được sang tải an toàn &amp; kẹp chì đầy đủ Chặng 2 sẵn sàng vận chuyển về công trình.</div>
+                  </td>
+                  <td style="vertical-align: top;">
+                    <div style="margin-bottom:6px;">• Nếu bị từ chối cấp phép do lỗi tư vấn tem nhãn/nội dung mà Bên B đã xác nhận đạt: Bên B không được thanh toán khoản phí tương ứng.</div>
+                    <div>• Nếu do lỗi NCC mà Bên A không khắc phục sau tư vấn: Bên A vẫn thanh toán đủ.</div>
+                  </td>
+                </tr>
+
+                <!-- BƯỚC 4 -->
+                <tr>
+                  <td style="text-align: center; vertical-align: top;">
+                    <span class="car-code" style="background:var(--primary-orange); color:#FFF;">Bước 4</span>
+                  </td>
+                  <td style="vertical-align: top; font-weight: 800; color: var(--slate-900);">
+                    Khảo sát tuyến đường, vận chuyển Chặng 2 &amp; Giao nhận tại công trình Bản Mòng
+                  </td>
+                  <td style="vertical-align: top;">
+                    <div style="margin-bottom:6px;">• Hàng hóa đã thông quan &amp; kẹp chì Chặng 2 trên xe tải tăng bo.</div>
+                    <div style="margin-bottom:6px;">• Lịch giao hàng báo trước tối thiểu 24 giờ.</div>
+                    <div>• Phương án vận chuyển &amp; vị trí đậu xe tại chân tòa CL3 đã chốt.</div>
+                  </td>
+                  <td style="vertical-align: top; background: rgba(239, 246, 255, 0.35);">
+                    <div style="margin-bottom:6px;">• Xác nhận phương án hạ hàng và vị trí đậu xe qua tin nhắn/email trước khi giao hàng.</div>
+                    <div style="margin-bottom:6px; padding:6px 8px; background:#EFF6FF; border-left:3px solid var(--blue-600); border-radius:4px;">
+                      <strong>🏗️ Phương tiện, Vật tư &amp; Nhân lực CĐT bắt buộc chuẩn bị tại chân tòa CL3 (trong vòng 12h từ khi xe đến):</strong><br/>
+                      - <strong>Cơ giới cẩu hạ:</strong> <strong>01–02 Xe cẩu tự hành 15 tấn</strong>, <strong>01 Xe nâng máy (Forklift 3.5–5T)</strong>, <strong>04–06 Xe nâng tay (Pallet Jack 2.5–3T)</strong> &amp; con lăn đẩy máy.<br/>
+                      - <strong>Vật tư phụ trợ:</strong> Bộ <strong>cáp vải bản rộng (3–5T)</strong>, mãnh cẩu, thanh ngáng chống móp thùng, dây thừng dẫn hướng, <strong>tấm ván gỗ/cao su lót bảo vệ sàn Epoxy tầng 3</strong>, bạt che mưa &amp; <strong>đèn pha chiếu sáng công trường ban đêm</strong>.<br/>
+                      - <strong>Nhân lực &amp; Mặt bằng:</strong> Đội công nhân bốc xếp (<strong>8–12 người/ca</strong>), dọn thông thoáng đường dốc bê tông &amp; bãi quay đầu xe tại chân tòa CL3.
+                    </div>
+                    <div style="margin-bottom:6px;">• Kiểm tra kẹp chì, xác nhận chính xác số lượng kiện hàng thực tế và ký Biên bản bàn giao.</div>
+                    <div>• Nếu có tổn thất: giữ nguyên hiện trạng trên xe, quay phim, chụp ảnh và lập biên bản đồng kiểm với đại diện Bên B ngay tại điểm dỡ hàng.</div>
+                  </td>
+                  <td style="vertical-align: top; background: rgba(255, 245, 238, 0.35);">
+                    <div style="margin-bottom:6px;">• Khảo sát thực tế tuyến đường QL4D, điểm cấm tải/cấm giờ Sa Pa (6h–23h) và đường dốc bê tông vào công trình; đề xuất phương án vận chuyển, bốc xếp, vị trí đậu xe để thống nhất với Bên A.</div>
+                    <div style="margin-bottom:6px;">• Thông báo lịch giao hàng cho Bên A trước tối thiểu 24 giờ.</div>
+                    <div style="margin-bottom:6px;">• Điều phối đội xe tải tăng bo vận chuyển an toàn, đúng mốc tiến độ (Điều 2.1) về <strong>chân tòa nhà CL3, Bản Mòng, Sa Pa, Lào Cai</strong>.</div>
+                    <div>• Báo ngay cho Bên A và Đơn vị bảo hiểm nếu có tổn thất khi vận chuyển; cử nhân sự hiện trường phối hợp đồng kiểm tại công trình.</div>
+                  </td>
+                  <td style="vertical-align: top;">
+                    <div style="margin-bottom:6px;">• Xác nhận phương án vận chuyển &amp; vị trí đậu xe.</div>
+                    <div style="margin-bottom:6px;">• Hàng hóa bàn giao nguyên đai nguyên kiện tại chân tòa nhà CL3.</div>
+                    <div>• Biên bản bàn giao xác nhận số lượng kiện hàng thực tế (và Biên bản đồng kiểm tổn thất nếu có).</div>
+                  </td>
+                  <td style="vertical-align: top;">
+                    <div style="margin-bottom:6px;">• Chậm nhận hàng sau khi chốt lịch (báo trước 24h) hoặc thiếu cẩu 15T/nhân công quá 12h: Bên A chịu 100% phí lưu ca, quay đầu xe.</div>
+                    <div>• Chậm thanh toán &gt;10 ngày: Bên B có quyền tạm ngưng điều xe lô sau, Bên A chịu phí lưu bãi/lưu ca.</div>
+                  </td>
+                </tr>
+
+                <!-- BƯỚC 5 -->
+                <tr>
+                  <td style="text-align: center; vertical-align: top;">
+                    <span class="car-code" style="background:var(--primary-orange); color:#FFF;">Bước 5</span>
+                  </td>
+                  <td style="vertical-align: top; font-weight: 800; color: var(--slate-900);">
+                    Bàn giao hồ sơ hoàn chỉnh &amp; Quyết toán hợp đồng
+                  </td>
+                  <td style="vertical-align: top;">
+                    <div style="margin-bottom:6px;">• Biên bản bàn giao hàng hóa thực tế đủ 26 chuyến xe (917 kiện).</div>
+                    <div style="margin-bottom:6px;">• Hồ sơ thông quan, Giấy phép nhập khẩu, Kết quả thẩm định nội dung.</div>
+                    <div>• Chứng từ thanh toán bảo hiểm &amp; phí kiểm hóa thực tế.</div>
+                  </td>
+                  <td style="vertical-align: top; background: rgba(239, 246, 255, 0.35);">
+                    <div style="margin-bottom:6px;">• Tiếp nhận và lưu trữ bộ hồ sơ XNK &amp; pháp lý chuyên ngành hoàn chỉnh phục vụ hậu kiểm và vận hành khu vui chơi.</div>
+                    <div style="margin-bottom:6px;">• Kiểm tra, đối chiếu số lượt xe kiểm hóa thực tế và ký xác nhận Bảng giá trị thanh toán khối lượng hoàn thành thực tế &amp; quyết toán chi phí.</div>
+                    <div>• Thanh toán hoặc đối trừ công nợ quyết toán theo đúng thỏa thuận tại Termsheet.</div>
+                  </td>
+                  <td style="vertical-align: top; background: rgba(255, 245, 238, 0.35);">
+                    <div style="margin-bottom:6px;">• Đóng gói, bàn giao toàn bộ hồ sơ hoàn chỉnh (Tờ khai HQ thông quan, Giấy phép NK, Kết quả thẩm định văn hóa đứng tên Indochina, Hóa đơn VAT...).</div>
+                    <div style="margin-bottom:6px;">• Tổng hợp hồ sơ chứng từ thanh toán bảo hiểm và biên lai kiểm hóa thực tế vào bảng quyết toán chi phí cho Bên A.</div>
+                    <div>• Hoàn lại hoặc đối trừ phần chênh lệch nếu số lượng xe kiểm hóa đầu xuất phát sinh giảm dưới mức dự trù thỏa thuận.</div>
+                  </td>
+                  <td style="vertical-align: top;">
+                    <div style="margin-bottom:6px;">• Bộ hồ sơ XNK &amp; Pháp lý chuyên ngành hoàn chỉnh.</div>
+                    <div>• Bảng quyết toán khối lượng &amp; chi phí (bao gồm chi phí bảo hiểm) có chữ ký xác nhận của hai bên.</div>
+                  </td>
+                  <td style="vertical-align: top;">
+                    <div>• Bên B là đầu mối duy nhất chịu trách nhiệm trước Bên A trong suốt thời gian thực hiện hợp đồng (kể cả khi thuê bên thứ ba).</div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
           </div>
         </div>
       </div>
