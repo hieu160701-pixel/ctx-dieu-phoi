@@ -1276,12 +1276,8 @@
           <span class="tab-idx">2</span>
           <span>Dashboard trạng thái xe</span>
         </button>
-        <button class="main-tab-item" data-tab="tab3" onclick="switchMainTab('tab3', this)">
-          <span class="tab-idx">3</span>
-          <span>Phân Công Công Việc (CTX - Kỳ Tốc)</span>
-        </button>
         <button class="main-tab-item" data-tab="tab4" onclick="switchMainTab('tab4', this)">
-          <span class="tab-idx">4</span>
+          <span class="tab-idx">3</span>
           <span>Thực Tế Khảo Sát Hiện Trường</span>
         </button>
       </div>
@@ -1710,42 +1706,125 @@
          ======================================================== -->
     <div class="tab-pane" id="tab2">
 
-      <!-- Gantt Timeline Card -->
-      <div class="gantt-chart-card">
-        <div class="gantt-header-row">
-          <span>TIẾN ĐỘ VẬN CHUYỂN & LẮP ĐẶT DỰ ÁN 26 CHUYẾN XE</span>
-          <span id="gantt-overall-range">Vận chuyển: 26/11/2026 ➔ 21/12/2026 • Hoàn thành lắp đặt: 20/01/2027</span>
-        </div>
-
-                <div class="gantt-track-row">
-          <!-- Track Lô 1: Slide, Ride, Đèn Decor -->
-          <div class="gantt-bar-item">
-            <div>
-              <span class="badge-shipment badge-s1">Lô 1: Slide, Ride, Đèn Decor</span> (16 xe)
-            </div>
-            <div class="gantt-bar-track">
-              <div class="gantt-bar-fill fill-s1" id="gantt-bar-s1" style="left: 0%; width: 52%;">
-                ETD 26/11 - 03/12 ➔ ETA Sapa 03/12 - 08/12 • Lắp đặt: 10/12 - 07/01
-              </div>
-            </div>
-            <div id="gantt-eta-s1" style="font-family:'JetBrains Mono', monospace; font-size:0.75rem; text-align:right;">
-              ETA Sapa: 03/12 - 08/12
-            </div>
+      <!-- Bảng Tiến độ vận chuyển và lắp đặt dự án 26 chuyến xe -->
+      <div class="section-card">
+        <div class="section-header">
+          <div class="section-title">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--primary-orange)" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+            TIẾN ĐỘ VẬN CHUYỂN &amp; LẮP ĐẶT DỰ ÁN 26 CHUYẾN XE
           </div>
-
-          <!-- Track Lô 2: Máy chơi game trả thưởng -->
-          <div class="gantt-bar-item">
-            <div>
-              <span class="badge-shipment badge-s2">Lô 2: Máy chơi game trả thưởng</span> (10 xe)
-            </div>
-            <div class="gantt-bar-track">
-              <div class="gantt-bar-fill fill-s2" id="gantt-bar-s2" style="left: 52%; width: 48%;">
-                ETD 10/12 - 11/12 ➔ ETA Sapa 18/12 - 21/12 • Lắp đặt: 21/12 - 20/01
-              </div>
-            </div>
-            <div id="gantt-eta-s2" style="font-family:'JetBrains Mono', monospace; font-size:0.75rem; text-align:right;">
-              ETA Sapa: 18/12 - 21/12
-            </div>
+          <span class="section-badge" style="background:var(--primary-orange-light); color:var(--primary-orange); border:1px solid var(--primary-orange-border);">KẾ HOẠCH VẬN CHUYỂN &amp; LẮP ĐẶT TỔNG THỂ</span>
+        </div>
+        <div class="section-body" style="padding: 16px 20px;">
+          <div class="table-container">
+            <table class="data-table" style="border-collapse: collapse;">
+              <thead>
+                <tr style="background: #1E325C; color: #FFFFFF;">
+                  <th style="background: #1E325C; color: #FFFFFF; text-align: center; width: 45px; border: 1px solid #334B7D;">TT</th>
+                  <th style="background: #1E325C; color: #FFFFFF; text-align: center; width: 105px; border: 1px solid #334B7D;">Lô hàng</th>
+                  <th style="background: #1E325C; color: #FFFFFF; min-width: 210px; border: 1px solid #334B7D;">Tên hàng hóa / Hạng mục</th>
+                  <th style="background: #1E325C; color: #FFFFFF; min-width: 175px; border: 1px solid #334B7D;">Số lượng xe dự kiến</th>
+                  <th style="background: #1E325C; color: #FFFFFF; text-align: center; border: 1px solid #334B7D;">Dự kiến lần 1</th>
+                  <th style="background: #1E325C; color: #FFFFFF; text-align: center; border: 1px solid #334B7D;">Pick up date</th>
+                  <th style="background: #1E325C; color: #FFFFFF; text-align: center; border: 1px solid #334B7D;">ETA Kim Thành</th>
+                  <th style="background: #1E325C; color: #FFFFFF; text-align: center; border: 1px solid #334B7D;">ETA SAPA</th>
+                  <th style="background: #1E325C; color: #FFFFFF; text-align: center; border: 1px solid #334B7D;">Ngày lắp đặt</th>
+                  <th style="background: #1E325C; color: #FFFFFF; text-align: center; border: 1px solid #334B7D;">Ngày hoàn<br>thành</th>
+                  <th style="background: #1E325C; color: #FFFFFF; text-align: center; width: 115px; border: 1px solid #334B7D;">Mời thẩm<br>định đến<br>kiểm tra</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr style="background: #EFEFEF;">
+                  <td style="border: 1px solid #D1D5DB;"></td>
+                  <td style="border: 1px solid #D1D5DB;"></td>
+                  <td style="border: 1px solid #D1D5DB; font-weight: 700; color: #0F172A;">Kí hợp đồng vận chuyển</td>
+                  <td style="border: 1px solid #D1D5DB;"></td>
+                  <td style="border: 1px solid #D1D5DB; text-align: center; font-family: 'JetBrains Mono', monospace;">17/11/26</td>
+                  <td style="border: 1px solid #D1D5DB; text-align: center; font-family: 'JetBrains Mono', monospace;">25/11/26</td>
+                  <td style="border: 1px solid #D1D5DB;"></td>
+                  <td style="border: 1px solid #D1D5DB;"></td>
+                  <td style="border: 1px solid #D1D5DB;"></td>
+                  <td style="border: 1px solid #D1D5DB;"></td>
+                  <td style="border: 1px solid #D1D5DB;"></td>
+                </tr>
+                <tr style="background: #EFEFEF;">
+                  <td style="border: 1px solid #D1D5DB;"></td>
+                  <td style="border: 1px solid #D1D5DB;"></td>
+                  <td style="border: 1px solid #D1D5DB; font-weight: 700; color: #0F172A;">Phát hành bảo lãnh</td>
+                  <td style="border: 1px solid #D1D5DB;"></td>
+                  <td style="border: 1px solid #D1D5DB; text-align: center; font-family: 'JetBrains Mono', monospace;">22/11</td>
+                  <td style="border: 1px solid #D1D5DB; text-align: center; font-family: 'JetBrains Mono', monospace;">28/11/26</td>
+                  <td style="border: 1px solid #D1D5DB;"></td>
+                  <td style="border: 1px solid #D1D5DB;"></td>
+                  <td style="border: 1px solid #D1D5DB;"></td>
+                  <td style="border: 1px solid #D1D5DB;"></td>
+                  <td style="border: 1px solid #D1D5DB;"></td>
+                </tr>
+                <tr style="background: #EFEFEF;">
+                  <td style="border: 1px solid #D1D5DB;"></td>
+                  <td style="border: 1px solid #D1D5DB;"></td>
+                  <td style="border: 1px solid #D1D5DB; font-weight: 700; color: #0F172A;">Thanh toán tạm ứng</td>
+                  <td style="border: 1px solid #D1D5DB;"></td>
+                  <td style="border: 1px solid #D1D5DB; text-align: center; font-family: 'JetBrains Mono', monospace;">25/11</td>
+                  <td style="border: 1px solid #D1D5DB; text-align: center; font-family: 'JetBrains Mono', monospace;">30/11/26</td>
+                  <td style="border: 1px solid #D1D5DB;"></td>
+                  <td style="border: 1px solid #D1D5DB;"></td>
+                  <td style="border: 1px solid #D1D5DB;"></td>
+                  <td style="border: 1px solid #D1D5DB;"></td>
+                  <td style="border: 1px solid #D1D5DB;"></td>
+                </tr>
+                <tr>
+                  <td style="border: 1px solid #D1D5DB; text-align: center; font-weight: 700; color: #0F172A;">1</td>
+                  <td rowspan="3" style="border: 1px solid #D1D5DB; text-align: center; font-weight: 800; color: #0F172A; background: #DEE6F2; vertical-align: middle;">Lô hàng 1</td>
+                  <td style="border: 1px solid #D1D5DB; font-weight: 700; color: #0F172A;">Cầu trượt (Slide)<br>(Xe 1.1 – 1.2)</td>
+                  <td style="border: 1px solid #D1D5DB;">2 xe rào<br>kt 13.0m*2.55m*2.80m</td>
+                  <td style="border: 1px solid #D1D5DB; text-align: center; font-family: 'JetBrains Mono', monospace;">26/11/26</td>
+                  <td style="border: 1px solid #D1D5DB; text-align: center; font-family: 'JetBrains Mono', monospace;">1/12/26</td>
+                  <td style="border: 1px solid #D1D5DB; text-align: center; font-family: 'JetBrains Mono', monospace;">07/12/2026</td>
+                  <td style="border: 1px solid #D1D5DB; text-align: center; font-family: 'JetBrains Mono', monospace;">8/1/2026</td>
+                  <td style="border: 1px solid #D1D5DB; text-align: center; font-family: 'JetBrains Mono', monospace;">11/12/2026</td>
+                  <td style="border: 1px solid #D1D5DB; text-align: center; font-family: 'JetBrains Mono', monospace;">31-12-2026</td>
+                  <td style="border: 1px solid #D1D5DB;"></td>
+                </tr>
+                <tr>
+                  <td style="border: 1px solid #D1D5DB; text-align: center; font-weight: 700; color: #0F172A;">2</td>
+                  <td style="border: 1px solid #D1D5DB; font-weight: 700; color: #0F172A;">Đồ trang trí (Decor)<br>(Xe 3.1 – 3.6)</td>
+                  <td style="border: 1px solid #D1D5DB;">6 xe rào<br>kt 13.0m*2.55m*2.80m</td>
+                  <td style="border: 1px solid #D1D5DB; text-align: center; font-family: 'JetBrains Mono', monospace;">29-30/11/2026</td>
+                  <td style="border: 1px solid #D1D5DB; text-align: center; font-family: 'JetBrains Mono', monospace;">02-03/12/2026</td>
+                  <td style="border: 1px solid #D1D5DB; text-align: center; font-family: 'JetBrains Mono', monospace;">07/12/2026</td>
+                  <td style="border: 1px solid #D1D5DB; text-align: center; font-family: 'JetBrains Mono', monospace;">09-11/12/2026</td>
+                  <td style="border: 1px solid #D1D5DB; text-align: center; font-family: 'JetBrains Mono', monospace;">11/12/2026</td>
+                  <td style="border: 1px solid #D1D5DB; text-align: center; font-family: 'JetBrains Mono', monospace;">05-01-2027</td>
+                  <td style="border: 1px solid #D1D5DB;"></td>
+                </tr>
+                <tr>
+                  <td style="border: 1px solid #D1D5DB; text-align: center; font-weight: 700; color: #0F172A;">3</td>
+                  <td style="border: 1px solid #D1D5DB; font-weight: 700; color: #0F172A;">Trò chơi hội chợ (Ride)<br>(Xe 1.3 – 1.10)</td>
+                  <td style="border: 1px solid #D1D5DB;">8 xe rào<br>kt 13.0m*2.55m*2.80m</td>
+                  <td style="border: 1px solid #D1D5DB; text-align: center; font-family: 'JetBrains Mono', monospace;">01-03/12/2026</td>
+                  <td style="border: 1px solid #D1D5DB; text-align: center; font-family: 'JetBrains Mono', monospace;">04-06/12/2026</td>
+                  <td style="border: 1px solid #D1D5DB; text-align: center; font-family: 'JetBrains Mono', monospace;">09/12/2026</td>
+                  <td style="border: 1px solid #D1D5DB; text-align: center; font-family: 'JetBrains Mono', monospace;">09-11/12/2026</td>
+                  <td style="border: 1px solid #D1D5DB; text-align: center; font-family: 'JetBrains Mono', monospace;">12/12/2026</td>
+                  <td style="border: 1px solid #D1D5DB; text-align: center; font-family: 'JetBrains Mono', monospace;">09-01-2027</td>
+                  <td style="border: 1px solid #D1D5DB;"></td>
+                </tr>
+                <tr>
+                  <td style="border: 1px solid #D1D5DB; text-align: center; font-weight: 700; color: #0F172A;">4</td>
+                  <td style="border: 1px solid #D1D5DB; text-align: center; font-weight: 800; color: #0F172A; background: #DEE6F2; vertical-align: middle;">Lô hàng 2</td>
+                  <td style="border: 1px solid #D1D5DB; font-weight: 700; color: #0F172A;">Máy chơi game trả thưởng<br>(Xe 2.1 – 2.10)</td>
+                  <td style="border: 1px solid #D1D5DB;">10 xe rào<br>kt 13.0m*2.55m*2.80m</td>
+                  <td style="border: 1px solid #D1D5DB; text-align: center; font-family: 'JetBrains Mono', monospace;">10-11/12/2026</td>
+                  <td style="border: 1px solid #D1D5DB; text-align: center; font-family: 'JetBrains Mono', monospace;">15-16/12/2026</td>
+                  <td style="border: 1px solid #D1D5DB; text-align: center; font-family: 'JetBrains Mono', monospace;">22/12/2026</td>
+                  <td style="border: 1px solid #D1D5DB; text-align: center; font-family: 'JetBrains Mono', monospace;">23-27/12/2026</td>
+                  <td style="border: 1px solid #D1D5DB; text-align: center; font-family: 'JetBrains Mono', monospace;">28/12/2026</td>
+                  <td style="border: 1px solid #D1D5DB; text-align: center; font-family: 'JetBrains Mono', monospace;">27/1/2027</td>
+                  <td style="border: 1px solid #D1D5DB; text-align: center; font-family: 'JetBrains Mono', monospace;">28/1/27</td>
+                </tr>
+              </tbody>
+            </table>
           </div>
         </div>
       </div>
@@ -1890,459 +1969,6 @@
 
 
         <!-- ========================================================
-         TAB 3: CHECKLIST PHÂN CÔNG CÔNG VIỆC & VẬT TƯ (CTX - KỲ TỐC)
-         ======================================================== -->
-    <div class="tab-pane" id="tab3">
-
-      <!-- Thanh Tiến Độ Tổng & Bộ Lọc Checklist -->
-      <div class="chk-progress-banner">
-        <div class="chk-progress-top">
-          <div>
-            <div style="font-size: 1rem; font-weight: 800; color: var(--slate-900); display: flex; align-items: center; gap: 8px;">
-              ✅ CHECKLIST TIẾN ĐỘ PHỐI HỢP &amp; CHUẨN BỊ VẬT TƯ (CTX – KỲ TỐC)
-              <span id="chk-total-badge" class="section-badge" style="background:var(--primary-orange-light); color:var(--primary-orange); border:1px solid var(--primary-orange-border); font-size:0.78rem;">0 / 39 hoàn thành (0%)</span>
-            </div>
-            <div style="font-size: 0.78rem; color: var(--slate-500); margin-top: 2px;">
-              Tích chọn trực tiếp vào từng đầu mục khi hoàn thành (Trạng thái được tự động lưu trên trình duyệt)
-            </div>
-          </div>
-
-          <div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap;">
-            <span style="font-size:0.76rem; font-weight:700; padding:4px 10px; border-radius:6px; background:#EFF6FF; color:#1E40AF; border:1px solid #BFDBFE;">
-              Bên A (CTX): <strong id="chk-ctx-count">0/23</strong>
-            </span>
-            <span style="font-size:0.76rem; font-weight:700; padding:4px 10px; border-radius:6px; background:#FFF5EE; color:#9A3412; border:1px solid #FDBA74;">
-              Bên B (Kỳ Tốc): <strong id="chk-kt-count">0/16</strong>
-            </span>
-            <button class="btn btn-outline" onclick="toggleAllChecklists(true)" style="padding:5px 10px; font-size:0.74rem; color:var(--emerald-600); border-color:var(--emerald-border);">
-              ✓ Chọn tất cả
-            </button>
-            <button class="btn btn-outline" onclick="toggleAllChecklists(false)" style="padding:5px 10px; font-size:0.74rem;">
-              ↺ Đặt lại
-            </button>
-          </div>
-        </div>
-
-        <div class="chk-progress-bar-wrap">
-          <div class="chk-progress-bar-fill" id="chk-progress-fill"></div>
-        </div>
-
-        <!-- Bộ lọc nhanh -->
-        <div style="display:flex; gap:6px; flex-wrap:wrap; align-items:center;">
-          <span style="font-size:0.75rem; font-weight:700; color:var(--slate-500); margin-right:4px;">Lọc hiển thị:</span>
-          <button class="btn btn-primary chk-filter-btn" onclick="filterChecklist('ALL', this)" style="padding:4px 11px; font-size:0.74rem;">Tất cả</button>
-          <button class="btn btn-outline chk-filter-btn" onclick="filterChecklist('CTX', this)" style="padding:4px 11px; font-size:0.74rem;">Chỉ Bên A - CTX</button>
-          <button class="btn btn-outline chk-filter-btn" onclick="filterChecklist('KT', this)" style="padding:4px 11px; font-size:0.74rem;">Chỉ Bên B - Kỳ Tốc</button>
-          <button class="btn btn-outline chk-filter-btn" onclick="filterChecklist('PENDING', this)" style="padding:4px 11px; font-size:0.74rem;">Chưa hoàn thành</button>
-        </div>
-      </div>
-
-      <!-- PHẦN 1: CHECKLIST VẬT TƯ, TRANG BỊ & CÔNG CỤ CẦN CHỦ ĐẦU TƯ (CTX) CHUẨN BỊ -->
-      <div class="section-card" data-party-card="CTX">
-        <div class="section-header">
-          <div class="section-title">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--blue-600)" stroke-width="2"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path></svg>
-            1. CHECKLIST CÔNG CỤ KHAI BÁO, VẬT TƯ &amp; TRANG BỊ CHỦ ĐẦU TƯ (CTX) CẦN CHUẨN BỊ
-          </div>
-          <span class="section-badge" style="background:var(--blue-50); color:var(--blue-600); border:1px solid var(--blue-border);">12 HẠNG MỤC VẬT TƯ &amp; CÔNG CỤ CẦN CÓ</span>
-        </div>
-        <div class="section-body">
-          <div class="grid-3">
-
-            <!-- Cột 1: Khai báo & Pháp lý -->
-            <div class="detail-box" style="border-top: 3px solid var(--blue-600); padding: 14px;">
-              <div class="detail-box-title" style="color:var(--blue-600); font-size:0.86rem;">
-                💻 A. Khai Báo Hải Quan &amp; Pháp Lý
-              </div>
-              <div class="chk-list-col">
-                <label class="chk-item" data-party="CTX">
-                  <input type="checkbox" data-chk-id="prep_token" onchange="onCheckItemChange(this)" />
-                  <span class="chk-text"><strong>Chữ ký số (USB Token)</strong> còn hạn của CTX &amp; Indochina (kèm máy bật UltraViewer)</span>
-                  <span class="chk-tag chk-tag-tool">Token</span>
-                </label>
-                <label class="chk-item" data-party="CTX">
-                  <input type="checkbox" data-chk-id="prep_ecus" onchange="onCheckItemChange(this)" />
-                  <span class="chk-text"><strong>Tài khoản VNACCS/VCIS &amp; ECUS5</strong> đã đăng ký Hải quan điện tử</span>
-                  <span class="chk-tag chk-tag-tool">ECUS5</span>
-                </label>
-                <label class="chk-item" data-party="CTX">
-                  <input type="checkbox" data-chk-id="prep_vnsw" onchange="onCheckItemChange(this)" />
-                  <span class="chk-text"><strong>Tài khoản Một cửa Quốc gia</strong> &amp; Cổng DVC Lào Cai (xin GP Sở VH-TT-DL)</span>
-                  <span class="chk-tag chk-tag-tool">DVC</span>
-                </label>
-                <label class="chk-item" data-party="CTX">
-                  <input type="checkbox" data-chk-id="prep_tax247" onchange="onCheckItemChange(this)" />
-                  <span class="chk-text"><strong>Tài khoản nộp thuế điện tử 24/7</strong> đủ hạn mức trích nộp thuế thông quan</span>
-                  <span class="chk-tag chk-tag-doc">Thuế 24/7</span>
-                </label>
-              </div>
-            </div>
-
-            <!-- Cột 2: Vật tư đầu xưởng TQ -->
-            <div class="detail-box" style="border-top: 3px solid var(--amber-600); padding: 14px;">
-              <div class="detail-box-title" style="color:var(--amber-600); font-size:0.86rem;">
-                📦 B. Vật Tư &amp; Thiết Bị Tại Xưởng NCC (TQ)
-              </div>
-              <div class="chk-list-col">
-                <label class="chk-item" data-party="CTX">
-                  <input type="checkbox" data-chk-id="prep_label" onchange="onCheckItemChange(this)" />
-                  <span class="chk-text"><strong>Tem nhãn gốc &amp; Tem phụ tiếng Việt</strong> in sẵn theo mẫu Kỳ Tốc tư vấn</span>
-                  <span class="chk-tag chk-tag-doc">Tem nhãn</span>
-                </label>
-                <label class="chk-item" data-party="CTX">
-                  <input type="checkbox" data-chk-id="prep_pallet" onchange="onCheckItemChange(this)" />
-                  <span class="chk-text"><strong>Pallet gỗ hun trùng ISPM 15</strong> &amp; khung gỗ gia cố kiện hàng nặng/cồng kềnh</span>
-                  <span class="chk-tag chk-tag-equip">Pallet</span>
-                </label>
-                <label class="chk-item" data-party="CTX">
-                  <input type="checkbox" data-chk-id="prep_pe" onchange="onCheckItemChange(this)" />
-                  <span class="chk-text"><strong>Xốp chống sốc EPE, màng PE</strong> &amp; túi hút ẩm bảo vệ mạch máy game/LED</span>
-                  <span class="chk-tag chk-tag-equip">Chống ẩm</span>
-                </label>
-                <label class="chk-item" data-party="CTX">
-                  <input type="checkbox" data-chk-id="prep_ncc_forklift" onchange="onCheckItemChange(this)" />
-                  <span class="chk-text"><strong>Xe nâng tại xưởng NCC (3–5T)</strong> &amp; nhân công xưởng mở kiện dán tem Lô 2</span>
-                  <span class="chk-tag chk-tag-equip">Xe nâng TQ</span>
-                </label>
-              </div>
-            </div>
-
-            <!-- Cột 3: Cơ giới & Vật tư tại Bản Mòng -->
-            <div class="detail-box" style="border-top: 3px solid var(--emerald-600); padding: 14px;">
-              <div class="detail-box-title" style="color:var(--emerald-600); font-size:0.86rem;">
-                🏗️ C. Cơ Giới &amp; Vật Tư Hạ Hàng Chân Tòa CL3
-              </div>
-              <div class="chk-list-col">
-                <label class="chk-item" data-party="CTX">
-                  <input type="checkbox" data-chk-id="prep_crane15t" onchange="onCheckItemChange(this)" />
-                  <span class="chk-text"><strong>01–02 Xe cẩu tự hành 15 tấn</strong> trực chiến tại chân tòa CL3</span>
-                  <span class="chk-tag chk-tag-equip">Cẩu 15T</span>
-                </label>
-                <label class="chk-item" data-party="CTX">
-                  <input type="checkbox" data-chk-id="prep_jack" onchange="onCheckItemChange(this)" />
-                  <span class="chk-text"><strong>Xe nâng máy 3.5–5T &amp; 04–06 Xe nâng tay</strong> (Pallet Jack) + cáp vải cẩu 3–5T</span>
-                  <span class="chk-tag chk-tag-equip">Xe nâng</span>
-                </label>
-                <label class="chk-item" data-party="CTX">
-                  <input type="checkbox" data-chk-id="prep_epoxy_pad" onchange="onCheckItemChange(this)" />
-                  <span class="chk-text"><strong>Ván gỗ / tấm cao su lót sàn</strong> bảo vệ sàn sơn Epoxy tầng 3 khi kéo máy</span>
-                  <span class="chk-tag chk-tag-equip">Lót sàn</span>
-                </label>
-                <label class="chk-item" data-party="CTX">
-                  <input type="checkbox" data-chk-id="prep_workers" onchange="onCheckItemChange(this)" />
-                  <span class="chk-text"><strong>Đội bốc xếp (8–12 người/ca)</strong>, bạt che mưa &amp; đèn pha công trường ca đêm</span>
-                  <span class="chk-tag chk-tag-equip">Nhân lực</span>
-                </label>
-              </div>
-            </div>
-
-          </div>
-        </div>
-      </div>
-
-      <!-- PHẦN 2: CHECKLIST PHÂN CÔNG CÔNG VIỆC THEO 5 BƯỚC -->
-
-      <!-- BƯỚC 1 -->
-      <div class="step-chk-card">
-        <div class="step-chk-header">
-          <div style="display:flex; align-items:center; gap:10px;">
-            <span class="car-code" style="background:var(--primary-orange); color:#FFF; font-size:0.8rem; padding:3px 10px;">BƯỚC 1</span>
-            <span style="font-weight:800; font-size:0.95rem; color:var(--slate-900);">Chuẩn bị hồ sơ XNK, Ủy thác nhập khẩu &amp; Bảo hiểm hàng hóa</span>
-          </div>
-          <span class="section-badge">Đầu vào: Packing List 917 kiện • Pháp nhân 3 bên (Indochina - CTX - UNIS)</span>
-        </div>
-        <div class="step-chk-grid">
-          <div class="step-party-box" style="background:rgba(239,246,255,0.4); border-color:#BFDBFE;">
-            <div class="step-party-head" style="color:#1E40AF;">
-              <span>🏢 BÊN A – CTX (CHỦ ĐẦU TƯ)</span>
-              <span>4 đầu mục</span>
-            </div>
-            <div class="chk-list-col">
-              <label class="chk-item" data-party="CTX">
-                <input type="checkbox" data-chk-id="b1_ctx_1" onchange="onCheckItemChange(this)" />
-                <span class="chk-text">Cung cấp Packing List chuẩn (917 kiện), khối lượng, quy cách đóng gói &amp; thông tin khai HQ</span>
-              </label>
-              <label class="chk-item" data-party="CTX">
-                <input type="checkbox" data-chk-id="b1_ctx_2" onchange="onCheckItemChange(this)" />
-                <span class="chk-text">Báo yêu cầu vận chuyển đặc biệt (dễ vỡ, cồng kềnh, giá trị cao) &amp; chỉ đạo NCC gia cố kiện</span>
-              </label>
-              <label class="chk-item" data-party="CTX">
-                <input type="checkbox" data-chk-id="b1_ctx_3" onchange="onCheckItemChange(this)" />
-                <span class="chk-text">Phối hợp CĐT (Indochina) ký bộ hồ sơ ủy thác nhập khẩu 3 bên cho Lô hàng 2</span>
-              </label>
-              <label class="chk-item" data-party="CTX">
-                <input type="checkbox" data-chk-id="b1_ctx_4" onchange="onCheckItemChange(this)" />
-                <span class="chk-text">Chỉ định Nhà bảo hiểm &amp; thanh toán 100% phí bảo hiểm + 50% phí dịch vụ khai báo sau ký HĐ</span>
-              </label>
-            </div>
-          </div>
-
-          <div class="step-party-box" style="background:rgba(255,245,238,0.4); border-color:#FDBA74;">
-            <div class="step-party-head" style="color:#9A3412;">
-              <span>🚛 BÊN B – KỲ TỐC LOGISTICS</span>
-              <span>4 đầu mục</span>
-            </div>
-            <div class="chk-list-col">
-              <label class="chk-item" data-party="KT">
-                <input type="checkbox" data-chk-id="b1_kt_1" onchange="onCheckItemChange(this)" />
-                <span class="chk-text">Tư vấn, rà soát chứng từ, áp mã HS Code chuẩn &amp; dựng tờ khai nháp trên <strong>ECUS5</strong></span>
-              </label>
-              <label class="chk-item" data-party="KT">
-                <input type="checkbox" data-chk-id="b1_kt_2" onchange="onCheckItemChange(this)" />
-                <span class="chk-text">Soạn thảo HĐ ủy thác 3 bên (Indochina – CTX – UNIS) &amp; HĐ mua bán quốc tế đứng tên Indochina</span>
-              </label>
-              <label class="chk-item" data-party="KT">
-                <input type="checkbox" data-chk-id="b1_kt_3" onchange="onCheckItemChange(this)" />
-                <span class="chk-text">Ký HĐ bảo hiểm mọi rủi ro (110% giá trị hàng, CTX thụ hưởng) &amp; thanh toán phí bảo hiểm</span>
-              </label>
-              <label class="chk-item" data-party="KT">
-                <input type="checkbox" data-chk-id="b1_kt_4" onchange="onCheckItemChange(this)" />
-                <span class="chk-text">Tư vấn mẫu tem gốc &amp; tem phụ tiếng Việt đúng quy định pháp luật</span>
-              </label>
-            </div>
-          </div>
-        </div>
-        <div class="step-meta-bar">
-          <div class="step-meta-pill"><strong>🎯 Kết quả:</strong> Bộ chứng từ XNK &amp; mã HS chuẩn • HĐ ủy thác 3 bên • HĐ bảo hiểm 110% • Mẫu tem chuẩn.</div>
-          <div class="step-meta-pill"><strong>⚠️ Lưu ý:</strong> Bên B chịu phạt nếu áp sai HS Code; Bên A chịu trách nhiệm nếu thông tin gốc sai lệch.</div>
-        </div>
-      </div>
-
-      <!-- BƯỚC 2 -->
-      <div class="step-chk-card">
-        <div class="step-chk-header">
-          <div style="display:flex; align-items:center; gap:10px;">
-            <span class="car-code" style="background:var(--primary-orange); color:#FFF; font-size:0.8rem; padding:3px 10px;">BƯỚC 2</span>
-            <span style="font-weight:800; font-size:0.95rem; color:var(--slate-900);">Tiếp nhận, kiểm tra, dán tem &amp; kẹp chì tại xưởng Trung Quốc (Chặng 1)</span>
-          </div>
-          <span class="section-badge">Đầu vào: Lịch lấy hàng • Hàng tại xưởng Nam Kinh &amp; Trung Sơn • Mẫu tem đã duyệt</span>
-        </div>
-        <div class="step-chk-grid">
-          <div class="step-party-box" style="background:rgba(239,246,255,0.4); border-color:#BFDBFE;">
-            <div class="step-party-head" style="color:#1E40AF;">
-              <span>🏢 BÊN A – CTX (CHỦ ĐẦU TƯ)</span>
-              <span>3 đầu mục</span>
-            </div>
-            <div class="chk-list-col">
-              <label class="chk-item" data-party="CTX">
-                <input type="checkbox" data-chk-id="b2_ctx_1" onchange="onCheckItemChange(this)" />
-                <span class="chk-text">Thu xếp với NCC hỗ trợ phương tiện nâng hạ &amp; tạo điều kiện cho Bên B dán tem phụ Lô 2</span>
-              </label>
-              <label class="chk-item" data-party="CTX">
-                <input type="checkbox" data-chk-id="b2_ctx_2" onchange="onCheckItemChange(this)" />
-                <span class="chk-text">Thông báo sớm mọi thay đổi về quy cách/số lượng &amp; báo đổi lịch trước tối thiểu 03 ngày làm việc</span>
-              </label>
-              <label class="chk-item" data-party="CTX">
-                <input type="checkbox" data-chk-id="b2_ctx_3" onchange="onCheckItemChange(this)" />
-                <span class="chk-text">Phối hợp xử lý ngay với NCC nếu Bên B phát hiện kiện hàng hư hỏng ngoại quan tại xưởng</span>
-              </label>
-            </div>
-          </div>
-
-          <div class="step-party-box" style="background:rgba(255,245,238,0.4); border-color:#FDBA74;">
-            <div class="step-party-head" style="color:#9A3412;">
-              <span>🚛 BÊN B – KỲ TỐC LOGISTICS</span>
-              <span>3 đầu mục</span>
-            </div>
-            <div class="chk-list-col">
-              <label class="chk-item" data-party="KT">
-                <input type="checkbox" data-chk-id="b2_kt_1" onchange="onCheckItemChange(this)" />
-                <span class="chk-text">Tiếp quản hàng tại xưởng; chụp ảnh/lập biên bản báo ngay cho Bên A nếu kiện móp méo, rách, ướt</span>
-              </label>
-              <label class="chk-item" data-party="KT">
-                <input type="checkbox" data-chk-id="b2_kt_2" onchange="onCheckItemChange(this)" />
-                <span class="chk-text">Tổ chức dán tem gốc/tem phụ và kiểm đếm 100% kiện hàng trước khi xếp lên xe 13m7</span>
-              </label>
-              <label class="chk-item" data-party="KT">
-                <input type="checkbox" data-chk-id="b2_kt_3" onchange="onCheckItemChange(this)" />
-                <span class="chk-text">Giám sát xếp hàng, niêm phong <strong>kẹp chì Chặng 1</strong> chuẩn bảo hiểm &amp; vận chuyển về Kim Thành</span>
-              </label>
-            </div>
-          </div>
-        </div>
-        <div class="step-meta-bar">
-          <div class="step-meta-pill"><strong>🎯 Kết quả:</strong> 100% hàng dán tem chuẩn • Biên bản kiểm ngoại quan • Kẹp chì Chặng 1 về tới Kim Thành.</div>
-          <div class="step-meta-pill"><strong>⚠️ Lưu ý:</strong> Mọi thất thoát do sai quy cách kẹp chì Chặng 1 do Bên B chịu trách nhiệm bồi thường.</div>
-        </div>
-      </div>
-
-      <!-- BƯỚC 3 -->
-      <div class="step-chk-card">
-        <div class="step-chk-header">
-          <div style="display:flex; align-items:center; gap:10px;">
-            <span class="car-code" style="background:var(--primary-orange); color:#FFF; font-size:0.8rem; padding:3px 10px;">BƯỚC 3</span>
-            <span style="font-weight:800; font-size:0.95rem; color:var(--slate-900);">Thủ tục chuyên ngành (Sở VH-TT-DL Lào Cai) &amp; Thông quan Cửa khẩu Kim Thành</span>
-          </div>
-          <span class="section-badge">Đầu vào: Hồ sơ XNK &amp; Ủy thác • Hàng đến cửa khẩu Kim Thành • Token &amp; ECUS5</span>
-        </div>
-        <div class="step-chk-grid">
-          <div class="step-party-box" style="background:rgba(239,246,255,0.4); border-color:#BFDBFE;">
-            <div class="step-party-head" style="color:#1E40AF;">
-              <span>🏢 BÊN A – CTX (CHỦ ĐẦU TƯ)</span>
-              <span>3 đầu mục</span>
-            </div>
-            <div class="chk-list-col">
-              <label class="chk-item" data-party="CTX">
-                <input type="checkbox" data-chk-id="b3_ctx_1" onchange="onCheckItemChange(this)" />
-                <span class="chk-text">Ký đóng dấu hồ sơ &amp; cắm <strong>Chữ ký số (Token)</strong> ký tờ khai ECUS5 / hồ sơ Sở VH-TT-DL (cùng Indochina)</span>
-              </label>
-              <label class="chk-item" data-party="CTX">
-                <input type="checkbox" data-chk-id="b3_ctx_2" onchange="onCheckItemChange(this)" />
-                <span class="chk-text">Khắc phục với NCC nếu thiết bị có lỗi thiết kế/nội dung không đạt chuẩn thẩm định văn hóa</span>
-              </label>
-              <label class="chk-item" data-party="CTX">
-                <input type="checkbox" data-chk-id="b3_ctx_3" onchange="onCheckItemChange(this)" />
-                <span class="chk-text">Nộp thuế NK/GTGT điện tử &amp; thanh toán đúng hạn các đợt theo hợp đồng</span>
-              </label>
-            </div>
-          </div>
-
-          <div class="step-party-box" style="background:rgba(255,245,238,0.4); border-color:#FDBA74;">
-            <div class="step-party-head" style="color:#9A3412;">
-              <span>🚛 BÊN B – KỲ TỐC LOGISTICS</span>
-              <span>3 đầu mục</span>
-            </div>
-            <div class="chk-list-col">
-              <label class="chk-item" data-party="KT">
-                <input type="checkbox" data-chk-id="b3_kt_1" onchange="onCheckItemChange(this)" />
-                <span class="chk-text">Lập hồ sơ xin Giấy phép NK &amp; tổ chức thẩm định nội dung với Sở VH-TT-DL Lào Cai (đứng tên Indochina)</span>
-              </label>
-              <label class="chk-item" data-party="KT">
-                <input type="checkbox" data-chk-id="b3_kt_2" onchange="onCheckItemChange(this)" />
-                <span class="chk-text">Truyền tờ khai <strong>ECUS5</strong>, làm thủ tục thông quan &amp; kiểm hóa XNK tại cửa khẩu Kim Thành (báo ngay nếu kiểm hóa)</span>
-              </label>
-              <label class="chk-item" data-party="KT">
-                <input type="checkbox" data-chk-id="b3_kt_3" onchange="onCheckItemChange(this)" />
-                <span class="chk-text">Giám sát sang tải sang xe 8 tấn tại bãi Kim Thành &amp; niêm phong <strong>kẹp chì đầy đủ Chặng 2</strong></span>
-              </label>
-            </div>
-          </div>
-        </div>
-        <div class="step-meta-bar">
-          <div class="step-meta-pill"><strong>🎯 Kết quả:</strong> Giấy phép NK &amp; Kết quả thẩm định Sở VH-TT-DL • Tờ khai thông quan • Kẹp chì Chặng 2.</div>
-          <div class="step-meta-pill"><strong>⚠️ Lưu ý:</strong> Từ chối cấp phép do lỗi tư vấn tem/nội dung Bên B đã duyệt ➔ Bên B không thu phí tương ứng.</div>
-        </div>
-      </div>
-
-      <!-- BƯỚC 4 -->
-      <div class="step-chk-card">
-        <div class="step-chk-header">
-          <div style="display:flex; align-items:center; gap:10px;">
-            <span class="car-code" style="background:var(--primary-orange); color:#FFF; font-size:0.8rem; padding:3px 10px;">BƯỚC 4</span>
-            <span style="font-weight:800; font-size:0.95rem; color:var(--slate-900);">Khảo sát tuyến đường, vận chuyển Chặng 2 &amp; Giao nhận tại công trình CL3</span>
-          </div>
-          <span class="section-badge">Đầu vào: Hàng đã thông quan &amp; kẹp chì Chặng 2 • Báo lịch trước 24h</span>
-        </div>
-        <div class="step-chk-grid">
-          <div class="step-party-box" style="background:rgba(239,246,255,0.4); border-color:#BFDBFE;">
-            <div class="step-party-head" style="color:#1E40AF;">
-              <span>🏢 BÊN A – CTX (CHỦ ĐẦU TƯ)</span>
-              <span>3 đầu mục</span>
-            </div>
-            <div class="chk-list-col">
-              <label class="chk-item" data-party="CTX">
-                <input type="checkbox" data-chk-id="b4_ctx_1" onchange="onCheckItemChange(this)" />
-                <span class="chk-text">Xác nhận vị trí đậu xe &amp; bố trí sẵn <strong>Cẩu 15T, xe nâng, cáp vải, nhân công</strong> hạ hàng trong <strong>12 giờ</strong></span>
-              </label>
-              <label class="chk-item" data-party="CTX">
-                <input type="checkbox" data-chk-id="b4_ctx_2" onchange="onCheckItemChange(this)" />
-                <span class="chk-text">Kiểm tra kẹp chì, đếm chính xác số kiện thực tế &amp; ký Biên bản bàn giao tại chân tòa CL3</span>
-              </label>
-              <label class="chk-item" data-party="CTX">
-                <input type="checkbox" data-chk-id="b4_ctx_3" onchange="onCheckItemChange(this)" />
-                <span class="chk-text">Nếu có tổn thất: giữ nguyên hiện trạng trên xe, quay video/chụp ảnh &amp; lập biên bản đồng kiểm tại chỗ</span>
-              </label>
-            </div>
-          </div>
-
-          <div class="step-party-box" style="background:rgba(255,245,238,0.4); border-color:#FDBA74;">
-            <div class="step-party-head" style="color:#9A3412;">
-              <span>🚛 BÊN B – KỲ TỐC LOGISTICS</span>
-              <span>3 đầu mục</span>
-            </div>
-            <div class="chk-list-col">
-              <label class="chk-item" data-party="KT">
-                <input type="checkbox" data-chk-id="b4_kt_1" onchange="onCheckItemChange(this)" />
-                <span class="chk-text">Khảo sát đường vào công trình, thống nhất phương án bốc xếp &amp; báo lịch giao hàng trước <strong>24 giờ</strong></span>
-              </label>
-              <label class="chk-item" data-party="KT">
-                <input type="checkbox" data-chk-id="b4_kt_2" onchange="onCheckItemChange(this)" />
-                <span class="chk-text">Vận chuyển an toàn, đúng mốc tiến độ (Lô 1 &amp; 3: 03–15/12; Lô 2: trước 25/12) về chân tòa CL3</span>
-              </label>
-              <label class="chk-item" data-party="KT">
-                <input type="checkbox" data-chk-id="b4_kt_3" onchange="onCheckItemChange(this)" />
-                <span class="chk-text">Báo ngay cho Bên A &amp; Bảo hiểm nếu phát sinh sự cố; phối hợp đồng kiểm hiện trường</span>
-              </label>
-            </div>
-          </div>
-        </div>
-        <div class="step-meta-bar">
-          <div class="step-meta-pill"><strong>🎯 Kết quả:</strong> Hàng bàn giao nguyên đai nguyên kiện tại chân tòa CL3 • Biên bản bàn giao đủ chữ ký.</div>
-          <div class="step-meta-pill"><strong>⚠️ Lưu ý:</strong> Chậm nhận hàng quá 12h sau khi đã báo trước 24h ➔ Bên A chịu phí lưu ca/quay đầu xe.</div>
-        </div>
-      </div>
-
-      <!-- BƯỚC 5 -->
-      <div class="step-chk-card">
-        <div class="step-chk-header">
-          <div style="display:flex; align-items:center; gap:10px;">
-            <span class="car-code" style="background:var(--primary-orange); color:#FFF; font-size:0.8rem; padding:3px 10px;">BƯỚC 5</span>
-            <span style="font-weight:800; font-size:0.95rem; color:var(--slate-900);">Bàn giao hồ sơ hoàn chỉnh &amp; Quyết toán hợp đồng</span>
-          </div>
-          <span class="section-badge">Đầu vào: Biên bản bàn giao thực tế • Hồ sơ thông quan, Giấy phép &amp; Bảo hiểm</span>
-        </div>
-        <div class="step-chk-grid">
-          <div class="step-party-box" style="background:rgba(239,246,255,0.4); border-color:#BFDBFE;">
-            <div class="step-party-head" style="color:#1E40AF;">
-              <span>🏢 BÊN A – CTX (CHỦ ĐẦU TƯ)</span>
-              <span>3 đầu mục</span>
-            </div>
-            <div class="chk-list-col">
-              <label class="chk-item" data-party="CTX">
-                <input type="checkbox" data-chk-id="b5_ctx_1" onchange="onCheckItemChange(this)" />
-                <span class="chk-text">Tiếp nhận bộ hồ sơ XNK, Tờ khai HQ, Giấy phép &amp; Kết quả thẩm định hoàn chỉnh</span>
-              </label>
-              <label class="chk-item" data-party="CTX">
-                <input type="checkbox" data-chk-id="b5_ctx_2" onchange="onCheckItemChange(this)" />
-                <span class="chk-text">Kiểm tra, ký xác nhận bảng giá trị thanh toán khối lượng thực tế &amp; quyết toán chi phí</span>
-              </label>
-              <label class="chk-item" data-party="CTX">
-                <input type="checkbox" data-chk-id="b5_ctx_3" onchange="onCheckItemChange(this)" />
-                <span class="chk-text">Thanh toán hoặc đối trừ công nợ quyết toán theo đúng thỏa thuận Termsheet</span>
-              </label>
-            </div>
-          </div>
-
-          <div class="step-party-box" style="background:rgba(255,245,238,0.4); border-color:#FDBA74;">
-            <div class="step-party-head" style="color:#9A3412;">
-              <span>🚛 BÊN B – KỲ TỐC LOGISTICS</span>
-              <span>3 đầu mục</span>
-            </div>
-            <div class="chk-list-col">
-              <label class="chk-item" data-party="KT">
-                <input type="checkbox" data-chk-id="b5_kt_1" onchange="onCheckItemChange(this)" />
-                <span class="chk-text">Đóng gói, bàn giao trọn bộ hồ sơ (Tờ khai HQ, Giấy phép NK, Kết quả thẩm định Indochina, HĐ VAT)</span>
-              </label>
-              <label class="chk-item" data-party="KT">
-                <input type="checkbox" data-chk-id="b5_kt_2" onchange="onCheckItemChange(this)" />
-                <span class="chk-text">Tổng hợp chứng từ bảo hiểm &amp; kiểm hóa thực tế vào bảng quyết toán chi phí</span>
-              </label>
-              <label class="chk-item" data-party="KT">
-                <input type="checkbox" data-chk-id="b5_kt_3" onchange="onCheckItemChange(this)" />
-                <span class="chk-text">Hoàn lại / đối trừ phần chênh lệch nếu số xe kiểm hóa đầu xuất ít hơn mức dự trù</span>
-              </label>
-            </div>
-          </div>
-        </div>
-        <div class="step-meta-bar">
-          <div class="step-meta-pill"><strong>🎯 Kết quả:</strong> Bộ hồ sơ XNK &amp; Pháp lý hoàn chỉnh • Biên bản quyết toán hợp đồng hai bên.</div>
-          <div class="step-meta-pill"><strong>⚠️ Lưu ý:</strong> Bên B là đầu mối duy nhất chịu trách nhiệm xuyên suốt hợp đồng trước Bên A.</div>
-        </div>
-      </div>
-
-    </div>
-
-    <!-- ========================================================
          TAB 4: THỰC TẾ KHẢO SÁT HIỆN TRƯỜNG (ẢNH & VIDEO)
          ======================================================== -->
     <div class="tab-pane" id="tab4">
