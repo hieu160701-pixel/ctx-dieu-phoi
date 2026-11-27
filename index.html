@@ -651,6 +651,51 @@
       letter-spacing: 0.02em;
     }
 
+    .editable-date-cell {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      background: #F8FAFC;
+      border: 1px solid var(--slate-200);
+      border-radius: 5px;
+      padding: 2px 6px;
+      transition: all 0.15s ease;
+      cursor: pointer;
+      user-select: none;
+    }
+    .editable-date-cell:hover, .editable-date-cell:focus-within {
+      background: var(--primary-orange-light);
+      border-color: var(--primary-orange);
+      box-shadow: 0 0 0 2px rgba(242, 101, 34, 0.15);
+    }
+    .editable-date-cell.is-highlight {
+      background: var(--primary-orange-light);
+      border-color: var(--primary-orange-border);
+    }
+    .editable-date-display {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.74rem;
+      font-weight: 600;
+      color: var(--slate-700);
+      white-space: nowrap;
+    }
+    .editable-date-cell.is-highlight .editable-date-display {
+      font-weight: 700;
+      color: var(--primary-orange);
+    }
+    .editable-date-icon {
+      color: var(--slate-400);
+      flex-shrink: 0;
+      display: inline-flex;
+      align-items: center;
+      opacity: 0.75;
+    }
+    .editable-date-cell:hover .editable-date-icon {
+      color: var(--primary-orange);
+      opacity: 1;
+    }
+
     .date-highlight {
       font-family: 'JetBrains Mono', monospace;
       font-size: 0.75rem;
@@ -1710,82 +1755,82 @@
       <div class="gantt-chart-card">
         <div class="gantt-header-row">
           <span>TIẾN ĐỘ VẬN CHUYỂN &amp; LẮP ĐẶT DỰ ÁN 26 CHUYẾN XE</span>
-          <span id="gantt-overall-range-static">Chuẩn bị HĐ: 17/11 ➔ 30/11/2026 • Vận chuyển (Pick up ➔ Sapa): 01/12 ➔ 27/12/2026 • Hoàn thành lắp đặt: 27/01/2027 • Mời thẩm định: 28/01/2027</span>
+          <span id="gantt-overall-range-static">Thủ tục HĐ: 25/11 ➔ 28/11/26 • Pick up &amp; Vận chuyển: 30/11 ➔ 20/12/2026 • Cam kết Sapa HĐ CTX: 15/12 &amp; 25/12/2026 • Hoàn thành lắp đặt: 24/01/2027</span>
         </div>
 
         <div class="gantt-track-row">
           <!-- Track 0: Kí HĐ, Bảo lãnh, Tạm ứng -->
-          <div class="gantt-bar-item" style="grid-template-columns: 310px 1fr 170px;">
+          <div class="gantt-bar-item" style="grid-template-columns: 340px 1fr 220px;">
             <div>
               <span class="badge-shipment" style="background:#F1F5F9; color:#334155; border:1px solid #CBD5E1;">Thủ tục: Kí HĐ • Bảo lãnh • Tạm ứng</span>
             </div>
             <div class="gantt-bar-track">
               <div class="gantt-bar-fill" style="left: 0%; width: 22%; background: linear-gradient(90deg, #64748B, #475569);">
-                Kí HĐ: 17/11 ➔ 25/11/26 • Bảo lãnh: 22/11 ➔ 28/11/26 • Tạm ứng: 25/11 ➔ 30/11/26
+                Kí HĐ: 25/11/26 • Bảo lãnh: 27/11/26 • Tạm ứng: 28/11/26
               </div>
             </div>
-            <div style="font-family:'JetBrains Mono', monospace; font-size:0.74rem; text-align:right; color:var(--slate-600);">
-              Tạm ứng: 30/11/26
+            <div style="font-family:'JetBrains Mono', monospace; font-size:0.73rem; text-align:right; color:var(--slate-600);">
+              Hoàn tất: 28/11/26
             </div>
           </div>
 
           <!-- Track 1: Lô hàng 1 - Cầu trượt (Slide) -->
-          <div class="gantt-bar-item" style="grid-template-columns: 310px 1fr 170px;">
+          <div class="gantt-bar-item" style="grid-template-columns: 340px 1fr 220px;">
             <div>
-              <span class="badge-shipment badge-s1">Lô 1 • Cầu trượt (Slide) (Xe 1.1 – 1.2)</span> <span style="font-size:0.74rem; color:var(--slate-600);">(2 xe rào)</span>
+              <span class="badge-shipment badge-s1">Lô 1 • Cầu trượt (Slide) (Xe 1.1 – 1.2)</span> <span style="font-size:0.73rem; color:var(--slate-600);">(2 xe • Nam Kinh • 1 day)</span>
             </div>
             <div class="gantt-bar-track">
-              <div class="gantt-bar-fill fill-s1" style="left: 14%; width: 49%;">
-                DK lần 1: 26/11/26 • Pick up: 1/12/26 ➔ ETA KT: 07/12 ➔ ETA Sapa: 8/1/2026 • Lắp đặt: 11/12/2026 – 31-12-2026
+              <div class="gantt-bar-fill fill-s1" style="left: 10%; width: 52%;">
+                Pick up: 30/11/26 • CO: 02/12 • Hà Khẩu: 04/12 • KT: 05/12 • Sapa: 8/12/2026 • Lắp đặt: 11/12/2026 – 31-12-2026
               </div>
             </div>
-            <div style="font-family:'JetBrains Mono', monospace; font-size:0.74rem; text-align:right;">
-              Hoàn thành: 31-12-2026
+            <div style="font-family:'JetBrains Mono', monospace; font-size:0.73rem; text-align:right;">
+              Cam kết HĐ: 15/12 • Xong: 31-12-2026
             </div>
           </div>
 
           <!-- Track 2: Lô hàng 1 - Đồ trang trí (Decor) -->
-          <div class="gantt-bar-item" style="grid-template-columns: 310px 1fr 170px;">
+          <div class="gantt-bar-item" style="grid-template-columns: 340px 1fr 220px;">
             <div>
-              <span class="badge-shipment badge-s1">Lô 1 • Đồ trang trí (Decor) (Xe 3.1 – 3.6)</span> <span style="font-size:0.74rem; color:var(--slate-600);">(6 xe rào)</span>
+              <span class="badge-shipment badge-s1">Lô 1 • Đồ trang trí (Decor) (Xe 3.1 – 3.6)</span> <span style="font-size:0.73rem; color:var(--slate-600);">(6 xe • Trung Sơn • 2 days)</span>
             </div>
             <div class="gantt-bar-track">
-              <div class="gantt-bar-fill fill-s1" style="left: 18%; width: 52%;">
-                DK lần 1: 29-30/11 • Pick up: 02-03/12 ➔ KT: 07/12 ➔ Sapa: 09-11/12 • Lắp đặt: 11/12/2026 – 05-01-2027
+              <div class="gantt-bar-fill fill-s1" style="left: 16%; width: 54%;">
+                Pick up: 04-05/12 • CO: 06/12 • Hà Khẩu: 06-08/12 • KT: 07-09/12 • Sapa: 08-10/12 • Lắp: 11/12/2026 – 05-01-2027
               </div>
             </div>
-            <div style="font-family:'JetBrains Mono', monospace; font-size:0.74rem; text-align:right;">
-              Hoàn thành: 05-01-2027
+            <div style="font-family:'JetBrains Mono', monospace; font-size:0.73rem; text-align:right;">
+              Cam kết HĐ: 15/12 • Xong: 05-01-2027
             </div>
           </div>
 
           <!-- Track 3: Lô hàng 1 - Trò chơi hội chợ (Ride) -->
-          <div class="gantt-bar-item" style="grid-template-columns: 310px 1fr 170px;">
+          <div class="gantt-bar-item" style="grid-template-columns: 340px 1fr 220px;">
             <div>
-              <span class="badge-shipment badge-s1">Lô 1 • Trò chơi hội chợ (Ride) (Xe 1.3 – 1.10)</span> <span style="font-size:0.74rem; color:var(--slate-600);">(8 xe rào)</span>
+              <span class="badge-shipment badge-s1">Lô 1 • Trò chơi hội chợ (Ride) (Xe 1.3 – 1.10)</span> <span style="font-size:0.73rem; color:var(--slate-600);">(8 xe • Trung Sơn • 2 days)</span>
             </div>
             <div class="gantt-bar-track">
-              <div class="gantt-bar-fill fill-s1" style="left: 22%; width: 54%;">
-                DK lần 1: 01-03/12 • Pick up: 04-06/12 ➔ KT: 09/12 ➔ Sapa: 09-11/12 • Lắp đặt: 12/12/2026 – 09-01-2027
+              <div class="gantt-bar-fill fill-s1" style="left: 20%; width: 56%;">
+                Pick up: 06-08/12 • CO: 19/12 • Hà Khẩu: 09-11/12 • KT: 10-12/12 • Sapa: 11-13/12 • Lắp: 12/12/2026 – 09-01-2027
               </div>
             </div>
-            <div style="font-family:'JetBrains Mono', monospace; font-size:0.74rem; text-align:right;">
-              Hoàn thành: 09-01-2027
+            <div style="font-family:'JetBrains Mono', monospace; font-size:0.73rem; text-align:right;">
+              Cam kết HĐ: 15/12 • Xong: 09-01-2027
             </div>
           </div>
 
           <!-- Track 4: Lô hàng 2 - Máy chơi game trả thưởng -->
-          <div class="gantt-bar-item" style="grid-template-columns: 310px 1fr 170px;">
+          <div class="gantt-bar-item" style="grid-template-columns: 340px 1fr 220px;">
             <div>
-              <span class="badge-shipment badge-s2">Lô 2 • Máy chơi game trả thưởng (Xe 2.1 – 2.10)</span> <span style="font-size:0.74rem; color:var(--slate-600);">(10 xe rào)</span>
+              <span class="badge-shipment badge-s2">Lô 2 • Máy chơi game trả thưởng (Xe 2.1 – 2.10)</span> <span style="font-size:0.73rem; color:var(--slate-600);">(10 xe • Panyu &amp; TS • 2 days)</span>
             </div>
             <div class="gantt-bar-track">
-              <div class="gantt-bar-fill fill-s2" style="left: 36%; width: 64%;">
-                DK lần 1: 10-11/12 • Pick up: 15-16/12 ➔ KT: 22/12 ➔ Sapa: 23-27/12 • Lắp: 28/12 – 27/1/2027 • Thẩm định: 28/1/27
+              <div class="gantt-bar-fill fill-s2" style="left: 30%; width: 70%;">
+                Pick up: 10-11/12 • CO: 13/12 • Hà Khẩu: 11-13/12 • KT: 14/12 • Sapa: 18-20/12 • Lắp: 25/12/2026 – 24/1/2027
               </div>
             </div>
-            <div style="font-family:'JetBrains Mono', monospace; font-size:0.74rem; text-align:right; color:var(--primary-orange); font-weight:700;">
-              Thẩm định: 28/1/27
+            <div style="font-family:'JetBrains Mono', monospace; font-size:0.73rem; text-align:right; color:var(--primary-orange); font-weight:700;">
+              Cam kết HĐ: 25/12 • Xong: 24/1/2027
             </div>
           </div>
         </div>
@@ -1861,10 +1906,10 @@
           </div>
           <div style="display:flex; align-items:center; gap:12px; flex-wrap:wrap;">
             <span style="font-size:0.75rem; background:#FEF08A; color:#854D0E; border:1px solid #EAB308; padding:3px 10px; border-radius:9999px; font-weight:700;">
-              💡 Chỉnh sửa trực tiếp ngày tại ô bôi vàng (ETA Bản Mòng Xe 1.1 & 1.2) để tự động tính lại toàn bảng
+              💡 Nhấn vào bất kỳ ngày nào của từng xe để chỉnh sửa trực tiếp (Hoặc sửa ô bôi vàng ETA Sapa Xe 1.1 &amp; 1.2 để tính lại toàn bảng)
             </span>
-            <button class="btn btn-outline" onclick="resetFormulaDates()" style="padding:4px 10px; font-size:0.72rem;" title="Đặt lại ngày gốc 03/12/2026">
-              ↺ Đặt lại mặc định (03/12)
+            <button class="btn btn-outline" onclick="resetFormulaDates()" style="padding:4px 10px; font-size:0.72rem;" title="Đặt lại ngày gốc mặc định (08/12/2026)">
+              ↺ Đặt lại mặc định (08/12)
             </button>
             <div style="font-size:0.8rem; color:var(--slate-500);">
               Hiển thị: <strong id="filter-count" style="color:var(--slate-900);">26</strong> / 26 xe
@@ -1875,20 +1920,20 @@
 
           <!-- Filters & Search Toolbar -->
           <div class="filter-toolbar" style="display:flex; justify-content:space-between; align-items:center; gap:12px; flex-wrap:wrap; margin-bottom:16px;">
-                        <div style="display:flex; gap:6px; flex-wrap:wrap;">
+            <div style="display:flex; gap:6px; flex-wrap:wrap;">
               <button class="btn btn-primary" id="btn-tab-all" onclick="filterByShipment('ALL', this)" style="padding:5px 12px; font-size:0.75rem;">
                 Tất cả (26 xe)
               </button>
               <button class="btn btn-outline" id="btn-tab-s1" onclick="filterByShipment('1', this)" style="padding:5px 12px; font-size:0.75rem;">
-                Lô 1: Slide, Ride, Đèn Decor (16 xe)
+                Shipment 1: Slide, Ride, Decor (16 xe)
               </button>
               <button class="btn btn-outline" id="btn-tab-s2" onclick="filterByShipment('2', this)" style="padding:5px 12px; font-size:0.75rem;">
-                Lô 2: Máy chơi game trả thưởng (10 xe)
+                Shipment 2: Máy chơi game trả thưởng (10 xe)
               </button>
             </div>
 
             <div style="position:relative;">
-              <input type="text" id="searchInput" placeholder="Tìm mã xe, lô hàng, POL..." oninput="renderDispatchTable()" style="padding:6px 12px 6px 30px; border-radius:var(--radius-md); border:1px solid var(--slate-300); font-size:0.775rem; width:220px; outline:none;">
+              <input type="text" id="searchInput" placeholder="Tìm mã xe, mặt hàng, POL..." oninput="renderDispatchTable()" style="padding:6px 12px 6px 30px; border-radius:var(--radius-md); border:1px solid var(--slate-300); font-size:0.775rem; width:240px; outline:none;">
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="position:absolute; left:10px; top:50%; transform:translateY(-50%); color:var(--slate-400);"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
             </div>
           </div>
@@ -1898,16 +1943,18 @@
             <table class="data-table">
               <thead>
                 <tr>
-                  <th style="width: 45px; text-align: center;">STT</th>
-                  <th>Lô Hàng</th>
-                  <th>Mã Xe</th>
+                  <th>Shipment</th>
+                  <th style="text-align: center;">STT xe/车辆序号</th>
+                  <th style="min-width: 210px;">Mặt hàng/物品</th>
                   <th>POL</th>
                   <th>POD</th>
-                  <th>ETD</th>
+                  <th>Pick up date</th>
+                  <th>Received CO date</th>
+                  <th>ETA Hà Khẩu</th>
                   <th>ETA Kim Thành</th>
-                  <th>ETA Bản Mòng (Chân tòa CL3)</th>
-                  <th>Thời Gian Bắt Đầu Lắp Đặt</th>
-                  <th>Thời Gian Dự Kiến Hoàn Thành Lắp Đặt</th>
+                  <th>ETA Sapa</th>
+                  <th>Thời gian bắt đầu lắp đặt</th>
+                  <th>Thời gian dự kiến hoàn thành lắp đặt</th>
                   <th style="text-align: center;">Bản Vẽ Xếp Xe</th>
                 </tr>
               </thead>
@@ -1920,7 +1967,7 @@
           <!-- Table Summary Footer -->
           <div style="display:flex; justify-content:space-between; align-items:center; margin-top:14px; font-size:0.8rem; color:var(--slate-600); flex-wrap:wrap; gap:10px;">
             <div id="table-summary-note">
-              * Kế hoạch điều phối cập nhật: <strong>Lô 1: Slide và Ride</strong> & <strong>Lô 3: Đèn Decor</strong> lắp đặt từ <strong>09/12/2026 – 13/01/2027</strong> • <strong>Lô 2: Arcade Game và Gooest</strong> lắp đặt từ <strong>24/12/2026 – 28/01/2027</strong>.
+              * Kế hoạch điều phối chi tiết 26 xe: <strong>Shipment 1 (16 xe: 1.1–1.10 &amp; 3.1–3.6)</strong> lắp đặt <strong>11/12/2026 – 05/01/2027</strong> • <strong>Shipment 2 (10 xe: 2.1–2.10)</strong> lắp đặt <strong>21/12/2026 – 20/01/2027</strong>.
             </div>
           </div>
         </div>
@@ -1928,9 +1975,7 @@
 
     </div>
 
-
-
-        <!-- ========================================================
+    <!-- ========================================================
          TAB 4: THỰC TẾ KHẢO SÁT HIỆN TRƯỜNG (ẢNH & VIDEO)
          ======================================================== -->
     <div class="tab-pane" id="tab4">
@@ -2202,15 +2247,15 @@
       });
     }
 
-    // 26 Cars Master Dataset according to the NEW Schedule (final.csv) with Live Excel Formulas from H14 & H15
-        const shipmentNames = {
-      1: "Lô 1: Slide, Ride, Đèn Decor",
-      2: "Lô 2: Máy chơi game trả thưởng"
+    // 26 Cars Master Dataset (Updated per Image 1 with editable dates for every vehicle & every date column)
+    const shipmentNames = {
+      1: "Shipment 1",
+      2: "Shipment 2"
     };
 
-    // Hai ô bôi vàng gốc trong Excel: H14 (ETA Sapa Xe 1.1) và H15 (ETA Sapa Xe 1.2)
-    let dateH14 = "2026-12-03";
-    let dateH15 = "2026-12-03";
+    // Hai ô bôi vàng gốc trong bảng: J2 (ETA Sapa Xe 1.1) và J3 (ETA Sapa Xe 1.2) = 08/12/2026
+    let dateH14 = "2026-12-08";
+    let dateH15 = "2026-12-08";
 
     // Cộng/trừ số ngày từ chuỗi YYYY-MM-DD
     function addDaysISO(isoDateStr, days) {
@@ -2238,7 +2283,7 @@
     }
 
     const baseCarsMeta = [
-      // Lô 1: Slide, Ride, Đèn Decor (16 xe: 1.1 -> 1.10 & 3.1 -> 3.6)
+      // Shipment 1 (16 xe: 1.1 -> 1.10 & 3.1 -> 3.6)
       { stt: 1, shipment: 1, code: "1.1", excelCell: "H14", item: "SOFTPLAY GROUND EQUIPMENT", pol: "南京 - Nam Kinh", pod: "Sapa, Lào Cai", diagram: "" },
       { stt: 2, shipment: 1, code: "1.2", excelCell: "H15", item: "SOFTPLAY GROUND EQUIPMENT", pol: "南京 - Nam Kinh", pod: "Sapa, Lào Cai", diagram: "" },
       { stt: 3, shipment: 1, code: "1.3", item: "24座转马 装箱单 (Trò chơi đu quay 24 chỗ)", pol: "中山 - Trung sơn", pod: "Sapa, Lào Cai", diagram: "Ban-ve-xep-xe-PL21359260__xe1__tq_13m_rao.html" },
@@ -2256,7 +2301,7 @@
       { stt: 15, shipment: 1, code: "3.5", item: "Decor", pol: "中山 - Trung sơn", pod: "Sapa, Lào Cai", diagram: "Ban-ve-xep-xe-PL22269720__xe5__tq_13m_rao.html" },
       { stt: 16, shipment: 1, code: "3.6", item: "Decor", pol: "中山 - Trung sơn", pod: "Sapa, Lào Cai", diagram: "Ban-ve-xep-xe-PL22269720__xe6__tq_13m_rao.html" },
 
-      // Lô 2: Máy chơi game trả thưởng (10 xe: 2.1 -> 2.10)
+      // Shipment 2 (10 xe: 2.1 -> 2.10)
       { stt: 17, shipment: 2, code: "2.1", item: "Máy chơi game trả thưởng", pol: "中山 - Trung Sơn", pod: "Sapa, Lào Cai", diagram: "Ban-ve-xep-xe-PL73786303__xe1__tq_13m_rao.html" },
       { stt: 18, shipment: 2, code: "2.2", item: "Máy chơi game trả thưởng", pol: "中山 - Trung Sơn", pod: "Sapa, Lào Cai", diagram: "Ban-ve-xep-xe-PL73786303__xe2__tq_13m_rao.html" },
       { stt: 19, shipment: 2, code: "2.3", item: "Máy chơi game trả thưởng", pol: "中山 - Trung Sơn", pod: "Sapa, Lào Cai", diagram: "Ban-ve-xep-xe-PL73786303__xe3__tq_13m_rao.html" },
@@ -2272,181 +2317,113 @@
     let newScheduleData = [];
     let currentShipment = "ALL";
 
-    // Tính toán lại toàn bộ các cột ngày theo đúng công thức Excel mới từ H14 và H15
+    // Tính toán toàn bộ các cột ngày theo đúng bảng Ảnh 1 từ ô bôi vàng H14 & H15 (mặc định 08/12/2026)
     function recalculateScheduleDates() {
-      const h14 = dateH14;
-      const h15 = dateH15;
-
-      // Lô 3: Đèn Decor
-      // 3.1 - 3.3: ETA Sapa = H15 + 1 ngày (04/12/2026)
-      const etaSp_3_1to3 = addDaysISO(h15, 1);
-      // 3.4 - 3.6: ETA Sapa = H15 + 2 ngày (05/12/2026)
-      const etaSp_3_4to6 = addDaysISO(h15, 2);
-
-      // Lô 1: Ride (1.3 - 1.10) nối tiếp sau Đèn Decor (3.6)
-      // 1.3 - 1.4: ETA Sapa = H15 + 3 ngày (06/12/2026)
-      const etaSp_1_3to4 = addDaysISO(h15, 3);
-      // 1.5 - 1.7: ETA Sapa = H15 + 4 ngày (07/12/2026)
-      const etaSp_1_5to7 = addDaysISO(h15, 4);
-      // 1.8 - 1.10: ETA Sapa = H15 + 5 ngày (08/12/2026)
-      const etaSp_1_8to10 = addDaysISO(h15, 5);
-
-      // Thời gian bắt đầu lắp đặt Lô 1 & Lô 3 = ETA Sapa(1.10) + 2 ngày = H15 + 7 ngày (10/12/2026)
-      const installStart_1_3 = addDaysISO(etaSp_1_8to10, 2);
-      // Hoàn thành lắp đặt:
-      // - Xe 1.1 & 1.2 (Slide): +20 ngày (30/12/2026)
-      const installEnd_1_1to2 = addDaysISO(installStart_1_3, 20);
-      // - Xe 1.3 - 1.10 (Ride): +25 ngày (04/01/2027)
-      const installEnd_1_3to10 = addDaysISO(installStart_1_3, 25);
-      // - Xe 3.1 - 3.6 (Đèn Decor): +28 ngày (07/01/2027)
-      const installEnd_3 = addDaysISO(installStart_1_3, 28);
-
-      // Lô 2: Arcade Game và Gooest
-      // Bắt đầu lắp đặt Lô 2: 21/12/2026 (= installStart_1_3 + 11 ngày)
-      const installStart_2 = addDaysISO(installStart_1_3, 11);
-      // Hoàn thành lắp đặt Lô 2: 20/01/2027 (= installStart_2 + 30 ngày)
-      const installEnd_2 = addDaysISO(installStart_2, 30);
-
-      // Lịch vận chuyển Lô 2 tính theo installStart_2 (21/12/2026)
-      const etaKt_2_all   = addDaysISO(installStart_2, -4); // 17/12/2026
-      const etaSp_2_1to3  = addDaysISO(installStart_2, -3); // 18/12/2026
-      const etaSp_2_4to6  = addDaysISO(installStart_2, -2); // 19/12/2026
-      const etaSp_2_7to9  = addDaysISO(installStart_2, -1); // 20/12/2026
-      const etaSp_2_10    = installStart_2;                 // 21/12/2026
+      const h14 = dateH14; // Mặc định 2026-12-08
+      const h15 = dateH15; // Mặc định 2026-12-08
 
       newScheduleData = baseCarsMeta.map(meta => {
-        let etdISO, etaKtISO, etaSpISO, instStartISO, instEndISO;
+        let pickupISO, coISO, etaHkISO, etaKtISO, etaSpISO, instStartISO, instEndISO;
 
-        if (meta.code === "1.1") {
-          etaSpISO = h14;
-          etaKtISO = addDaysISO(etaSpISO, -1);
-          etdISO   = addDaysISO(etaKtISO, -6);
-          instStartISO = installStart_1_3;
-          instEndISO   = installEnd_1_1to2;
-        } else if (meta.code === "1.2") {
-          etaSpISO = h15;
-          etaKtISO = addDaysISO(etaSpISO, -1);
-          etdISO   = addDaysISO(etaKtISO, -6);
-          instStartISO = installStart_1_3;
-          instEndISO   = installEnd_1_1to2;
-        } else if (meta.code === "1.3" || meta.code === "1.4") {
-          etaSpISO = etaSp_1_3to4;
-          etaKtISO = addDaysISO(etaSpISO, -1);
-          etdISO   = addDaysISO(etaKtISO, -4);
-          instStartISO = installStart_1_3;
-          instEndISO   = installEnd_1_3to10;
-        } else if (meta.code === "1.5" || meta.code === "1.6" || meta.code === "1.7") {
-          etaSpISO = etaSp_1_5to7;
-          etaKtISO = addDaysISO(etaSpISO, -1);
-          etdISO   = addDaysISO(etaKtISO, -4);
-          instStartISO = installStart_1_3;
-          instEndISO   = installEnd_1_3to10;
-        } else if (meta.code === "1.8" || meta.code === "1.9" || meta.code === "1.10") {
-          etaSpISO = etaSp_1_8to10;
-          etaKtISO = addDaysISO(etaSpISO, -1);
-          etdISO   = addDaysISO(etaKtISO, -4);
-          instStartISO = installStart_1_3;
-          instEndISO   = installEnd_1_3to10;
+        if (meta.code === "1.1" || meta.code === "1.2") {
+          const baseSp = (meta.code === "1.1") ? h14 : h15; // 08/12/2026
+          etaSpISO     = baseSp;
+          etaKtISO     = addDaysISO(baseSp, -2); // 06/12/2026
+          etaHkISO     = addDaysISO(baseSp, -3); // 05/12/2026
+          coISO        = addDaysISO(baseSp, -6); // 02/12/2026
+          pickupISO    = addDaysISO(baseSp, -8); // 30/11/2026
+          instStartISO = addDaysISO(baseSp, 3);  // 11/12/2026
+          instEndISO   = addDaysISO(baseSp, 23); // 31/12/2026
+        } else if (meta.code === "1.3" || meta.code === "1.4" || meta.code === "1.5") {
+          etaSpISO     = addDaysISO(h15, 3);  // 11/12/2026
+          etaKtISO     = addDaysISO(h15, 2);  // 10/12/2026
+          etaHkISO     = addDaysISO(h15, 1);  // 09/12/2026
+          coISO        = h15;                 // 08/12/2026
+          pickupISO    = addDaysISO(h15, -2); // 06/12/2026
+          instStartISO = addDaysISO(h15, 3);  // 11/12/2026
+          instEndISO   = addDaysISO(h15, 28); // 05/01/2027
+        } else if (meta.code === "1.6" || meta.code === "1.7" || meta.code === "1.8") {
+          etaSpISO     = addDaysISO(h15, 4);  // 12/12/2026
+          etaKtISO     = addDaysISO(h15, 3);  // 11/12/2026
+          etaHkISO     = addDaysISO(h15, 2);  // 10/12/2026
+          coISO        = addDaysISO(h15, 1);  // 09/12/2026
+          pickupISO    = addDaysISO(h15, -1); // 07/12/2026
+          instStartISO = addDaysISO(h15, 3);  // 11/12/2026
+          instEndISO   = addDaysISO(h15, 28); // 05/01/2027
+        } else if (meta.code === "1.9" || meta.code === "1.10") {
+          etaSpISO     = addDaysISO(h15, 5);  // 13/12/2026
+          etaKtISO     = addDaysISO(h15, 4);  // 12/12/2026
+          etaHkISO     = addDaysISO(h15, 3);  // 11/12/2026
+          coISO        = addDaysISO(h15, 2);  // 10/12/2026
+          pickupISO    = h15;                 // 08/12/2026
+          instStartISO = addDaysISO(h15, 3);  // 11/12/2026
+          instEndISO   = addDaysISO(h15, 28); // 05/01/2027
         } else if (meta.code === "3.1" || meta.code === "3.2" || meta.code === "3.3") {
-          etaSpISO = etaSp_3_1to3;
-          etaKtISO = addDaysISO(etaSpISO, -1);
-          etdISO   = addDaysISO(etaKtISO, -4);
-          instStartISO = installStart_1_3;
-          instEndISO   = installEnd_3;
+          etaSpISO     = addDaysISO(h15, 1);  // 09/12/2026
+          etaKtISO     = h15;                 // 08/12/2026
+          etaHkISO     = addDaysISO(h15, -1); // 07/12/2026
+          coISO        = addDaysISO(h15, -2); // 06/12/2026
+          pickupISO    = addDaysISO(h15, -4); // 04/12/2026
+          instStartISO = addDaysISO(h15, 4);  // 12/12/2026
+          instEndISO   = addDaysISO(h15, 28); // 05/01/2027
         } else if (meta.code === "3.4" || meta.code === "3.5" || meta.code === "3.6") {
-          etaSpISO = etaSp_3_4to6;
-          etaKtISO = addDaysISO(etaSpISO, -1);
-          etdISO   = addDaysISO(etaKtISO, -4);
-          instStartISO = installStart_1_3;
-          instEndISO   = installEnd_3;
+          etaSpISO     = addDaysISO(h15, 2);  // 10/12/2026
+          etaKtISO     = addDaysISO(h15, 1);  // 09/12/2026
+          etaHkISO     = h15;                 // 08/12/2026
+          coISO        = addDaysISO(h15, -1); // 07/12/2026
+          pickupISO    = addDaysISO(h15, -3); // 05/12/2026
+          instStartISO = addDaysISO(h15, 4);  // 12/12/2026
+          instEndISO   = addDaysISO(h15, 28); // 05/01/2027
         } else if (meta.code === "2.1" || meta.code === "2.2" || meta.code === "2.3") {
-          etaSpISO = etaSp_2_1to3;
-          etaKtISO = etaKt_2_all;
-          etdISO   = addDaysISO(etaKtISO, -7); // 10/12/2026
-          instStartISO = installStart_2;
-          instEndISO   = installEnd_2;
+          etaSpISO     = addDaysISO(h15, 10); // 18/12/2026
+          etaKtISO     = addDaysISO(h15, 6);  // 14/12/2026
+          etaHkISO     = addDaysISO(h15, 5);  // 13/12/2026
+          coISO        = addDaysISO(h15, 4);  // 12/12/2026
+          pickupISO    = addDaysISO(h15, 2);  // 10/12/2026
+          instStartISO = addDaysISO(h15, 13); // 21/12/2026
+          instEndISO   = addDaysISO(h15, 43); // 20/01/2027
         } else if (meta.code === "2.4" || meta.code === "2.5" || meta.code === "2.6") {
-          etaSpISO = etaSp_2_4to6;
-          etaKtISO = etaKt_2_all;
-          etdISO   = addDaysISO(etaKtISO, -6); // 11/12/2026
-          instStartISO = installStart_2;
-          instEndISO   = installEnd_2;
-        } else if (meta.code === "2.7" || meta.code === "2.8" || meta.code === "2.9") {
-          etaSpISO = etaSp_2_7to9;
-          etaKtISO = etaKt_2_all;
-          etdISO   = addDaysISO(etaKtISO, -7); // 10/12/2026
-          instStartISO = installStart_2;
-          instEndISO   = installEnd_2;
-        } else if (meta.code === "2.10") {
-          etaSpISO = etaSp_2_10;
-          etaKtISO = etaKt_2_all;
-          etdISO   = addDaysISO(etaKtISO, -6); // 11/12/2026
-          instStartISO = installStart_2;
-          instEndISO   = installEnd_2;
+          etaSpISO     = addDaysISO(h15, 11); // 19/12/2026
+          etaKtISO     = addDaysISO(h15, 7);  // 15/12/2026
+          etaHkISO     = addDaysISO(h15, 6);  // 14/12/2026
+          coISO        = addDaysISO(h15, 5);  // 13/12/2026
+          pickupISO    = addDaysISO(h15, 3);  // 11/12/2026
+          instStartISO = addDaysISO(h15, 13); // 21/12/2026
+          instEndISO   = addDaysISO(h15, 43); // 20/01/2027
+        } else if (meta.code === "2.7" || meta.code === "2.8" || meta.code === "2.9" || meta.code === "2.10") {
+          etaSpISO     = addDaysISO(h15, 12); // 20/12/2026
+          etaKtISO     = addDaysISO(h15, 6);  // 14/12/2026
+          etaHkISO     = addDaysISO(h15, 5);  // 13/12/2026
+          coISO        = addDaysISO(h15, 4);  // 12/12/2026
+          pickupISO    = addDaysISO(h15, 2);  // 10/12/2026
+          instStartISO = addDaysISO(h15, 13); // 21/12/2026
+          instEndISO   = addDaysISO(h15, 43); // 20/01/2027
         }
 
         return {
           ...meta,
-          etdISO,
+          pickupISO,
+          coISO,
+          etaHkISO,
           etaKtISO,
           etaSpISO,
           instStartISO,
           instEndISO,
-          etd: formatVNDate(etdISO),
+          pickup: formatVNDate(pickupISO),
+          co: formatVNDate(coISO),
+          etaHk: formatVNDate(etaHkISO),
           etaKt: formatVNDate(etaKtISO),
           etaSp: formatVNDate(etaSpISO),
           installStart: formatVNDate(instStartISO),
           installEnd: formatVNDate(instEndISO)
         };
       });
-
-      // Cập nhật nhãn trên Gantt Chart và Footer theo công thức mới
-      const etd1_1 = formatVNDate(addDaysISO(h14, -7));
-      const etd3_1 = formatShortDate(addDaysISO(etaSp_3_1to3, -5));
-      const etd3_6 = formatShortDate(addDaysISO(etaSp_3_4to6, -5));
-      const etd1_10 = formatShortDate(addDaysISO(etaSp_1_8to10, -5));
-      const etd2_1 = formatShortDate(addDaysISO(etaKt_2_all, -7));
-      const etd2_6 = formatShortDate(addDaysISO(etaKt_2_all, -6));
-
-      const ganttRangeEl = document.getElementById('gantt-overall-range');
-      if (ganttRangeEl) {
-        ganttRangeEl.innerText = `Vận chuyển: ${etd1_1} ➔ ${formatVNDate(etaSp_2_10)} • Hoàn thành lắp đặt: ${formatVNDate(installEnd_2)}`;
-      }
-      const ganttBarS3 = document.getElementById('gantt-bar-s3');
-      if (ganttBarS3) {
-        ganttBarS3.innerText = `ETD ${etd3_1} - ${etd3_6} ➔ ETA Sapa ${formatShortDate(etaSp_3_1to3)} - ${formatShortDate(etaSp_3_4to6)} • Lắp đặt: ${formatShortDate(installStart_1_3)} - ${formatShortDate(installEnd_3)}`;
-      }
-      const ganttEtaS3 = document.getElementById('gantt-eta-s3');
-      if (ganttEtaS3) {
-        ganttEtaS3.innerText = `ETA Sapa: ${formatShortDate(etaSp_3_1to3)} - ${formatShortDate(etaSp_3_4to6)}`;
-      }
-      const ganttBarS1 = document.getElementById('gantt-bar-s1');
-      if (ganttBarS1) {
-        ganttBarS1.innerText = `ETD ${formatShortDate(addDaysISO(h14, -7))} - ${etd1_10} ➔ ETA Sapa ${formatShortDate(h14)} - ${formatShortDate(etaSp_1_8to10)} • Lắp đặt: ${formatShortDate(installStart_1_3)} - ${formatShortDate(installEnd_3)}`;
-      }
-      const ganttEtaS1 = document.getElementById('gantt-eta-s1');
-      if (ganttEtaS1) {
-        ganttEtaS1.innerText = `ETA Sapa: ${formatShortDate(h14)} - ${formatShortDate(etaSp_1_8to10)}`;
-      }
-      const ganttBarS2 = document.getElementById('gantt-bar-s2');
-      if (ganttBarS2) {
-        ganttBarS2.innerText = `ETD ${etd2_1} - ${etd2_6} ➔ ETA Sapa ${formatShortDate(etaSp_2_1to3)} - ${formatShortDate(etaSp_2_10)} • Lắp đặt: ${formatShortDate(installStart_2)} - ${formatShortDate(installEnd_2)}`;
-      }
-      const ganttEtaS2 = document.getElementById('gantt-eta-s2');
-      if (ganttEtaS2) {
-        ganttEtaS2.innerText = `ETA Sapa: ${formatShortDate(etaSp_2_1to3)} - ${formatShortDate(etaSp_2_10)}`;
-      }
-      const summaryNoteEl = document.getElementById('table-summary-note');
-      if (summaryNoteEl) {
-        summaryNoteEl.innerHTML = `* Kế hoạch điều phối tự động theo công thức: <strong>Lô 1: Slide, Ride, Đèn Decor (16 xe)</strong> lắp đặt <strong>${formatVNDate(installStart_1_3)} – ${formatVNDate(installEnd_3)}</strong> • <strong>Lô 2: Máy chơi game trả thưởng (10 xe)</strong> lắp đặt <strong>${formatVNDate(installStart_2)} – ${formatVNDate(installEnd_2)}</strong>.`;
-      }
     }
 
-    // Xử lý khi người dùng chỉnh sửa ngày ở ô bôi vàng H14 hoặc H15
+    // Xử lý khi người dùng chỉnh sửa ngày ở ô bôi vàng H14 hoặc H15 (tính lại toàn bộ công thức)
     function handleYellowDateChange(cellId, newIsoVal) {
       if (!newIsoVal) return;
       if (cellId === 'H14') {
-        // Nếu H15 đang cùng giá trị với H14 trước khi sửa, đồng bộ H15 theo H14 để toàn bảng tự nhảy ngay
         if (dateH15 === dateH14) {
           dateH15 = newIsoVal;
         }
@@ -2458,108 +2435,36 @@
       renderDispatchTable();
     }
 
+    // Xử lý khi người dùng chỉnh sửa bất kỳ ngày nào của từng xe riêng lẻ
+    function handleCarDateChange(carCode, isoField, displayField, newIsoVal) {
+      if (!newIsoVal) return;
+      const car = newScheduleData.find(c => c.code === carCode);
+      if (car) {
+        car[isoField] = newIsoVal;
+        car[displayField] = formatVNDate(newIsoVal);
+        renderDispatchTable();
+      }
+    }
+
     function resetFormulaDates() {
-      dateH14 = "2026-12-03";
-      dateH15 = "2026-12-03";
+      dateH14 = "2026-12-08";
+      dateH15 = "2026-12-08";
       recalculateScheduleDates();
       renderDispatchTable();
     }
 
-    
-    // Checklist State Management (Tab 3)
-    const CHK_STORAGE_KEY = 'ctx_kytoc_checklist_v1';
-
-    function loadChecklistState() {
-      let saved = {};
-      try {
-        saved = JSON.parse(localStorage.getItem(CHK_STORAGE_KEY) || '{}');
-      } catch (e) { saved = {}; }
-
-      document.querySelectorAll('#tab3 input[type="checkbox"][data-chk-id]').forEach(cb => {
-        const id = cb.getAttribute('data-chk-id');
-        cb.checked = !!saved[id];
-        const label = cb.closest('.chk-item');
-        if (label) {
-          label.classList.toggle('checked', cb.checked);
-        }
-      });
-      updateChecklistProgress();
-    }
-
-    function onCheckItemChange(cb) {
-      const label = cb.closest('.chk-item');
-      if (label) {
-        label.classList.toggle('checked', cb.checked);
-      }
-      saveChecklistState();
-      updateChecklistProgress();
-    }
-
-    function saveChecklistState() {
-      const state = {};
-      document.querySelectorAll('#tab3 input[type="checkbox"][data-chk-id]').forEach(cb => {
-        if (cb.checked) {
-          state[cb.getAttribute('data-chk-id')] = true;
-        }
-      });
-      try {
-        localStorage.setItem(CHK_STORAGE_KEY, JSON.stringify(state));
-      } catch (e) {}
-    }
-
-    function updateChecklistProgress() {
-      const all = document.querySelectorAll('#tab3 input[type="checkbox"][data-chk-id]');
-      const done = document.querySelectorAll('#tab3 input[type="checkbox"][data-chk-id]:checked');
-      const ctxAll = document.querySelectorAll('#tab3 .chk-item[data-party="CTX"] input[type="checkbox"]');
-      const ctxDone = document.querySelectorAll('#tab3 .chk-item[data-party="CTX"] input[type="checkbox"]:checked');
-      const ktAll = document.querySelectorAll('#tab3 .chk-item[data-party="KT"] input[type="checkbox"]');
-      const ktDone = document.querySelectorAll('#tab3 .chk-item[data-party="KT"] input[type="checkbox"]:checked');
-
-      const total = all.length || 1;
-      const pct = Math.round((done.length / total) * 100);
-
-      const badge = document.getElementById('chk-total-badge');
-      if (badge) badge.innerText = `${done.length} / ${all.length} hoàn thành (${pct}%)`;
-
-      const fill = document.getElementById('chk-progress-fill');
-      if (fill) fill.style.width = pct + '%';
-
-      const ctxEl = document.getElementById('chk-ctx-count');
-      if (ctxEl) ctxEl.innerText = `${ctxDone.length}/${ctxAll.length}`;
-
-      const ktEl = document.getElementById('chk-kt-count');
-      if (ktEl) ktEl.innerText = `${ktDone.length}/${ktAll.length}`;
-    }
-
-    function toggleAllChecklists(checkedVal) {
-      document.querySelectorAll('#tab3 input[type="checkbox"][data-chk-id]').forEach(cb => {
-        cb.checked = checkedVal;
-        const label = cb.closest('.chk-item');
-        if (label) label.classList.toggle('checked', checkedVal);
-      });
-      saveChecklistState();
-      updateChecklistProgress();
-    }
-
-    function filterChecklist(mode, btnEl) {
-      document.querySelectorAll('#tab3 .chk-filter-btn').forEach(b => {
-        b.classList.remove('btn-primary');
-        b.classList.add('btn-outline');
-      });
-      if (btnEl) {
-        btnEl.classList.remove('btn-outline');
-        btnEl.classList.add('btn-primary');
-      }
-
-      document.querySelectorAll('#tab3 .chk-item').forEach(item => {
-        const party = item.getAttribute('data-party');
-        const isChecked = item.querySelector('input[type="checkbox"]').checked;
-        let show = true;
-        if (mode === 'CTX') show = (party === 'CTX');
-        else if (mode === 'KT') show = (party === 'KT');
-        else if (mode === 'PENDING') show = !isChecked;
-        item.style.display = show ? 'flex' : 'none';
-      });
+    // Tạo ô chọn ngày có thể chỉnh sửa trực tiếp cho từng xe
+    function renderEditableDateCell(carCode, isoVal, displayVal, isoField, displayField, isHighlight = false) {
+      const hlClass = isHighlight ? 'is-highlight' : '';
+      return `
+        <label class="editable-date-cell ${hlClass}" title="Nhấn để chỉnh sửa ngày của xe ${carCode}">
+          <span class="editable-date-display">${displayVal}</span>
+          <span class="editable-date-icon">
+            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+          </span>
+          <input type="date" class="yellow-date-input" value="${isoVal}" onclick="try{if(this.showPicker)this.showPicker();}catch(e){}" onchange="handleCarDateChange('${carCode}', '${isoField}', '${displayField}', this.value)" />
+        </label>
+      `;
     }
 
     // Switch Main Tabs
@@ -2610,7 +2515,7 @@
 
       let html = '';
       filtered.forEach((car) => {
-        const badgeClass = car.shipment === 1 ? 'badge-s1' : (car.shipment === 2 ? 'badge-s2' : 'badge-s3');
+        const badgeClass = car.shipment === 1 ? 'badge-s1' : 'badge-s2';
 
         const diagramBtn = car.diagram 
           ? `<button class="btn-diagram" onclick="openMediaModal('iframe', '${car.diagram}', '${car.code} - ${car.item} (13m7 rào)')">
@@ -2619,11 +2524,11 @@
              </button>`
           : `<span style="font-size:0.7rem; color:var(--slate-400); font-style:italic;">-</span>`;
 
-        // Nếu là ô H14 (Xe 1.1) hoặc H15 (Xe 1.2) thì hiển thị ô bôi vàng cho phép chọn/sửa ngày trực tiếp
-        let etaSapaCellHtml = `<span class="date-highlight">${car.etaSp}</span>`;
+        // Ô ETA Sapa: nếu là Xe 1.1 hoặc 1.2 thì hiển thị ô bôi vàng đặc trưng, các xe khác hiển thị ô ngày chỉnh sửa trực tiếp
+        let etaSapaCellHtml = renderEditableDateCell(car.code, car.etaSpISO, car.etaSp, 'etaSpISO', 'etaSp', true);
         if (car.excelCell === "H14" || car.excelCell === "H15") {
           etaSapaCellHtml = `
-            <label class="yellow-date-cell" title="Ô bôi vàng: Nhấn để chỉnh sửa ngày ETA Bản Mòng (Chân tòa CL3), toàn bộ bảng sẽ tự tính lại theo công thức">
+            <label class="yellow-date-cell" title="Ô bôi vàng: Nhấn để chỉnh sửa ngày ETA Sapa, toàn bộ bảng sẽ tự tính lại theo công thức">
               <span class="yellow-date-display">${car.etaSp}</span>
               <span class="yellow-date-icon">
                 <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
@@ -2633,18 +2538,28 @@
           `;
         }
 
+        // Màu nền mặt hàng nhẹ nhàng giống bảng Excel
+        let itemBg = '';
+        if (car.code === '1.1' || car.code === '1.2' || car.code.startsWith('3.')) {
+          itemBg = 'background: rgba(254, 243, 199, 0.35);';
+        } else if (car.code.startsWith('1.')) {
+          itemBg = 'background: rgba(220, 252, 231, 0.35);';
+        }
+
         html += `
           <tr>
-            <td style="text-align:center; color:var(--slate-400); font-family:'JetBrains Mono', monospace;">${car.stt}</td>
             <td><span class="badge-shipment ${badgeClass}" style="white-space:nowrap;">${shipmentNames[car.shipment]}</span></td>
-            <td><span class="car-code">${car.code}</span></td>
-            <td>${car.pol}</td>
-            <td>${car.pod}</td>
-            <td><span class="date-badge">${car.etd}</span></td>
-            <td><span class="date-badge">${car.etaKt}</span></td>
+            <td style="text-align:center;"><span class="car-code">${car.code}</span></td>
+            <td style="${itemBg} font-weight:600; color:var(--slate-800);">${car.item}</td>
+            <td style="white-space:nowrap;">${car.pol}</td>
+            <td style="white-space:nowrap;">${car.pod}</td>
+            <td>${renderEditableDateCell(car.code, car.pickupISO, car.pickup, 'pickupISO', 'pickup')}</td>
+            <td>${renderEditableDateCell(car.code, car.coISO, car.co, 'coISO', 'co')}</td>
+            <td>${renderEditableDateCell(car.code, car.etaHkISO, car.etaHk, 'etaHkISO', 'etaHk')}</td>
+            <td>${renderEditableDateCell(car.code, car.etaKtISO, car.etaKt, 'etaKtISO', 'etaKt')}</td>
             <td>${etaSapaCellHtml}</td>
-            <td><span class="date-badge">${car.installStart}</span></td>
-            <td><span class="date-highlight">${car.installEnd}</span></td>
+            <td>${renderEditableDateCell(car.code, car.instStartISO, car.installStart, 'instStartISO', 'installStart')}</td>
+            <td>${renderEditableDateCell(car.code, car.instEndISO, car.installEnd, 'instEndISO', 'installEnd', true)}</td>
             <td style="text-align:center;">${diagramBtn}</td>
           </tr>
         `;
@@ -2706,9 +2621,9 @@
 
     // Export to CSV Function
     function exportDispatchCSV() {
-      let csvContent = "\uFEFFLô Hàng,Mã Xe,POL,POD,ETD,ETA Kim Thành,ETA Bản Mòng (Chân tòa CL3),Thời Gian Bắt Đầu Lắp Đặt,Thời Gian Dự Kiến Hoàn Thành Lắp Đặt,Bản Vẽ Xếp Xe\n";
+      let csvContent = "\uFEFFShipment,STT xe,Mặt hàng,POL,POD,Pick up date,Received CO date,ETA Hà Khẩu,ETA Kim Thành,ETA Sapa,Thời gian bắt đầu lắp đặt,Thời gian dự kiến hoàn thành lắp đặt,Bản Vẽ Xếp Xe\n";
       newScheduleData.forEach(car => {
-        csvContent += `"${shipmentNames[car.shipment]}","${car.code}","${car.pol}","${car.pod}",${car.etd},${car.etaKt},${car.etaSp},${car.installStart},${car.installEnd},"${car.diagram}"\n`;
+        csvContent += `"${shipmentNames[car.shipment]}","${car.code}","${car.item}","${car.pol}","${car.pod}",${car.pickup},${car.co},${car.etaHk},${car.etaKt},${car.etaSp},${car.installStart},${car.installEnd},"${car.diagram}"\n`;
       });
 
       const blob = new Blob([csvContent], { type: "text/csv;charset=utf-8;" });
